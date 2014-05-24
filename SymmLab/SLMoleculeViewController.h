@@ -1,5 +1,5 @@
 //
-//  SLAppDelegate.h
+//  SLMoleculeViewController.h
 //  SymmLab
 //
 //  Created by Yi Qiao on 5/24/14.
@@ -7,9 +7,8 @@
 //
 
 @import UIKit;
+@import GLKit;
 
-@interface SLAppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
+@interface SLMoleculeViewController : GLKViewController
 
 @end

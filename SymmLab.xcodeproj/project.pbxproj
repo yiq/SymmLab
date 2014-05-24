@@ -21,6 +21,7 @@
 		9777B67D1931533700E6316B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9777B65F1931533700E6316B /* UIKit.framework */; };
 		9777B6851931533700E6316B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9777B6831931533700E6316B /* InfoPlist.strings */; };
 		9777B6871931533700E6316B /* SymmLabTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9777B6861931533700E6316B /* SymmLabTests.m */; };
+		9777B6931931562200E6316B /* SLMoleculeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9777B6921931562200E6316B /* SLMoleculeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		9777B6821931533700E6316B /* SymmLabTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SymmLabTests-Info.plist"; sourceTree = "<group>"; };
 		9777B6841931533700E6316B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9777B6861931533700E6316B /* SymmLabTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SymmLabTests.m; sourceTree = "<group>"; };
+		9777B6911931562200E6316B /* SLMoleculeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLMoleculeViewController.h; sourceTree = "<group>"; };
+		9777B6921931562200E6316B /* SLMoleculeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLMoleculeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +115,7 @@
 		9777B6611931533700E6316B /* SymmLab */ = {
 			isa = PBXGroup;
 			children = (
+				9777B690193155F700E6316B /* MoleculeView */,
 				9777B66A1931533700E6316B /* SLAppDelegate.h */,
 				9777B66B1931533700E6316B /* SLAppDelegate.m */,
 				9777B66D1931533700E6316B /* Main.storyboard */,
@@ -150,6 +154,15 @@
 				9777B6831931533700E6316B /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9777B690193155F700E6316B /* MoleculeView */ = {
+			isa = PBXGroup;
+			children = (
+				9777B6911931562200E6316B /* SLMoleculeViewController.h */,
+				9777B6921931562200E6316B /* SLMoleculeViewController.m */,
+			);
+			name = MoleculeView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9777B6681931533700E6316B /* main.m in Sources */,
+				9777B6931931562200E6316B /* SLMoleculeViewController.m in Sources */,
 				9777B6721931533700E6316B /* SLViewController.m in Sources */,
 				9777B66C1931533700E6316B /* SLAppDelegate.m in Sources */,
 			);
