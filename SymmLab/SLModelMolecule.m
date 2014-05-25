@@ -20,7 +20,7 @@
         for (SLAtom *atom in molecule.atoms) {
             
             NSDictionary *atomAttr = [SLAtom getAtomAttributesForType:atom.atomType];
-            SLModelSphere *atomSphere = [[SLModelSphere alloc] initWithRadius:[atomAttr[@"radius"] floatValue]/2.0 longs:32 lats:32];
+            SLModelSphere *atomSphere = [[SLModelSphere alloc] initWithRadius:[atomAttr[@"radius"] floatValue]/2.0 longs:16 lats:16];
             [atomSphere translateByX:atom.position.x byY:atom.position.y byZ:atom.position.z];
             [atomSphere setColorWithR:[atomAttr[@"color"][@"red"] floatValue] g:[atomAttr[@"color"][@"green"] floatValue] b:[atomAttr[@"color"][@"blue"] floatValue] alpha:1.0f];
             

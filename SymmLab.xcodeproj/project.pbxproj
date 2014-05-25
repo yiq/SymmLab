@@ -72,6 +72,10 @@
 		97DEF3C719326564004A50D2 /* SLOperationListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DEF3C619326564004A50D2 /* SLOperationListViewController.m */; };
 		97DEF3CA193265A7004A50D2 /* SLOperationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DEF3C9193265A7004A50D2 /* SLOperationViewController.m */; };
 		97DEF3CE193266B8004A50D2 /* SLOperationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DEF3CD193266B8004A50D2 /* SLOperationDetailViewController.m */; };
+		97DEF3D719328350004A50D2 /* SLAbstractSymmetryOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DEF3D619328350004A50D2 /* SLAbstractSymmetryOperation.m */; };
+		97DEF3DA19328439004A50D2 /* SLIdentitySymmetryOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DEF3D919328439004A50D2 /* SLIdentitySymmetryOperation.m */; };
+		97DEF3DD19328634004A50D2 /* SLInversionSymmetryOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DEF3DC19328634004A50D2 /* SLInversionSymmetryOperation.m */; };
+		97DEF3E0193291C1004A50D2 /* SLProperAxisSymmetryOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DEF3DF193291C1004A50D2 /* SLProperAxisSymmetryOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -231,6 +235,14 @@
 		97DEF3C9193265A7004A50D2 /* SLOperationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLOperationViewController.m; sourceTree = "<group>"; };
 		97DEF3CC193266B8004A50D2 /* SLOperationDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLOperationDetailViewController.h; sourceTree = "<group>"; };
 		97DEF3CD193266B8004A50D2 /* SLOperationDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLOperationDetailViewController.m; sourceTree = "<group>"; };
+		97DEF3D519328350004A50D2 /* SLAbstractSymmetryOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLAbstractSymmetryOperation.h; sourceTree = "<group>"; };
+		97DEF3D619328350004A50D2 /* SLAbstractSymmetryOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLAbstractSymmetryOperation.m; sourceTree = "<group>"; };
+		97DEF3D819328439004A50D2 /* SLIdentitySymmetryOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLIdentitySymmetryOperation.h; sourceTree = "<group>"; };
+		97DEF3D919328439004A50D2 /* SLIdentitySymmetryOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLIdentitySymmetryOperation.m; sourceTree = "<group>"; };
+		97DEF3DB19328634004A50D2 /* SLInversionSymmetryOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLInversionSymmetryOperation.h; sourceTree = "<group>"; };
+		97DEF3DC19328634004A50D2 /* SLInversionSymmetryOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLInversionSymmetryOperation.m; sourceTree = "<group>"; };
+		97DEF3DE193291C1004A50D2 /* SLProperAxisSymmetryOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLProperAxisSymmetryOperation.h; sourceTree = "<group>"; };
+		97DEF3DF193291C1004A50D2 /* SLProperAxisSymmetryOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLProperAxisSymmetryOperation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,10 +302,8 @@
 		970CE425193196590038841F /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
-				970CE426193196680038841F /* SLAtom.h */,
-				970CE427193196680038841F /* SLAtom.m */,
-				970CE428193196680038841F /* SLMolecule.h */,
-				970CE429193196680038841F /* SLMolecule.m */,
+				97DEF3D41932833B004A50D2 /* Mathematical Model */,
+				97DEF3D319328332004A50D2 /* Chemical Model */,
 			);
 			name = "Data Model";
 			sourceTree = "<group>";
@@ -564,6 +574,32 @@
 			name = "Detail View";
 			sourceTree = "<group>";
 		};
+		97DEF3D319328332004A50D2 /* Chemical Model */ = {
+			isa = PBXGroup;
+			children = (
+				970CE426193196680038841F /* SLAtom.h */,
+				970CE427193196680038841F /* SLAtom.m */,
+				970CE428193196680038841F /* SLMolecule.h */,
+				970CE429193196680038841F /* SLMolecule.m */,
+			);
+			name = "Chemical Model";
+			sourceTree = "<group>";
+		};
+		97DEF3D41932833B004A50D2 /* Mathematical Model */ = {
+			isa = PBXGroup;
+			children = (
+				97DEF3D519328350004A50D2 /* SLAbstractSymmetryOperation.h */,
+				97DEF3D619328350004A50D2 /* SLAbstractSymmetryOperation.m */,
+				97DEF3D819328439004A50D2 /* SLIdentitySymmetryOperation.h */,
+				97DEF3D919328439004A50D2 /* SLIdentitySymmetryOperation.m */,
+				97DEF3DB19328634004A50D2 /* SLInversionSymmetryOperation.h */,
+				97DEF3DC19328634004A50D2 /* SLInversionSymmetryOperation.m */,
+				97DEF3DE193291C1004A50D2 /* SLProperAxisSymmetryOperation.h */,
+				97DEF3DF193291C1004A50D2 /* SLProperAxisSymmetryOperation.m */,
+			);
+			name = "Mathematical Model";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -761,13 +797,17 @@
 				97DEF3CA193265A7004A50D2 /* SLOperationViewController.m in Sources */,
 				970CE345193179470038841F /* SLModelSphere.m in Sources */,
 				970CE5D31931C4EA0038841F /* SLModelLine.m in Sources */,
+				97DEF3D719328350004A50D2 /* SLAbstractSymmetryOperation.m in Sources */,
 				970CE5CA1931B0820038841F /* SLModelMolecule.m in Sources */,
 				9777B6681931533700E6316B /* main.m in Sources */,
+				97DEF3E0193291C1004A50D2 /* SLProperAxisSymmetryOperation.m in Sources */,
 				97DEF3CE193266B8004A50D2 /* SLOperationDetailViewController.m in Sources */,
+				97DEF3DD19328634004A50D2 /* SLInversionSymmetryOperation.m in Sources */,
 				97DEF3C719326564004A50D2 /* SLOperationListViewController.m in Sources */,
 				9777B6E019315CDB00E6316B /* SLModelCube.m in Sources */,
 				9777B6E31931638B00E6316B /* SLAbstractModel.m in Sources */,
 				970CE42C193196680038841F /* SLAtom.m in Sources */,
+				97DEF3DA19328439004A50D2 /* SLIdentitySymmetryOperation.m in Sources */,
 				9777B6931931562200E6316B /* SLMoleculeViewController.m in Sources */,
 				9777B6721931533700E6316B /* SLViewController.m in Sources */,
 				9777B66C1931533700E6316B /* SLAppDelegate.m in Sources */,

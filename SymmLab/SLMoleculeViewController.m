@@ -11,6 +11,9 @@
 #import "SLMolecule.h"
 #import "SLModelLine.h"
 
+#import "SLInversionSymmetryOperation.h"
+#import "SLProperAxisSymmetryOperation.h"
+
 #define BUFFER_OFFSET(i) ((char *)NULL + (i))
 
 // Uniform index.
@@ -19,6 +22,7 @@ enum
     UNIFORM_MODELVIEWPROJECTION_MATRIX,
     UNIFORM_NORMAL_MATRIX,
     UNIFORM_USE_LIGHTING,
+    UNIFORM_SEMI_TRANSPARENT,
     NUM_UNIFORMS
 };
 GLint uniforms[NUM_UNIFORMS];
@@ -38,7 +42,8 @@ enum
     GLKMatrix4 _modelViewProjectionMatrix;
     GLKMatrix4 _worldViewProjectionMatrix;
     GLKMatrix3 _normalMatrix;
-    float _rotation;
+    float _animationProgress;
+    BOOL _isAnimating;
     
     GLuint _vertexArray;
     GLuint _vertexBuffer;
@@ -47,10 +52,13 @@ enum
     SLModelMolecule *moleculeModel;
     
     SLModelLine *axis;
+    SLAbstractSymmetryOperation *symmOp;
 }
 
 @property (strong, nonatomic) EAGLContext *context;
 @property (strong, nonatomic) GLKBaseEffect *effect;
+
+- (IBAction)startOpAnimation:(id)sender;
 
 @end
 
@@ -70,7 +78,12 @@ enum
     view.context = self.context;
     view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
     
+    _animationProgress = 0.0f;
+    _isAnimating = NO;
+    
     molecule = [SLMolecule moleculeWithCifFile:[[NSBundle mainBundle] pathForResource:@"benzene" ofType:@"cif"]];
+    symmOp = [[SLProperAxisSymmetryOperation alloc] initWithAxis:GLKMatrix3MultiplyVector3(GLKMatrix3RotateZ(GLKMatrix3Identity, -M_PI / 3.0f), GLKVector3Make(0.0f, 1.0f, 0.0f)) divide:2];
+//    symmOp = [[SLProperAxisSymmetryOperation alloc] initWithAxis:GLKVector3Make(0.0f, 1.0f, 0.0f) divide:2];
     
     [self setupGL];
 }
@@ -113,6 +126,8 @@ enum
 //    self.effect.light0.diffuseColor = GLKVector4Make(1.0f, 0.4f, 0.4f, 1.0f);
     
     glEnable(GL_DEPTH_TEST);
+    glEnable(GL_BLEND);
+//    glBlendFunc(GL_SRC_ALPHA, GL_ONE);
     
     moleculeModel = [[SLModelMolecule alloc] initWithMolecule:molecule];
     GLKVector3 axisPointPos[6] = {
@@ -152,16 +167,13 @@ enum
 - (void)update
 {
     float aspect = fabsf(self.view.bounds.size.width / self.view.bounds.size.height);
-    GLKMatrix4 projectionMatrix = GLKMatrix4MakePerspective(GLKMathDegreesToRadians(95.0f), aspect, 0.1f, 100.0f);
+    GLKMatrix4 projectionMatrix = GLKMatrix4MakePerspective(GLKMathDegreesToRadians(65.0f), aspect, 0.1f, 100.0f);
     
     GLKMatrix4 viewMatrix = GLKMatrix4MakeLookAt(0.0f, 0.0f, 10.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
     
-    GLKMatrix4 modelMatrix = GLKMatrix4Identity;
+    //GLKMatrix4 modelMatrix = GLKMatrix4Identity;
     
-//    modelMatrix = GLKMatrix4RotateX(modelMatrix, GLKMathDegreesToRadians(-molecule.cellAngleX/2));
-//    modelMatrix = GLKMatrix4RotateY(modelMatrix, GLKMathDegreesToRadians(-molecule.cellAngleY/2));
-//    modelMatrix = GLKMatrix4RotateZ(modelMatrix, GLKMathDegreesToRadians(-molecule.cellAngleZ)/2);
-
+    GLKMatrix4 modelMatrix = [symmOp modelMatrixWithAnimationProgress:_animationProgress];
 
     GLKMatrix4 modelViewMatrix = GLKMatrix4Multiply(viewMatrix, modelMatrix);
     
@@ -170,7 +182,17 @@ enum
     _modelViewProjectionMatrix = GLKMatrix4Multiply(projectionMatrix, modelViewMatrix);
     _worldViewProjectionMatrix = GLKMatrix4Multiply(projectionMatrix, viewMatrix);
     
-    _rotation += self.timeSinceLastUpdate * 0.5f;
+    //_rotation += self.timeSinceLastUpdate * 0.5f;
+    if (_isAnimating) {
+        if (_animationProgress + self.timeSinceLastUpdate > 1.0f) {
+            _animationProgress = 1.0f;
+            _isAnimating = NO;
+        }
+        else {
+            _animationProgress += self.timeSinceLastUpdate;
+        }
+        NSLog(@"animation progress updated to %f", _animationProgress);
+    }
 }
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
@@ -184,13 +206,36 @@ enum
     glUniformMatrix4fv(uniforms[UNIFORM_MODELVIEWPROJECTION_MATRIX], 1, 0, _worldViewProjectionMatrix.m);
     glUniformMatrix3fv(uniforms[UNIFORM_NORMAL_MATRIX], 1, 0, _normalMatrix.m);
     glUniform1i(uniforms[UNIFORM_USE_LIGHTING], 0);
+    glUniform1i(uniforms[UNIFORM_SEMI_TRANSPARENT], 0);
     [axis render];
+    
+    // render ghost
+    if (_isAnimating) {
+        glUniform1i(uniforms[UNIFORM_SEMI_TRANSPARENT], 0);
+        [moleculeModel render];
+        
+        glClear(GL_DEPTH_BUFFER_BIT);
+    }
+    
+
     
     glUniformMatrix4fv(uniforms[UNIFORM_MODELVIEWPROJECTION_MATRIX], 1, 0, _modelViewProjectionMatrix.m);
     glUniformMatrix3fv(uniforms[UNIFORM_NORMAL_MATRIX], 1, 0, _normalMatrix.m);
     glUniform1i(uniforms[UNIFORM_USE_LIGHTING], 1);
+    glUniform1i(uniforms[UNIFORM_SEMI_TRANSPARENT], 0);
 
     [moleculeModel render];
+}
+
+- (IBAction)startOpAnimation:(id)sender
+{
+    if (_isAnimating) {
+        _animationProgress = 0.0f;
+    }
+    else {
+        _animationProgress = 0.0f;
+        _isAnimating = YES;
+    }
 }
 
 #pragma mark -  OpenGL ES 2 shader compilation
@@ -256,6 +301,7 @@ enum
     uniforms[UNIFORM_MODELVIEWPROJECTION_MATRIX] = glGetUniformLocation(_program, "modelViewProjectionMatrix");
     uniforms[UNIFORM_NORMAL_MATRIX] = glGetUniformLocation(_program, "normalMatrix");
     uniforms[UNIFORM_USE_LIGHTING] = glGetUniformLocation(_program, "useLighting");
+    uniforms[UNIFORM_SEMI_TRANSPARENT] = glGetUniformLocation(_program, "semiTransparent");
     
     // Release vertex and fragment shaders.
     if (vertShader) {

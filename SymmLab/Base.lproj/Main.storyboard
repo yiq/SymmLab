@@ -53,7 +53,7 @@
             </objects>
             <point key="canvasLocation" x="1007" y="-128"/>
         </scene>
-        <!--GLKit View Controller-->
+        <!--GLKit View Controller - Title-->
         <scene sceneID="86x-bf-B9J">
             <objects>
                 <glkViewController autoresizesArchivedViewToFullSize="NO" preferredFramesPerSecond="30" id="nV6-jO-5zq" customClass="SLMoleculeViewController" sceneMemberID="viewController">
@@ -64,14 +64,33 @@
                     <glkView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Jg2-vr-Be2">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="774"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GLB-cF-DDn">
+                                <rect key="frame" x="20" y="724" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="r9U-34-yjT"/>
+                                </constraints>
+                                <state key="normal" title="Run"/>
+                                <connections>
+                                    <action selector="startOpAnimation:" destination="nV6-jO-5zq" eventType="touchUpInside" id="ycd-YT-dKe"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Fey-Kb-A6z" firstAttribute="top" secondItem="GLB-cF-DDn" secondAttribute="bottom" constant="20" id="a68-o3-cN2"/>
+                            <constraint firstItem="GLB-cF-DDn" firstAttribute="leading" secondItem="Jg2-vr-Be2" secondAttribute="leading" constant="20" id="m3Y-Xw-l4o"/>
+                        </constraints>
                         <connections>
                             <outlet property="delegate" destination="nV6-jO-5zq" id="wPY-1F-HRz"/>
                         </connections>
                     </glkView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="RuC-08-Rh7"/>
                 </glkViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZtS-f9-i02" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2056" y="-372"/>
+            <point key="canvasLocation" x="2364" y="-716"/>
         </scene>
         <!--OperationDetailView-->
         <scene sceneID="zKj-pJ-aQz">
@@ -95,7 +114,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YZL-0H-bTf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3198" y="1939"/>
+            <point key="canvasLocation" x="2478" y="1939"/>
         </scene>
         <!--NewOperation-->
         <scene sceneID="lZO-ZF-N72">
@@ -126,7 +145,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ubR-n5-9gs">
-                                <rect key="frame" x="145" y="163" width="150" height="36"/>
+                                <rect key="frame" x="144" y="163" width="150" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="Proper Axis (Cn)">
@@ -134,7 +153,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2EH-c7-GI6">
-                                <rect key="frame" x="464" y="163" width="170" height="36"/>
+                                <rect key="frame" x="465" y="163" width="170" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="Improper Axis (Sn)">
@@ -158,7 +177,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hR8-g0-JfA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4008" y="1939"/>
+            <point key="canvasLocation" x="3472" y="1939"/>
         </scene>
         <!--OperationListView-->
         <scene sceneID="qLu-ip-Uc9">
@@ -196,7 +215,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X8s-yW-R1u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3198" y="1507"/>
+            <point key="canvasLocation" x="2438" y="1270"/>
         </scene>
         <!--OperationListNavController-->
         <scene sceneID="Xqm-r9-kEl">
@@ -212,7 +231,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ox3-hu-Hzj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2800" y="645"/>
+            <point key="canvasLocation" x="1880" y="969"/>
         </scene>
         <!--Operation SplitView-->
         <scene sceneID="c68-1a-VVb">
@@ -226,7 +245,7 @@
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bXj-tq-uox" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2140" y="1939"/>
+            <point key="canvasLocation" x="1272" y="1939"/>
         </scene>
         <!--Root NavController-->
         <scene sceneID="Pja-Lq-tnA">
@@ -262,7 +281,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FkU-yQ-gXs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2592" y="2639"/>
+            <point key="canvasLocation" x="1432" y="2307"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
