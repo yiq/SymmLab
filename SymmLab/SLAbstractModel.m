@@ -27,7 +27,10 @@
         _points = NULL;
         _indices = NULL;
         glGenVertexArraysOES(1, &_vertexArray);
+        assert(_vertexArray != 0);
         glGenBuffers(2, _glBuffers);
+        assert(_glBuffers[0] != 0);
+        assert(_glBuffers[1] != 0);
         _children = [[NSMutableSet alloc] init];
     }
     

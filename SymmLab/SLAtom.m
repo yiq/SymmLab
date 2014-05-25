@@ -31,9 +31,9 @@
 + (NSDictionary *)getAtomAttributesForType:(MSAtomType)type {
     switch (type) {
         case MSAT_H:
-            return @{@"radius": @(0.031), @"color":@{@"red": @(0.6f), @"green": @(0.6f), @"blue": @(0.9f)}};
+            return @{@"radius": @(0.37), @"color":@{@"red": @(0.6f), @"green": @(0.6f), @"blue": @(0.9f)}};
         case MSAT_C:
-            return @{@"radius": @(0.076), @"color":@{@"red": @(0.9f), @"green": @(0.9f), @"blue": @(0.9f)}};
+            return @{@"radius": @(0.91), @"color":@{@"red": @(0.9f), @"green": @(0.9f), @"blue": @(0.9f)}};
         default:
             break;
     }

@@ -74,6 +74,9 @@ struct my_builder : builder_base
     
 	virtual void add_loop(array_wrapper_base const& loop_headers, std::vector<array_wrapper_base *> const& values) {
         
+        std::string lcp = longestCommonPrefix(dynamic_cast<my_array_wrapper const &>(loop_headers)._array);
+        lcp = lcp.substr(0, lcp.length() - 1);
+        
 		size_t nrows = values[0]->size();
 		size_t ncols = values.size();
         
@@ -88,13 +91,15 @@ struct my_builder : builder_base
 			for(int j=0; j<ncols; j++) {
 				my_array_wrapper *valarr = dynamic_cast<my_array_wrapper*>(values[j]);
 				assert(valarr != NULL);
-                [valueRow setValue:STR(valarr->operator[](i)) forKey:STR(loop_headers[j])];
+                std::string value_name = loop_headers[j];
+                value_name = value_name.substr(lcp.length()+1, value_name.length());
+                [valueRow setValue:STR(valarr->operator[](i)) forKey:STR(value_name)];
 			}
             
             [valueArray addObject:[NSDictionary dictionaryWithDictionary:valueRow]];
 		}
         
-        std::string lcp = longestCommonPrefix(dynamic_cast<my_array_wrapper const &>(loop_headers)._array);
+        
         
         if(_dict) {
             [_dict setValue:[NSArray arrayWithArray:valueArray] forKey:STR(lcp)];

@@ -9,6 +9,7 @@
 #import "SLMoleculeViewController.h"
 #import "SLModelMolecule.h"
 #import "SLMolecule.h"
+#import "SLModelLine.h"
 
 #define BUFFER_OFFSET(i) ((char *)NULL + (i))
 
@@ -17,6 +18,7 @@ enum
 {
     UNIFORM_MODELVIEWPROJECTION_MATRIX,
     UNIFORM_NORMAL_MATRIX,
+    UNIFORM_USE_LIGHTING,
     NUM_UNIFORMS
 };
 GLint uniforms[NUM_UNIFORMS];
@@ -34,6 +36,7 @@ enum
     GLuint _program;
     
     GLKMatrix4 _modelViewProjectionMatrix;
+    GLKMatrix4 _worldViewProjectionMatrix;
     GLKMatrix3 _normalMatrix;
     float _rotation;
     
@@ -42,6 +45,8 @@ enum
     
     SLMolecule *molecule;
     SLModelMolecule *moleculeModel;
+    
+    SLModelLine *axis;
 }
 
 @property (strong, nonatomic) EAGLContext *context;
@@ -110,6 +115,22 @@ enum
     glEnable(GL_DEPTH_TEST);
     
     moleculeModel = [[SLModelMolecule alloc] initWithMolecule:molecule];
+    GLKVector3 axisPointPos[6] = {
+        GLKVector3Make(-100.0f, 0.0f, 0.0f),
+        GLKVector3Make(100.0f, 0.0f, 0.0f),
+        GLKVector3Make(0.0, -100.0f, 0.0f),
+        GLKVector3Make(0.0, 100.0f, 0.0f),
+        GLKVector3Make(0.0, 0.0f, -100.0f),
+        GLKVector3Make(0.0, 0.0f, 100.0f)
+    };
+    
+    SLColor axisColors[6] = {
+        {1.0f, 0.0f, 0.0f, 1.0f}, {1.0f, 0.0f, 0.0f, 1.0f},
+        {0.0f, 1.0f, 0.0f, 1.0f}, {0.0f, 1.0f, 0.0f, 1.0f},
+        {0.0f, 0.0f, 1.0f, 1.0f}, {0.0f, 0.0f, 1.0f, 1.0f}
+    };
+    
+    axis = [[SLModelLine alloc] initWithPoints:axisPointPos colors:axisColors count:6];
 }
 
 - (void)tearDownGL
@@ -131,28 +152,23 @@ enum
 - (void)update
 {
     float aspect = fabsf(self.view.bounds.size.width / self.view.bounds.size.height);
-    GLKMatrix4 projectionMatrix = GLKMatrix4MakePerspective(GLKMathDegreesToRadians(45.0f), aspect, 0.1f, 100.0f);
+    GLKMatrix4 projectionMatrix = GLKMatrix4MakePerspective(GLKMathDegreesToRadians(95.0f), aspect, 0.1f, 100.0f);
     
-    self.effect.transform.projectionMatrix = projectionMatrix;
+    GLKMatrix4 viewMatrix = GLKMatrix4MakeLookAt(0.0f, 0.0f, 10.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
     
-    GLKMatrix4 baseModelViewMatrix = GLKMatrix4MakeTranslation(0.0f, 0.0f, -4.0f);
-    baseModelViewMatrix = GLKMatrix4Rotate(baseModelViewMatrix, _rotation, 0.0f, 1.0f, 0.0f);
+    GLKMatrix4 modelMatrix = GLKMatrix4Identity;
     
-    // Compute the model view matrix for the object rendered with GLKit
-    GLKMatrix4 modelViewMatrix = GLKMatrix4MakeTranslation(0.0f, 0.0f, -1.5f);
-    modelViewMatrix = GLKMatrix4Rotate(modelViewMatrix, _rotation, 1.0f, 1.0f, 1.0f);
-    modelViewMatrix = GLKMatrix4Multiply(baseModelViewMatrix, modelViewMatrix);
-    
-    self.effect.transform.modelviewMatrix = modelViewMatrix;
-    
-    // Compute the model view matrix for the object rendered with ES2
-    modelViewMatrix = GLKMatrix4MakeTranslation(0.0f, 0.0f, 0.0f);
-    modelViewMatrix = GLKMatrix4Rotate(modelViewMatrix, _rotation, 1.0f, 1.0f, 1.0f);
-    modelViewMatrix = GLKMatrix4Multiply(baseModelViewMatrix, modelViewMatrix);
+    modelMatrix = GLKMatrix4RotateX(modelMatrix, GLKMathDegreesToRadians(-molecule.cellAngleX/2));
+    modelMatrix = GLKMatrix4RotateY(modelMatrix, GLKMathDegreesToRadians(-molecule.cellAngleY/2));
+    modelMatrix = GLKMatrix4RotateZ(modelMatrix, GLKMathDegreesToRadians(-molecule.cellAngleZ)/2);
+
+
+    GLKMatrix4 modelViewMatrix = GLKMatrix4Multiply(viewMatrix, modelMatrix);
     
     _normalMatrix = GLKMatrix3InvertAndTranspose(GLKMatrix4GetMatrix3(modelViewMatrix), NULL);
     
     _modelViewProjectionMatrix = GLKMatrix4Multiply(projectionMatrix, modelViewMatrix);
+    _worldViewProjectionMatrix = GLKMatrix4Multiply(projectionMatrix, viewMatrix);
     
     _rotation += self.timeSinceLastUpdate * 0.5f;
 }
@@ -165,9 +181,15 @@ enum
     // Render the object again with ES2
     glUseProgram(_program);
     
+    glUniformMatrix4fv(uniforms[UNIFORM_MODELVIEWPROJECTION_MATRIX], 1, 0, _worldViewProjectionMatrix.m);
+    glUniformMatrix3fv(uniforms[UNIFORM_NORMAL_MATRIX], 1, 0, _normalMatrix.m);
+    glUniform1i(uniforms[UNIFORM_USE_LIGHTING], 0);
+    [axis render];
+    
     glUniformMatrix4fv(uniforms[UNIFORM_MODELVIEWPROJECTION_MATRIX], 1, 0, _modelViewProjectionMatrix.m);
     glUniformMatrix3fv(uniforms[UNIFORM_NORMAL_MATRIX], 1, 0, _normalMatrix.m);
-    
+    glUniform1i(uniforms[UNIFORM_USE_LIGHTING], 1);
+
     [moleculeModel render];
 }
 
@@ -233,6 +255,7 @@ enum
     // Get uniform locations.
     uniforms[UNIFORM_MODELVIEWPROJECTION_MATRIX] = glGetUniformLocation(_program, "modelViewProjectionMatrix");
     uniforms[UNIFORM_NORMAL_MATRIX] = glGetUniformLocation(_program, "normalMatrix");
+    uniforms[UNIFORM_USE_LIGHTING] = glGetUniformLocation(_program, "useLighting");
     
     // Release vertex and fragment shaders.
     if (vertShader) {

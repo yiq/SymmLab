@@ -72,18 +72,17 @@
 
 - (void)testLoop
 {
-    XCTAssertTrue([[parsedData allKeys] containsObject:@"_citation_"], @"the parsed dictionary should contain loop _citation_");
-    NSLog(@"%d", [parsedData[@"_citation_"] count]);
-    XCTAssertEqual([parsedData[@"_citation_"] count], (NSUInteger)(1), @"the _citation_ loop should contain 1 element");
+    XCTAssertTrue([[parsedData allKeys] containsObject:@"_citation"], @"the parsed dictionary should contain loop _citation_");
+    XCTAssertEqual([parsedData[@"_citation"] count], (NSUInteger)(1), @"the _citation_ loop should contain 1 element");
     
-    NSDictionary *row = parsedData[@"_citation_"][0];
-    TEST_DATA_ITEM(row, @"_citation_id", @"primary");
-    TEST_DATA_ITEM(row, @"_citation_journal_full", @"American Mineralogist");
-    TEST_DATA_ITEM(row, @"_citation_year", @"2007");
-    TEST_DATA_ITEM(row, @"_citation_journal_volume", @"92");
-    TEST_DATA_ITEM(row, @"_citation_page_first", @"1262");
-    TEST_DATA_ITEM(row, @"_citation_page_last", @"1269");
-    TEST_DATA_ITEM(row, @"_citation_journal_id_ASTM", @"AMMIAY");
+    NSDictionary *row = parsedData[@"_citation"][0];
+    TEST_DATA_ITEM(row, @"id", @"primary");
+    TEST_DATA_ITEM(row, @"journal_full", @"American Mineralogist");
+    TEST_DATA_ITEM(row, @"year", @"2007");
+    TEST_DATA_ITEM(row, @"journal_volume", @"92");
+    TEST_DATA_ITEM(row, @"page_first", @"1262");
+    TEST_DATA_ITEM(row, @"page_last", @"1269");
+    TEST_DATA_ITEM(row, @"journal_id_ASTM", @"AMMIAY");
 }
 
 @end

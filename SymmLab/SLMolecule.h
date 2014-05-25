@@ -15,6 +15,10 @@
 @property CGFloat cellAngleY;
 @property CGFloat cellAngleZ;
 
+@property CGFloat cellLengthA;
+@property CGFloat cellLengthB;
+@property CGFloat cellLengthC;
+
 @property NSArray * atoms;
 
 + (id)moleculeWithCifDictionary:(NSDictionary *)parsedCif;
