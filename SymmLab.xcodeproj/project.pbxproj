@@ -22,6 +22,8 @@
 		9777B6851931533700E6316B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9777B6831931533700E6316B /* InfoPlist.strings */; };
 		9777B6871931533700E6316B /* SymmLabTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9777B6861931533700E6316B /* SymmLabTests.m */; };
 		9777B6931931562200E6316B /* SLMoleculeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9777B6921931562200E6316B /* SLMoleculeViewController.m */; };
+		9777B6E019315CDB00E6316B /* SLModelCube.m in Sources */ = {isa = PBXBuildFile; fileRef = 9777B6DF19315CDB00E6316B /* SLModelCube.m */; };
+		9777B6E31931638B00E6316B /* SLAbstractModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9777B6E21931638B00E6316B /* SLAbstractModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,10 @@
 		9777B6861931533700E6316B /* SymmLabTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SymmLabTests.m; sourceTree = "<group>"; };
 		9777B6911931562200E6316B /* SLMoleculeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLMoleculeViewController.h; sourceTree = "<group>"; };
 		9777B6921931562200E6316B /* SLMoleculeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLMoleculeViewController.m; sourceTree = "<group>"; };
+		9777B6DE19315CDB00E6316B /* SLModelCube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLModelCube.h; sourceTree = "<group>"; };
+		9777B6DF19315CDB00E6316B /* SLModelCube.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLModelCube.m; sourceTree = "<group>"; };
+		9777B6E11931638B00E6316B /* SLAbstractModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLAbstractModel.h; sourceTree = "<group>"; };
+		9777B6E21931638B00E6316B /* SLAbstractModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLAbstractModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +121,7 @@
 		9777B6611931533700E6316B /* SymmLab */ = {
 			isa = PBXGroup;
 			children = (
+				9777B6DD19315C9A00E6316B /* 3D Models */,
 				9777B690193155F700E6316B /* MoleculeView */,
 				9777B66A1931533700E6316B /* SLAppDelegate.h */,
 				9777B66B1931533700E6316B /* SLAppDelegate.m */,
@@ -163,6 +170,17 @@
 				9777B6921931562200E6316B /* SLMoleculeViewController.m */,
 			);
 			name = MoleculeView;
+			sourceTree = "<group>";
+		};
+		9777B6DD19315C9A00E6316B /* 3D Models */ = {
+			isa = PBXGroup;
+			children = (
+				9777B6DE19315CDB00E6316B /* SLModelCube.h */,
+				9777B6DF19315CDB00E6316B /* SLModelCube.m */,
+				9777B6E11931638B00E6316B /* SLAbstractModel.h */,
+				9777B6E21931638B00E6316B /* SLAbstractModel.m */,
+			);
+			name = "3D Models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,6 +282,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9777B6681931533700E6316B /* main.m in Sources */,
+				9777B6E019315CDB00E6316B /* SLModelCube.m in Sources */,
+				9777B6E31931638B00E6316B /* SLAbstractModel.m in Sources */,
 				9777B6931931562200E6316B /* SLMoleculeViewController.m in Sources */,
 				9777B6721931533700E6316B /* SLViewController.m in Sources */,
 				9777B66C1931533700E6316B /* SLAppDelegate.m in Sources */,
