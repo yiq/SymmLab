@@ -69,6 +69,9 @@
 		9777B6931931562200E6316B /* SLMoleculeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9777B6921931562200E6316B /* SLMoleculeViewController.m */; };
 		9777B6E019315CDB00E6316B /* SLModelCube.m in Sources */ = {isa = PBXBuildFile; fileRef = 9777B6DF19315CDB00E6316B /* SLModelCube.m */; };
 		9777B6E31931638B00E6316B /* SLAbstractModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9777B6E21931638B00E6316B /* SLAbstractModel.m */; };
+		97DEF3C719326564004A50D2 /* SLOperationListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DEF3C619326564004A50D2 /* SLOperationListViewController.m */; };
+		97DEF3CA193265A7004A50D2 /* SLOperationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DEF3C9193265A7004A50D2 /* SLOperationViewController.m */; };
+		97DEF3CE193266B8004A50D2 /* SLOperationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DEF3CD193266B8004A50D2 /* SLOperationDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,7 +115,7 @@
 		970CE344193179470038841F /* SLModelSphere.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLModelSphere.m; sourceTree = "<group>"; };
 		970CE346193180470038841F /* Shader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.fsh; sourceTree = "<group>"; };
 		970CE347193180470038841F /* Shader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.vsh; sourceTree = "<group>"; };
-		970CE4231931960D0038841F /* libucifParser.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libucifParser.a; path = "ucifParser/build/Debug-iphoneos/libucifParser.a"; sourceTree = "<group>"; };
+		970CE4231931960D0038841F /* libucifParser.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libucifParser.a; path = "ucifParser/build/Debug-iphoneos/libucifParser.a"; sourceTree = "<group>"; };
 		970CE426193196680038841F /* SLAtom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLAtom.h; sourceTree = "<group>"; };
 		970CE427193196680038841F /* SLAtom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLAtom.m; sourceTree = "<group>"; };
 		970CE428193196680038841F /* SLMolecule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLMolecule.h; sourceTree = "<group>"; };
@@ -222,6 +225,12 @@
 		9777B6DF19315CDB00E6316B /* SLModelCube.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLModelCube.m; sourceTree = "<group>"; };
 		9777B6E11931638B00E6316B /* SLAbstractModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLAbstractModel.h; sourceTree = "<group>"; };
 		9777B6E21931638B00E6316B /* SLAbstractModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLAbstractModel.m; sourceTree = "<group>"; };
+		97DEF3C519326564004A50D2 /* SLOperationListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLOperationListViewController.h; sourceTree = "<group>"; };
+		97DEF3C619326564004A50D2 /* SLOperationListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLOperationListViewController.m; sourceTree = "<group>"; };
+		97DEF3C8193265A7004A50D2 /* SLOperationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLOperationViewController.h; sourceTree = "<group>"; };
+		97DEF3C9193265A7004A50D2 /* SLOperationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLOperationViewController.m; sourceTree = "<group>"; };
+		97DEF3CC193266B8004A50D2 /* SLOperationDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLOperationDetailViewController.h; sourceTree = "<group>"; };
+		97DEF3CD193266B8004A50D2 /* SLOperationDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLOperationDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -456,6 +465,7 @@
 				970CE34A1931804C0038841F /* Shaders */,
 				9777B6DD19315C9A00E6316B /* 3D Models */,
 				9777B690193155F700E6316B /* MoleculeView */,
+				97DEF3C419326433004A50D2 /* OperationPanel */,
 				9777B66A1931533700E6316B /* SLAppDelegate.h */,
 				9777B66B1931533700E6316B /* SLAppDelegate.m */,
 				9777B66D1931533700E6316B /* Main.storyboard */,
@@ -523,6 +533,35 @@
 				970CE5C91931B0820038841F /* SLModelMolecule.m */,
 			);
 			name = "3D Models";
+			sourceTree = "<group>";
+		};
+		97DEF3C419326433004A50D2 /* OperationPanel */ = {
+			isa = PBXGroup;
+			children = (
+				97DEF3C8193265A7004A50D2 /* SLOperationViewController.h */,
+				97DEF3C9193265A7004A50D2 /* SLOperationViewController.m */,
+				97DEF3CB1932669B004A50D2 /* Master View */,
+				97DEF3CF193266BB004A50D2 /* Detail View */,
+			);
+			name = OperationPanel;
+			sourceTree = "<group>";
+		};
+		97DEF3CB1932669B004A50D2 /* Master View */ = {
+			isa = PBXGroup;
+			children = (
+				97DEF3C519326564004A50D2 /* SLOperationListViewController.h */,
+				97DEF3C619326564004A50D2 /* SLOperationListViewController.m */,
+			);
+			name = "Master View";
+			sourceTree = "<group>";
+		};
+		97DEF3CF193266BB004A50D2 /* Detail View */ = {
+			isa = PBXGroup;
+			children = (
+				97DEF3CC193266B8004A50D2 /* SLOperationDetailViewController.h */,
+				97DEF3CD193266B8004A50D2 /* SLOperationDetailViewController.m */,
+			);
+			name = "Detail View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -719,10 +758,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				970CE42D193196680038841F /* SLMolecule.m in Sources */,
+				97DEF3CA193265A7004A50D2 /* SLOperationViewController.m in Sources */,
 				970CE345193179470038841F /* SLModelSphere.m in Sources */,
 				970CE5D31931C4EA0038841F /* SLModelLine.m in Sources */,
 				970CE5CA1931B0820038841F /* SLModelMolecule.m in Sources */,
 				9777B6681931533700E6316B /* main.m in Sources */,
+				97DEF3CE193266B8004A50D2 /* SLOperationDetailViewController.m in Sources */,
+				97DEF3C719326564004A50D2 /* SLOperationListViewController.m in Sources */,
 				9777B6E019315CDB00E6316B /* SLModelCube.m in Sources */,
 				9777B6E31931638B00E6316B /* SLAbstractModel.m in Sources */,
 				970CE42C193196680038841F /* SLAtom.m in Sources */,
@@ -1068,6 +1110,7 @@
 				970CE4CD19319E7C0038841F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		970CE4CE19319E7C0038841F /* Build configuration list for PBXNativeTarget "ucifParserTests" */ = {
 			isa = XCConfigurationList;
@@ -1076,6 +1119,7 @@
 				970CE4D019319E7C0038841F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9777B6531931533700E6316B /* Build configuration list for PBXProject "SymmLab" */ = {
 			isa = XCConfigurationList;
