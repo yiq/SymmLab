@@ -51,6 +51,8 @@
     glVertexAttribPointer(GLKVertexAttribPosition, 3, GL_FLOAT, GL_FALSE, sizeof(SLModelPoint), BUFFER_OFFSET(0));
     glEnableVertexAttribArray(GLKVertexAttribNormal);
     glVertexAttribPointer(GLKVertexAttribNormal, 3, GL_FLOAT, GL_FALSE, sizeof(SLModelPoint), BUFFER_OFFSET(sizeof(GLKVector3)));
+    glEnableVertexAttribArray(GLKVertexAttribColor);
+    glVertexAttribPointer(GLKVertexAttribColor, 3, GL_FLOAT, GL_FALSE, sizeof(SLModelPoint), BUFFER_OFFSET(sizeof(GLKVector3)*2));
     
     glBindVertexArrayOES(0);
     

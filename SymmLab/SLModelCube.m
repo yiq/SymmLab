@@ -62,6 +62,10 @@
         _points[34].position = GLKVector3Make(-0.5f, -0.5f, -0.5f);_points[34].normal = GLKVector3Make(0.0f, 0.0f, -1.0f);
         _points[35].position = GLKVector3Make(-0.5f, 0.5f, -0.5f); _points[35].normal = GLKVector3Make(0.0f, 0.0f, -1.0f);
         
+        for(GLuint i=0; i<_vertexCount; i++) {
+            _points[i].color = GLKVector4Make(0.5f, 0.5f, 0.5f, 1.0f);
+        }
+        
         _indices = (GLuint *)malloc(sizeof(GLuint)*_indexCount);
         for (GLuint i=0; i<_indexCount; i++) _indices[i] = i;
     }

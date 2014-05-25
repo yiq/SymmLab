@@ -26,6 +26,7 @@ enum
 {
     ATTRIB_VERTEX,
     ATTRIB_NORMAL,
+    ATTRIB_COLOR,
     NUM_ATTRIBUTES
 };
 
@@ -213,6 +214,7 @@ enum
     // This needs to be done prior to linking.
     glBindAttribLocation(_program, GLKVertexAttribPosition, "position");
     glBindAttribLocation(_program, GLKVertexAttribNormal, "normal");
+    glBindAttribLocation(_program, GLKVertexAttribColor, "color");
     
     // Link program.
     if (![self linkProgram:_program]) {

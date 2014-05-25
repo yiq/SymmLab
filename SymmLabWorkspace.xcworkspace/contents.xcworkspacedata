@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:ucifParser/ucifParser.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "container:SymmLab.xcodeproj">
    </FileRef>
 </Workspace>

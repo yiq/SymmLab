@@ -38,6 +38,16 @@
                ReferencedContainer = "container:SymmLab.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "970CE4BB19319E7C0038841F"
+               BuildableName = "ucifParserTests.xctest"
+               BlueprintName = "ucifParserTests"
+               ReferencedContainer = "container:SymmLab.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

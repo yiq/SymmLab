@@ -14,6 +14,7 @@
 typedef struct {
     GLKVector3 position;
     GLKVector3 normal;
+    GLKVector4 color;
 } SLModelPoint;
 
 @interface SLAbstractModel : NSObject {

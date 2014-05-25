@@ -9,9 +9,24 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>ucifParser.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>970CE4AE19319E7B0038841F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>970CE4BB19319E7C0038841F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>9777B6571931533700E6316B</key>
 		<dict>
 			<key>primary</key>
