@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		970CE345193179470038841F /* SLModelSphere.m in Sources */ = {isa = PBXBuildFile; fileRef = 970CE344193179470038841F /* SLModelSphere.m */; };
+		970CE34B193180B10038841F /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 970CE346193180470038841F /* Shader.fsh */; };
+		970CE34C193180B40038841F /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 970CE347193180470038841F /* Shader.vsh */; };
 		9777B65C1931533700E6316B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9777B65B1931533700E6316B /* Foundation.framework */; };
 		9777B65E1931533700E6316B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9777B65D1931533700E6316B /* CoreGraphics.framework */; };
 		9777B6601931533700E6316B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9777B65F1931533700E6316B /* UIKit.framework */; };
@@ -37,6 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		970CE343193179460038841F /* SLModelSphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLModelSphere.h; sourceTree = "<group>"; };
+		970CE344193179470038841F /* SLModelSphere.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLModelSphere.m; sourceTree = "<group>"; };
+		970CE346193180470038841F /* Shader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.fsh; sourceTree = "<group>"; };
+		970CE347193180470038841F /* Shader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.vsh; sourceTree = "<group>"; };
 		9777B6581931533700E6316B /* SymmLab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SymmLab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9777B65B1931533700E6316B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9777B65D1931533700E6316B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -88,6 +95,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		970CE34A1931804C0038841F /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				970CE346193180470038841F /* Shader.fsh */,
+				970CE347193180470038841F /* Shader.vsh */,
+			);
+			name = Shaders;
+			sourceTree = "<group>";
+		};
 		9777B64F1931533700E6316B = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +137,7 @@
 		9777B6611931533700E6316B /* SymmLab */ = {
 			isa = PBXGroup;
 			children = (
+				970CE34A1931804C0038841F /* Shaders */,
 				9777B6DD19315C9A00E6316B /* 3D Models */,
 				9777B690193155F700E6316B /* MoleculeView */,
 				9777B66A1931533700E6316B /* SLAppDelegate.h */,
@@ -175,10 +192,12 @@
 		9777B6DD19315C9A00E6316B /* 3D Models */ = {
 			isa = PBXGroup;
 			children = (
-				9777B6DE19315CDB00E6316B /* SLModelCube.h */,
-				9777B6DF19315CDB00E6316B /* SLModelCube.m */,
 				9777B6E11931638B00E6316B /* SLAbstractModel.h */,
 				9777B6E21931638B00E6316B /* SLAbstractModel.m */,
+				9777B6DE19315CDB00E6316B /* SLModelCube.h */,
+				9777B6DF19315CDB00E6316B /* SLModelCube.m */,
+				970CE343193179460038841F /* SLModelSphere.h */,
+				970CE344193179470038841F /* SLModelSphere.m */,
 			);
 			name = "3D Models";
 			sourceTree = "<group>";
@@ -260,6 +279,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				970CE34C193180B40038841F /* Shader.vsh in Resources */,
+				970CE34B193180B10038841F /* Shader.fsh in Resources */,
 				9777B6741931533700E6316B /* Images.xcassets in Resources */,
 				9777B6661931533700E6316B /* InfoPlist.strings in Resources */,
 				9777B66F1931533700E6316B /* Main.storyboard in Resources */,
@@ -281,6 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				970CE345193179470038841F /* SLModelSphere.m in Sources */,
 				9777B6681931533700E6316B /* main.m in Sources */,
 				9777B6E019315CDB00E6316B /* SLModelCube.m in Sources */,
 				9777B6E31931638B00E6316B /* SLAbstractModel.m in Sources */,
@@ -497,6 +519,7 @@
 				9777B68C1931533700E6316B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9777B68D1931533700E6316B /* Build configuration list for PBXNativeTarget "SymmLabTests" */ = {
 			isa = XCConfigurationList;
@@ -505,6 +528,7 @@
 				9777B68F1931533700E6316B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

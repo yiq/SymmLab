@@ -13,4 +13,6 @@
 
 @interface SLModelCube : SLAbstractModel
 
+- (id) init;
+
 @end

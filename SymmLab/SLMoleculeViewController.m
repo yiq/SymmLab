@@ -8,6 +8,7 @@
 
 #import "SLMoleculeViewController.h"
 #import "SLModelCube.h"
+#import "SLModelSphere.h"
 
 #define BUFFER_OFFSET(i) ((char *)NULL + (i))
 
@@ -40,6 +41,7 @@ enum
     
     SLModelCube *cube1;
     SLModelCube *cube2;
+    SLModelSphere *sphere;
 }
 
 @property (strong, nonatomic) EAGLContext *context;
@@ -107,28 +109,12 @@ enum
     
     cube1 = [[SLModelCube alloc] init];
     cube2 = [[SLModelCube alloc] init];
-
-//    glGenVertexArraysOES(1, &_vertexArray);
-//    glBindVertexArrayOES(_vertexArray);
-//    
-//    glGenBuffers(1, &_vertexBuffer);
-//    glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer);
-//    glBufferData(GL_ARRAY_BUFFER, sizeof(gCubeVertexData), gCubeVertexData, GL_STATIC_DRAW);
-//    
-//    glEnableVertexAttribArray(GLKVertexAttribPosition);
-//    glVertexAttribPointer(GLKVertexAttribPosition, 3, GL_FLOAT, GL_FALSE, 24, BUFFER_OFFSET(0));
-//    glEnableVertexAttribArray(GLKVertexAttribNormal);
-//    glVertexAttribPointer(GLKVertexAttribNormal, 3, GL_FLOAT, GL_FALSE, 24, BUFFER_OFFSET(12));
-//    
-//    glBindVertexArrayOES(0);
+    sphere = [[SLModelSphere alloc] init];
 }
 
 - (void)tearDownGL
 {
     [EAGLContext setCurrentContext:self.context];
-    
-//    glDeleteBuffers(1, &_vertexBuffer);
-//    glDeleteVertexArraysOES(1, &_vertexArray);
     
     cube1 = nil;
     cube2 = nil;
@@ -161,7 +147,7 @@ enum
     self.effect.transform.modelviewMatrix = modelViewMatrix;
     
     // Compute the model view matrix for the object rendered with ES2
-    modelViewMatrix = GLKMatrix4MakeTranslation(0.0f, 0.0f, 1.5f);
+    modelViewMatrix = GLKMatrix4MakeTranslation(0.0f, 0.0f, 0.0f);
     modelViewMatrix = GLKMatrix4Rotate(modelViewMatrix, _rotation, 1.0f, 1.0f, 1.0f);
     modelViewMatrix = GLKMatrix4Multiply(baseModelViewMatrix, modelViewMatrix);
     
@@ -177,13 +163,9 @@ enum
     glClearColor(0.65f, 0.65f, 0.65f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
-    //glBindVertexArrayOES(_vertexArray);
-    
     // Render the object with GLKit
-    [self.effect prepareToDraw];
-    
-    //glDrawArrays(GL_TRIANGLES, 0, 36);
-    [cube1 render];
+//    [self.effect prepareToDraw];
+//    [sphere render];
     
     // Render the object again with ES2
     glUseProgram(_program);
@@ -191,8 +173,7 @@ enum
     glUniformMatrix4fv(uniforms[UNIFORM_MODELVIEWPROJECTION_MATRIX], 1, 0, _modelViewProjectionMatrix.m);
     glUniformMatrix3fv(uniforms[UNIFORM_NORMAL_MATRIX], 1, 0, _normalMatrix.m);
     
-    //glDrawArrays(GL_TRIANGLES, 0, 36);
-    [cube2 render];
+    [sphere render];
 }
 
 #pragma mark -  OpenGL ES 2 shader compilation
@@ -207,6 +188,8 @@ enum
     
     // Create and compile vertex shader.
     vertShaderPathname = [[NSBundle mainBundle] pathForResource:@"Shader" ofType:@"vsh"];
+    NSLog(@"loading vertex shader %@", vertShaderPathname);
+
     if (![self compileShader:&vertShader type:GL_VERTEX_SHADER file:vertShaderPathname]) {
         NSLog(@"Failed to compile vertex shader");
         return NO;
@@ -214,6 +197,7 @@ enum
     
     // Create and compile fragment shader.
     fragShaderPathname = [[NSBundle mainBundle] pathForResource:@"Shader" ofType:@"fsh"];
+    NSLog(@"loading fragment shader %@", fragShaderPathname);
     if (![self compileShader:&fragShader type:GL_FRAGMENT_SHADER file:fragShaderPathname]) {
         NSLog(@"Failed to compile fragment shader");
         return NO;

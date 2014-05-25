@@ -20,8 +20,13 @@ typedef struct {
     @protected
     GLuint _glDrawMode;
     GLuint _vertexArray;
-    GLuint _vertexBuffer;
-    GLuint _elementCount;
+    GLuint _glBuffers[2];
+    
+    GLuint _vertexCount;
+    GLuint _indexCount;
+    
+    SLModelPoint * _points;
+    GLuint * _indices;
 }
 
 - (void)render;

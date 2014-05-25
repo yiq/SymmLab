@@ -1,0 +1,105 @@
+
+#(C) 2014 by Fachinformationszentrum Karlsruhe.  All rights reserved.
+data_157701-ICSD
+_database_code_ICSD 157701
+_audit_creation_date 2008-02-01
+_chemical_name_systematic Coronene
+_chemical_formula_structural 'C24 H12'
+_chemical_formula_sum 'C24 H12'
+_chemical_name_mineral Carpathite
+_exptl_crystal_density_diffrn 1.41
+_publ_section_title
+
+;
+Crystal-chemical and carbon-isotopic characteristics of karpatite (C24 H12)
+from the Picacho Peak area, San Benito county, California: evidences for the
+hydrothermal formation
+;
+loop_
+_citation_id
+_citation_journal_full
+_citation_year
+_citation_journal_volume
+_citation_page_first
+_citation_page_last
+_citation_journal_id_ASTM
+primary 'American Mineralogist' 2007 92 1262 1269 AMMIAY
+loop_
+_publ_author_name
+'Echigo, T.'
+'Kimata, M.'
+'Maruoka, T.'
+_cell_length_a 16.094(9)
+_cell_length_b 4.690(3)
+_cell_length_c 10.049(8)
+_cell_angle_alpha 90.
+_cell_angle_beta 110.79(2)
+_cell_angle_gamma 90.
+_cell_volume 709.12
+_cell_formula_units_Z 2
+_symmetry_space_group_name_H-M 'P 1 21/a 1'
+_symmetry_Int_Tables_number 14
+_refine_ls_R_factor_all 0.0344
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+1 'x+1/2, -y+1/2, z'
+2 '-x, -y, -z'
+3 '-x+1/2, y+1/2, -z'
+4 'x, y, z'
+loop_
+_atom_type_symbol
+_atom_type_oxidation_number
+C0+ 0
+H0+ 0
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_symmetry_multiplicity
+_atom_site_Wyckoff_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_B_iso_or_equiv
+_atom_site_occupancy
+_atom_site_attached_hydrogens
+C1 C0+ 4 e -0.11918(19) -0.4056(6) 0.0380(3) 4.08(8) 1. 0
+C2 C0+ 4 e -0.1121(2) -0.4800(6) 0.1771(3) 4.98(9) 1. 0
+C3 C0+ 4 e -0.0497(2) -0.3620(6) 0.2925(4) 5.27(9) 1. 0
+C4 C0+ 4 e 0.01212(19) -0.1589(6) 0.2770(3) 4.19(7) 1. 0
+C5 C0+ 4 e 0.0802(2) -0.0347(7) 0.3949(3) 5.24(9) 1. 0
+C6 C0+ 4 e 0.1376(2) 0.1596(7) 0.3760(3) 5.23(9) 1. 0
+C7 C0+ 4 e 0.13206(18) 0.2455(5) 0.2379(3) 4.09(7) 1. 0
+C8 C0+ 4 e 0.1913(2) 0.4503(6) 0.2171(4) 5.01(9) 1. 0
+C9 C0+ 4 e 0.1836(2) 0.5266(6) 0.0827(4) 4.95(8) 1. 0
+C10 C0+ 4 e -0.05971(18) -0.2026(5) 0.0183(3) 3.42(7) 1. 0
+C11 C0+ 4 e 0.0058(2) -0.0803(6) 0.1376(2) 3.36(8) 1. 0
+C12 C0+ 4 e 0.06586(19) 0.1207(6) 0.1201(2) 3.30(8) 1. 0
+H1 H0+ 4 e -0.1541(15) -0.621(4) 0.190(2) 6.4(7) 1. 0
+H2 H0+ 4 e -0.0462(15) -0.410(5) 0.391(2) 7.6(7) 1. 0
+H3 H0+ 4 e 0.0845(16) -0.085(5) 0.492(2) 7.5(8) 1. 0
+H4 H0+ 4 e 0.1858(17) 0.248(4) 0.463(3) 7.2(8) 1. 0
+H5 H0+ 4 e 0.2408(16) 0.530(5) 0.307(2) 8.7(8) 1. 0
+H6 H0+ 4 e 0.2252(13) 0.667(4) 0.069(2) 5.7(7) 1. 0
+loop_
+_atom_site_aniso_label
+_atom_site_aniso_type_symbol
+_atom_site_aniso_U_11
+_atom_site_aniso_U_22
+_atom_site_aniso_U_33
+_atom_site_aniso_U_12
+_atom_site_aniso_U_13
+_atom_site_aniso_U_23
+C1 C0+ 0.049(2) 0.0492(18) 0.059(2) 0.0076(16) 0.0218(18) 0.0045(17)
+C2 C0+ 0.068(2) 0.054(2) 0.080(2) 0.0075(17) 0.042(2) 0.0121(19)
+C3 C0+ 0.084(2) 0.063(2) 0.068(2) 0.0182(18) 0.047(2) 0.021(2)
+C4 C0+ 0.068(2) 0.0505(18) 0.0452(19) 0.0178(17) 0.0256(16) 0.0068(16)
+C5 C0+ 0.085(2) 0.073(2) 0.039(2) 0.020(2) 0.0182(19) 0.0031(19)
+C6 C0+ 0.071(2) 0.070(2) 0.050(2) 0.0091(19) 0.0118(19) -0.001(2)
+C7 C0+ 0.051(2) 0.0548(19) 0.0468(19) 0.0096(17) 0.0136(17) -0.0004(16)
+C8 C0+ 0.050(2) 0.058(2) 0.079(2) 0.0034(16) 0.0180(19) -0.0107(19)
+C9 C0+ 0.052(2) 0.054(2) 0.088(2) -0.0014(16) 0.0319(18) -0.004(2)
+C10 C0+ 0.042(2) 0.0335(17) 0.057(2) 0.0086(15) 0.0211(18) 0.0064(16)
+C11 C0+ 0.0504(19) 0.0419(19) 0.044(2) 0.0133(15) 0.0273(18) 0.0077(15)
+C12 C0+ 0.0407(18) 0.0423(18) 0.039(2) 0.0122(16) 0.0105(16) 0.0035(14)
+#End of TTdata_157701-ICSD
