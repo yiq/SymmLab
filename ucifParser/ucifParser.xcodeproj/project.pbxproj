@@ -41,6 +41,7 @@
 		970CE41C193194520038841F /* ucifParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 970CE41B193194520038841F /* ucifParser.mm */; };
 		970CE41E1931946D0038841F /* ucifParserTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 970CE41D1931946D0038841F /* ucifParserTests.mm */; };
 		970CE420193194780038841F /* coronene.cif in Resources */ = {isa = PBXBuildFile; fileRef = 970CE41F193194780038841F /* coronene.cif */; };
+		970CE422193195F70038841F /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 970CE421193195F70038841F /* libc++.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,6 +142,7 @@
 		970CE41B193194520038841F /* ucifParser.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ucifParser.mm; sourceTree = "<group>"; };
 		970CE41D1931946D0038841F /* ucifParserTests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ucifParserTests.mm; sourceTree = "<group>"; };
 		970CE41F193194780038841F /* coronene.cif */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = coronene.cif; sourceTree = "<group>"; };
+		970CE421193195F70038841F /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				970CE422193195F70038841F /* libc++.dylib in Frameworks */,
 				970CE399193193B40038841F /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -188,6 +191,7 @@
 		970CE397193193B40038841F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				970CE421193195F70038841F /* libc++.dylib */,
 				970CE398193193B40038841F /* Foundation.framework */,
 				970CE3A6193193B40038841F /* XCTest.framework */,
 				970CE3A9193193B40038841F /* UIKit.framework */,

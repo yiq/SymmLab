@@ -10,6 +10,7 @@
 		970CE345193179470038841F /* SLModelSphere.m in Sources */ = {isa = PBXBuildFile; fileRef = 970CE344193179470038841F /* SLModelSphere.m */; };
 		970CE34B193180B10038841F /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 970CE346193180470038841F /* Shader.fsh */; };
 		970CE34C193180B40038841F /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 970CE347193180470038841F /* Shader.vsh */; };
+		970CE4241931960D0038841F /* libucifParser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 970CE4231931960D0038841F /* libucifParser.a */; };
 		9777B65C1931533700E6316B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9777B65B1931533700E6316B /* Foundation.framework */; };
 		9777B65E1931533700E6316B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9777B65D1931533700E6316B /* CoreGraphics.framework */; };
 		9777B6601931533700E6316B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9777B65F1931533700E6316B /* UIKit.framework */; };
@@ -44,6 +45,7 @@
 		970CE344193179470038841F /* SLModelSphere.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLModelSphere.m; sourceTree = "<group>"; };
 		970CE346193180470038841F /* Shader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.fsh; sourceTree = "<group>"; };
 		970CE347193180470038841F /* Shader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.vsh; sourceTree = "<group>"; };
+		970CE4231931960D0038841F /* libucifParser.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libucifParser.a; path = "ucifParser/build/Debug-iphoneos/libucifParser.a"; sourceTree = "<group>"; };
 		9777B6581931533700E6316B /* SymmLab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SymmLab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9777B65B1931533700E6316B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9777B65D1931533700E6316B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -76,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				970CE4241931960D0038841F /* libucifParser.a in Frameworks */,
 				9777B65E1931533700E6316B /* CoreGraphics.framework in Frameworks */,
 				9777B6601931533700E6316B /* UIKit.framework in Frameworks */,
 				9777B65C1931533700E6316B /* Foundation.framework in Frameworks */,
@@ -126,6 +129,7 @@
 		9777B65A1931533700E6316B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				970CE4231931960D0038841F /* libucifParser.a */,
 				9777B65B1931533700E6316B /* Foundation.framework */,
 				9777B65D1931533700E6316B /* CoreGraphics.framework */,
 				9777B65F1931533700E6316B /* UIKit.framework */,
