@@ -70,7 +70,7 @@ enum
     view.context = self.context;
     view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
     
-    molecule = [SLMolecule moleculeWithCifFile:[[NSBundle mainBundle] pathForResource:@"coronene" ofType:@"cif"]];
+    molecule = [SLMolecule moleculeWithCifFile:[[NSBundle mainBundle] pathForResource:@"benzene" ofType:@"cif"]];
     
     [self setupGL];
 }
@@ -158,9 +158,9 @@ enum
     
     GLKMatrix4 modelMatrix = GLKMatrix4Identity;
     
-    modelMatrix = GLKMatrix4RotateX(modelMatrix, GLKMathDegreesToRadians(-molecule.cellAngleX/2));
-    modelMatrix = GLKMatrix4RotateY(modelMatrix, GLKMathDegreesToRadians(-molecule.cellAngleY/2));
-    modelMatrix = GLKMatrix4RotateZ(modelMatrix, GLKMathDegreesToRadians(-molecule.cellAngleZ)/2);
+//    modelMatrix = GLKMatrix4RotateX(modelMatrix, GLKMathDegreesToRadians(-molecule.cellAngleX/2));
+//    modelMatrix = GLKMatrix4RotateY(modelMatrix, GLKMathDegreesToRadians(-molecule.cellAngleY/2));
+//    modelMatrix = GLKMatrix4RotateZ(modelMatrix, GLKMathDegreesToRadians(-molecule.cellAngleZ)/2);
 
 
     GLKMatrix4 modelViewMatrix = GLKMatrix4Multiply(viewMatrix, modelMatrix);
