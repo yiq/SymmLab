@@ -12,9 +12,16 @@
 #define BUFFER_OFFSET(i) ((char *)NULL + (i))
 
 typedef struct {
+    GLfloat r;
+    GLfloat g;
+    GLfloat b;
+    GLfloat a;
+} SLColor;
+
+typedef struct {
     GLKVector3 position;
     GLKVector3 normal;
-    GLKVector4 color;
+    SLColor color;
 } SLModelPoint;
 
 @interface SLAbstractModel : NSObject {
@@ -28,8 +35,14 @@ typedef struct {
     
     SLModelPoint * _points;
     GLuint * _indices;
+    
+    BOOL _isRenderable;
 }
 
 - (void)render;
+- (void)addChild:(SLAbstractModel *)child;
+
+- (void)translateByX:(GLfloat)dx byY:(GLfloat)dy byZ:(GLfloat)dz;
+- (void)setColorWithR:(GLfloat)r g:(GLfloat)g b:(GLfloat)b alpha:(GLfloat)a;
 
 @end

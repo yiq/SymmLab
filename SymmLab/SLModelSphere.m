@@ -15,10 +15,15 @@
 }
 
 - (id)initWithLongs:(int)longs lats:(int)lats {
-    
+    return [self initWithRadius:1.0f longs:longs lats:lats];
+}
+
+- (id)initWithRadius:(float)radius longs:(int)longs lats:(int)lats
+{
     self = [super init];
     if (self) {
         _glDrawMode = GL_TRIANGLES;
+        _isRenderable = YES;
         _vertexCount = (lats + 1) * (longs + 1);
         _indexCount = lats * longs * 6;
         
@@ -26,6 +31,8 @@
         _indices = (GLuint *)malloc(sizeof(GLuint) * _indexCount);
 
         NSUInteger p_idx = 0;
+        
+        SLColor whiteColor = {0.8f, 0.8f, 0.8f, 1.0f};
 
         for (int latNumber = 0; latNumber <= lats; ++latNumber) {
             for (int longNumber = 0; longNumber <= longs; ++longNumber) {
@@ -41,8 +48,11 @@
                 float y = cosTheta;
                 float z = sinPhi * sinTheta;
                 
-                _points[p_idx].position = GLKVector3Make(x, y, z);
-                _points[p_idx++].normal = GLKVector3Make(x, y, z);
+                _points[p_idx].position = GLKVector3Make(x * radius, y * radius, z * radius);
+                _points[p_idx].normal = GLKVector3Make(x, y, z);
+                _points[p_idx].color= whiteColor;
+                
+                p_idx++;
             }
         }
         

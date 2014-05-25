@@ -47,6 +47,8 @@
 		970CE5C31931A3620038841F /* coronene.cif in Resources */ = {isa = PBXBuildFile; fileRef = 970CE5A31931A3390038841F /* coronene.cif */; };
 		970CE5C41931A3F70038841F /* libucifParser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 970CE4AF19319E7B0038841F /* libucifParser.a */; };
 		970CE5C71931A5080038841F /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 970CE4EB19319EBB0038841F /* libc++.dylib */; };
+		970CE5CA1931B0820038841F /* SLModelMolecule.m in Sources */ = {isa = PBXBuildFile; fileRef = 970CE5C91931B0820038841F /* SLModelMolecule.m */; };
+		970CE5CC1931B25B0038841F /* coronene.cif in Resources */ = {isa = PBXBuildFile; fileRef = 970CE5CB1931B24D0038841F /* coronene.cif */; };
 		9777B65C1931533700E6316B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9777B65B1931533700E6316B /* Foundation.framework */; };
 		9777B65E1931533700E6316B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9777B65D1931533700E6316B /* CoreGraphics.framework */; };
 		9777B6601931533700E6316B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9777B65F1931533700E6316B /* UIKit.framework */; };
@@ -185,6 +187,9 @@
 		970CE5A51931A3390038841F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		970CE5A61931A3390038841F /* ucifParserTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ucifParserTests-Info.plist"; sourceTree = "<group>"; };
 		970CE5A71931A3390038841F /* ucifParserTests.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ucifParserTests.mm; sourceTree = "<group>"; };
+		970CE5C81931B0820038841F /* SLModelMolecule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLModelMolecule.h; sourceTree = "<group>"; };
+		970CE5C91931B0820038841F /* SLModelMolecule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLModelMolecule.m; sourceTree = "<group>"; };
+		970CE5CB1931B24D0038841F /* coronene.cif */ = {isa = PBXFileReference; lastKnownFileType = text; path = coronene.cif; sourceTree = "<group>"; };
 		9777B6581931533700E6316B /* SymmLab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SymmLab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9777B65B1931533700E6316B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9777B65D1931533700E6316B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -458,6 +463,7 @@
 		9777B6621931533700E6316B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				970CE5CB1931B24D0038841F /* coronene.cif */,
 				9777B6631931533700E6316B /* SymmLab-Info.plist */,
 				9777B6641931533700E6316B /* InfoPlist.strings */,
 				9777B6671931533700E6316B /* main.m */,
@@ -502,6 +508,8 @@
 				9777B6DF19315CDB00E6316B /* SLModelCube.m */,
 				970CE343193179460038841F /* SLModelSphere.h */,
 				970CE344193179470038841F /* SLModelSphere.m */,
+				970CE5C81931B0820038841F /* SLModelMolecule.h */,
+				970CE5C91931B0820038841F /* SLModelMolecule.m */,
 			);
 			name = "3D Models";
 			sourceTree = "<group>";
@@ -632,6 +640,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				970CE5CC1931B25B0038841F /* coronene.cif in Resources */,
 				970CE34C193180B40038841F /* Shader.vsh in Resources */,
 				970CE34B193180B10038841F /* Shader.fsh in Resources */,
 				9777B6741931533700E6316B /* Images.xcassets in Resources */,
@@ -698,6 +707,7 @@
 			files = (
 				970CE42D193196680038841F /* SLMolecule.m in Sources */,
 				970CE345193179470038841F /* SLModelSphere.m in Sources */,
+				970CE5CA1931B0820038841F /* SLModelMolecule.m in Sources */,
 				9777B6681931533700E6316B /* main.m in Sources */,
 				9777B6E019315CDB00E6316B /* SLModelCube.m in Sources */,
 				9777B6E31931638B00E6316B /* SLAbstractModel.m in Sources */,

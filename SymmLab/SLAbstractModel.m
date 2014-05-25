@@ -10,6 +10,7 @@
 
 @interface SLAbstractModel() {
     BOOL isVBOPrepared;
+    NSMutableSet *_children;
 }
 
 - (void)prepareVBOs;
@@ -22,10 +23,12 @@
     self = [super init];
     if (self) {
         isVBOPrepared = NO;
+        _isRenderable = NO;
         _points = NULL;
         _indices = NULL;
         glGenVertexArraysOES(1, &_vertexArray);
         glGenBuffers(2, _glBuffers);
+        _children = [[NSMutableSet alloc] init];
     }
     
     return self;
@@ -33,8 +36,38 @@
 
 - (void)dealloc
 {
+    if (_points) {
+        free(_points);
+        _points = NULL;
+    }
+    
+    if (_indices) {
+        free(_indices);
+        _indices = NULL;
+    }
     glDeleteBuffers(2, _glBuffers);
     glDeleteVertexArraysOES(1, &_vertexArray);
+}
+
+- (void)translateByX:(GLfloat)dx byY:(GLfloat)dy byZ:(GLfloat)dz
+{
+    GLKVector3 dv = GLKVector3Make(dx, dy, dz);
+    
+    for(int i=0; i<_vertexCount; i++) {
+        _points[i].position = GLKVector3Add(_points[i].position, dv);
+    }
+    
+    isVBOPrepared = NO;
+}
+
+- (void)setColorWithR:(GLfloat)r g:(GLfloat)g b:(GLfloat)b alpha:(GLfloat)a
+{
+    SLColor newColor = {r, g, b, a};
+    for(int i=0; i<_vertexCount; i++) {
+        _points[i].color = newColor;
+    }
+    
+    isVBOPrepared = NO;
 }
 
 - (void)prepareVBOs
@@ -52,31 +85,38 @@
     glEnableVertexAttribArray(GLKVertexAttribNormal);
     glVertexAttribPointer(GLKVertexAttribNormal, 3, GL_FLOAT, GL_FALSE, sizeof(SLModelPoint), BUFFER_OFFSET(sizeof(GLKVector3)));
     glEnableVertexAttribArray(GLKVertexAttribColor);
-    glVertexAttribPointer(GLKVertexAttribColor, 3, GL_FLOAT, GL_FALSE, sizeof(SLModelPoint), BUFFER_OFFSET(sizeof(GLKVector3)*2));
+    glVertexAttribPointer(GLKVertexAttribColor, 4, GL_FLOAT, GL_FALSE, sizeof(SLModelPoint), BUFFER_OFFSET(sizeof(GLKVector3) * 2));
     
     glBindVertexArrayOES(0);
     
-    if (_points) {
-        free(_points);
-        _points = NULL;
-    }
 
-    if (_indices) {
-        free(_indices);
-        _indices = NULL;
-    }
     isVBOPrepared = YES;
 }
 
 - (void)render {
     
-    if (!isVBOPrepared) {
-        [self prepareVBOs];
+    if (_isRenderable) {
+        if (!isVBOPrepared) {
+            [self prepareVBOs];
+        }
+        
+        glBindVertexArrayOES(_vertexArray);
+        glDrawElements(_glDrawMode, _indexCount, GL_UNSIGNED_INT, 0);
+        glBindVertexArrayOES(0);
+    }
+
+    for (SLAbstractModel *child in _children) {
+        [child render];
+    }
+}
+
+- (void)addChild:(SLAbstractModel *)child {
+    if (child == self) {
+        return;
     }
     
-    glBindVertexArrayOES(_vertexArray);
-    glDrawElements(_glDrawMode, _indexCount, GL_UNSIGNED_INT, 0);
-    glBindVertexArrayOES(0);
+    [_children addObject:child];
 }
+
 
 @end

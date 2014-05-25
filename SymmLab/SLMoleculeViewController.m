@@ -7,8 +7,8 @@
 //
 
 #import "SLMoleculeViewController.h"
-#import "SLModelCube.h"
-#import "SLModelSphere.h"
+#import "SLModelMolecule.h"
+#import "SLMolecule.h"
 
 #define BUFFER_OFFSET(i) ((char *)NULL + (i))
 
@@ -40,9 +40,8 @@ enum
     GLuint _vertexArray;
     GLuint _vertexBuffer;
     
-    SLModelCube *cube1;
-    SLModelCube *cube2;
-    SLModelSphere *sphere;
+    SLMolecule *molecule;
+    SLModelMolecule *moleculeModel;
 }
 
 @property (strong, nonatomic) EAGLContext *context;
@@ -65,6 +64,8 @@ enum
     GLKView *view = (GLKView *)self.view;
     view.context = self.context;
     view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
+    
+    molecule = [SLMolecule moleculeWithCifFile:[[NSBundle mainBundle] pathForResource:@"coronene" ofType:@"cif"]];
     
     [self setupGL];
 }
@@ -102,23 +103,20 @@ enum
     
     [self loadShaders];
     
-    self.effect = [[GLKBaseEffect alloc] init];
-    self.effect.light0.enabled = GL_TRUE;
-    self.effect.light0.diffuseColor = GLKVector4Make(1.0f, 0.4f, 0.4f, 1.0f);
+//    self.effect = [[GLKBaseEffect alloc] init];
+//    self.effect.light0.enabled = GL_TRUE;
+//    self.effect.light0.diffuseColor = GLKVector4Make(1.0f, 0.4f, 0.4f, 1.0f);
     
     glEnable(GL_DEPTH_TEST);
     
-    cube1 = [[SLModelCube alloc] init];
-    cube2 = [[SLModelCube alloc] init];
-    sphere = [[SLModelSphere alloc] init];
+    moleculeModel = [[SLModelMolecule alloc] initWithMolecule:molecule];
 }
 
 - (void)tearDownGL
 {
     [EAGLContext setCurrentContext:self.context];
-    
-    cube1 = nil;
-    cube2 = nil;
+
+    moleculeModel = nil;
     
     self.effect = nil;
     
@@ -161,12 +159,8 @@ enum
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
 {
-    glClearColor(0.65f, 0.65f, 0.65f, 1.0f);
+    glClearColor(0.35f, 0.35f, 0.35f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    
-    // Render the object with GLKit
-//    [self.effect prepareToDraw];
-//    [sphere render];
     
     // Render the object again with ES2
     glUseProgram(_program);
@@ -174,7 +168,7 @@ enum
     glUniformMatrix4fv(uniforms[UNIFORM_MODELVIEWPROJECTION_MATRIX], 1, 0, _modelViewProjectionMatrix.m);
     glUniformMatrix3fv(uniforms[UNIFORM_NORMAL_MATRIX], 1, 0, _normalMatrix.m);
     
-    [sphere render];
+    [moleculeModel render];
 }
 
 #pragma mark -  OpenGL ES 2 shader compilation
@@ -214,7 +208,7 @@ enum
     // This needs to be done prior to linking.
     glBindAttribLocation(_program, GLKVertexAttribPosition, "position");
     glBindAttribLocation(_program, GLKVertexAttribNormal, "normal");
-    glBindAttribLocation(_program, GLKVertexAttribColor, "color");
+    glBindAttribLocation(_program, GLKVertexAttribColor, "diffuseColor");
     
     // Link program.
     if (![self linkProgram:_program]) {

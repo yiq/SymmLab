@@ -15,6 +15,7 @@
     self = [super init];
     if (self) {
         _glDrawMode = GL_TRIANGLES;
+        _isRenderable = YES;
         _indexCount = 36;
         _vertexCount = 36;
         
@@ -62,12 +63,9 @@
         _points[34].position = GLKVector3Make(-0.5f, -0.5f, -0.5f);_points[34].normal = GLKVector3Make(0.0f, 0.0f, -1.0f);
         _points[35].position = GLKVector3Make(-0.5f, 0.5f, -0.5f); _points[35].normal = GLKVector3Make(0.0f, 0.0f, -1.0f);
         
-        for(GLuint i=0; i<_vertexCount; i++) {
-            _points[i].color = GLKVector4Make(0.5f, 0.5f, 0.5f, 1.0f);
-        }
+        SLColor whiteColor = {0.8f, 0.8f, 0.8f, 1.0f};
         
-        _indices = (GLuint *)malloc(sizeof(GLuint)*_indexCount);
-        for (GLuint i=0; i<_indexCount; i++) _indices[i] = i;
+        for(GLuint i=0; i<_vertexCount; i++) _points[i].color = whiteColor;
     }
     
     return self;

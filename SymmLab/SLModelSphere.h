@@ -12,5 +12,6 @@
 
 - (id)init;
 - (id)initWithLongs:(int)longs lats:(int)lats;
+- (id)initWithRadius:(float)radius longs:(int)longs lats:(int)lats;
 
 @end
