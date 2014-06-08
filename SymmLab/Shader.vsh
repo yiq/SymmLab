@@ -27,7 +27,7 @@ void main()
         nDotVP = 1.0;
     }
     
-    colorVarying = diffuseColor * nDotVP;
+    colorVarying = vec4((diffuseColor * nDotVP).xyz, diffuseColor.a);
     
     gl_Position = modelViewProjectionMatrix * position;
 }

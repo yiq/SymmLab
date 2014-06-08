@@ -52,6 +52,8 @@
 		970CE5CE1931B9A00038841F /* benzene.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 970CE5CD1931B98C0038841F /* benzene.pdb */; };
 		970CE5D01931BD040038841F /* benzene.cif in Resources */ = {isa = PBXBuildFile; fileRef = 970CE5CF1931BCF70038841F /* benzene.cif */; };
 		970CE5D31931C4EA0038841F /* SLModelLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 970CE5D21931C4EA0038841F /* SLModelLine.m */; };
+		975A83051944FEFB009E3CAF /* SLPlaneSymmetryOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 975A83041944FEFB009E3CAF /* SLPlaneSymmetryOperation.m */; };
+		975A830819450D0C009E3CAF /* SLModelPlane.m in Sources */ = {isa = PBXBuildFile; fileRef = 975A830719450D0C009E3CAF /* SLModelPlane.m */; };
 		9777B65C1931533700E6316B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9777B65B1931533700E6316B /* Foundation.framework */; };
 		9777B65E1931533700E6316B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9777B65D1931533700E6316B /* CoreGraphics.framework */; };
 		9777B6601931533700E6316B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9777B65F1931533700E6316B /* UIKit.framework */; };
@@ -204,6 +206,10 @@
 		970CE5CF1931BCF70038841F /* benzene.cif */ = {isa = PBXFileReference; lastKnownFileType = text; path = benzene.cif; sourceTree = "<group>"; };
 		970CE5D11931C4EA0038841F /* SLModelLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLModelLine.h; sourceTree = "<group>"; };
 		970CE5D21931C4EA0038841F /* SLModelLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLModelLine.m; sourceTree = "<group>"; };
+		975A83031944FEFB009E3CAF /* SLPlaneSymmetryOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLPlaneSymmetryOperation.h; sourceTree = "<group>"; };
+		975A83041944FEFB009E3CAF /* SLPlaneSymmetryOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLPlaneSymmetryOperation.m; sourceTree = "<group>"; };
+		975A830619450D0C009E3CAF /* SLModelPlane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLModelPlane.h; sourceTree = "<group>"; };
+		975A830719450D0C009E3CAF /* SLModelPlane.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLModelPlane.m; sourceTree = "<group>"; };
 		9777B6581931533700E6316B /* SymmLab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SymmLab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9777B65B1931533700E6316B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9777B65D1931533700E6316B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -541,6 +547,8 @@
 				970CE344193179470038841F /* SLModelSphere.m */,
 				970CE5C81931B0820038841F /* SLModelMolecule.h */,
 				970CE5C91931B0820038841F /* SLModelMolecule.m */,
+				975A830619450D0C009E3CAF /* SLModelPlane.h */,
+				975A830719450D0C009E3CAF /* SLModelPlane.m */,
 			);
 			name = "3D Models";
 			sourceTree = "<group>";
@@ -596,6 +604,8 @@
 				97DEF3DC19328634004A50D2 /* SLInversionSymmetryOperation.m */,
 				97DEF3DE193291C1004A50D2 /* SLProperAxisSymmetryOperation.h */,
 				97DEF3DF193291C1004A50D2 /* SLProperAxisSymmetryOperation.m */,
+				975A83031944FEFB009E3CAF /* SLPlaneSymmetryOperation.h */,
+				975A83041944FEFB009E3CAF /* SLPlaneSymmetryOperation.m */,
 			);
 			name = "Mathematical Model";
 			sourceTree = "<group>";
@@ -805,10 +815,12 @@
 				97DEF3DD19328634004A50D2 /* SLInversionSymmetryOperation.m in Sources */,
 				97DEF3C719326564004A50D2 /* SLOperationListViewController.m in Sources */,
 				9777B6E019315CDB00E6316B /* SLModelCube.m in Sources */,
+				975A83051944FEFB009E3CAF /* SLPlaneSymmetryOperation.m in Sources */,
 				9777B6E31931638B00E6316B /* SLAbstractModel.m in Sources */,
 				970CE42C193196680038841F /* SLAtom.m in Sources */,
 				97DEF3DA19328439004A50D2 /* SLIdentitySymmetryOperation.m in Sources */,
 				9777B6931931562200E6316B /* SLMoleculeViewController.m in Sources */,
+				975A830819450D0C009E3CAF /* SLModelPlane.m in Sources */,
 				9777B6721931533700E6316B /* SLViewController.m in Sources */,
 				9777B66C1931533700E6316B /* SLAppDelegate.m in Sources */,
 			);

@@ -15,9 +15,9 @@ void main()
 {
     lowp vec4 adjustedColor = colorVarying;
     
-    if (semiTransparent) {
-        adjustedColor.a = 0.1;
-    }
+//    if (semiTransparent) {
+//        adjustedColor.a = 0.1;
+//    }
     
     gl_FragColor = adjustedColor;
 }

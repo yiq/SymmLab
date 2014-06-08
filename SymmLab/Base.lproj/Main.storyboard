@@ -71,24 +71,33 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="r9U-34-yjT"/>
                                 </constraints>
-                                <state key="normal" title="Run"/>
+                                <state key="normal" title="Run">
+                                    <color key="titleColor" red="1" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="startOpAnimation:" destination="nV6-jO-5zq" eventType="touchUpInside" id="ycd-YT-dKe"/>
                                 </connections>
                             </button>
                         </subviews>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Fey-Kb-A6z" firstAttribute="top" secondItem="GLB-cF-DDn" secondAttribute="bottom" constant="20" id="a68-o3-cN2"/>
                             <constraint firstItem="GLB-cF-DDn" firstAttribute="leading" secondItem="Jg2-vr-Be2" secondAttribute="leading" constant="20" id="m3Y-Xw-l4o"/>
                         </constraints>
                         <connections>
                             <outlet property="delegate" destination="nV6-jO-5zq" id="wPY-1F-HRz"/>
+                            <outletCollection property="gestureRecognizers" destination="jsn-sd-eUY" appends="YES" id="bDn-tb-3gC"/>
                         </connections>
                     </glkView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Title" id="RuC-08-Rh7"/>
                 </glkViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZtS-f9-i02" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="jsn-sd-eUY">
+                    <connections>
+                        <action selector="panGestureHandler:" destination="nV6-jO-5zq" id="ixc-um-FdS"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2364" y="-716"/>
         </scene>

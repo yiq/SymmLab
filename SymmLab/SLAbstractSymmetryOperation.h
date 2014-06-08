@@ -10,9 +10,13 @@
 #import "SLMolecule.h"
 @import GLKit;
 
+/**
+ * This class represents any symmetry operation.
+ */
 @interface SLAbstractSymmetryOperation : NSObject
 
 - (SLMolecule *)applyOperationWithMolecule: (SLMolecule *)origMolecule;
+
 - (GLKMatrix4)modelMatrixWithAnimationProgress: (float)progress;
 
 @end

@@ -10,9 +10,11 @@
 #import "SLModelMolecule.h"
 #import "SLMolecule.h"
 #import "SLModelLine.h"
+#import "SLModelPlane.h"
 
 #import "SLInversionSymmetryOperation.h"
 #import "SLProperAxisSymmetryOperation.h"
+#import "SLPlaneSymmetryOperation.h"
 
 #define BUFFER_OFFSET(i) ((char *)NULL + (i))
 
@@ -53,6 +55,17 @@ enum
     
     SLModelLine *axis;
     SLAbstractSymmetryOperation *symmOp;
+    
+    SLAbstractModel *plane;
+    
+    CGFloat _cameraTheta;
+    CGFloat _cameraPhi;
+    
+    CGFloat _cameraThetaDelta;
+    CGFloat _cameraPhiDelta;
+    
+    CGFloat _cameraDistance;
+    CGFloat _cameraUpY;
 }
 
 @property (strong, nonatomic) EAGLContext *context;
@@ -81,9 +94,16 @@ enum
     _animationProgress = 0.0f;
     _isAnimating = NO;
     
+    _cameraPhi = 0.0f; _cameraPhiDelta = 0.0f;
+    _cameraTheta = 0.0f; _cameraThetaDelta = 0.0f;
+    _cameraDistance = 10.0f;
+    _cameraUpY = 1.0f;
+    
     molecule = [SLMolecule moleculeWithCifFile:[[NSBundle mainBundle] pathForResource:@"benzene" ofType:@"cif"]];
-    symmOp = [[SLProperAxisSymmetryOperation alloc] initWithAxis:GLKMatrix3MultiplyVector3(GLKMatrix3RotateZ(GLKMatrix3Identity, -M_PI / 3.0f), GLKVector3Make(0.0f, 1.0f, 0.0f)) divide:2];
+//    symmOp = [[SLProperAxisSymmetryOperation alloc] initWithAxis:GLKMatrix3MultiplyVector3(GLKMatrix3RotateZ(GLKMatrix3Identity, -M_PI / 3.0f), GLKVector3Make(0.0f, 1.0f, 0.0f)) divide:2];
 //    symmOp = [[SLProperAxisSymmetryOperation alloc] initWithAxis:GLKVector3Make(0.0f, 1.0f, 0.0f) divide:2];
+    
+    symmOp = [[SLPlaneSymmetryOperation alloc] initWithNormalAngleTheta: - M_PI_2 / 3.0f phi:0.0f];
     
     [self setupGL];
 }
@@ -127,25 +147,30 @@ enum
     
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_BLEND);
-//    glBlendFunc(GL_SRC_ALPHA, GL_ONE);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE);
     
     moleculeModel = [[SLModelMolecule alloc] initWithMolecule:molecule];
-    GLKVector3 axisPointPos[6] = {
+    GLKVector3 axisPointPos[8] = {
         GLKVector3Make(-100.0f, 0.0f, 0.0f),
         GLKVector3Make(100.0f, 0.0f, 0.0f),
         GLKVector3Make(0.0, -100.0f, 0.0f),
         GLKVector3Make(0.0, 100.0f, 0.0f),
         GLKVector3Make(0.0, 0.0f, -100.0f),
-        GLKVector3Make(0.0, 0.0f, 100.0f)
+        GLKVector3Make(0.0, 0.0f, 100.0f),
+        GLKVector3Make(-50.0f * cosf(M_PI/6), -50.0f*sinf(M_PI/6), 0.0f),
+        GLKVector3Make(50.0f * cosf(M_PI/6), 50.0f*sinf(M_PI/6), 0.0f),
     };
     
-    SLColor axisColors[6] = {
+    SLColor axisColors[8] = {
         {1.0f, 0.0f, 0.0f, 1.0f}, {1.0f, 0.0f, 0.0f, 1.0f},
         {0.0f, 1.0f, 0.0f, 1.0f}, {0.0f, 1.0f, 0.0f, 1.0f},
-        {0.0f, 0.0f, 1.0f, 1.0f}, {0.0f, 0.0f, 1.0f, 1.0f}
+        {0.0f, 0.0f, 1.0f, 1.0f}, {0.0f, 0.0f, 1.0f, 1.0f},
+        {1.0f, 1.0f, 0.0f, 1.0f}, {1.0f, 1.0f, 0.0f, 1.0f}
     };
     
-    axis = [[SLModelLine alloc] initWithPoints:axisPointPos colors:axisColors count:6];
+    axis = [[SLModelLine alloc] initWithPoints:axisPointPos colors:axisColors count:8];
+    
+    plane = [[SLModelPlane alloc] init];
 }
 
 - (void)tearDownGL
@@ -169,7 +194,22 @@ enum
     float aspect = fabsf(self.view.bounds.size.width / self.view.bounds.size.height);
     GLKMatrix4 projectionMatrix = GLKMatrix4MakePerspective(GLKMathDegreesToRadians(65.0f), aspect, 0.1f, 100.0f);
     
-    GLKMatrix4 viewMatrix = GLKMatrix4MakeLookAt(0.0f, 0.0f, 10.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
+    if (_cameraPhi > M_PI * 2) _cameraPhi -= M_PI * 2;
+    if (_cameraPhi < - (M_PI * 2)) _cameraPhi += M_PI * 2;
+    if (_cameraTheta > M_PI * 2) _cameraTheta -= M_PI * 2;
+    if (_cameraTheta < - (M_PI * 2)) _cameraTheta += M_PI * 2;
+        
+    CGFloat cameraX = cosf(_cameraPhi + _cameraPhiDelta) * sinf(_cameraTheta + _cameraThetaDelta) * _cameraDistance;
+    CGFloat cameraY = sinf(_cameraPhi + _cameraPhiDelta) * _cameraDistance;
+    CGFloat cameraZ = cosf(_cameraPhi + _cameraPhiDelta) * cosf(_cameraTheta + _cameraThetaDelta) * _cameraDistance;
+    
+    _cameraUpY = 1.0f;
+    
+    if (fabs(_cameraPhi + _cameraPhiDelta) > M_PI_2) {
+        _cameraUpY = -1.0f;
+    }
+
+    GLKMatrix4 viewMatrix = GLKMatrix4MakeLookAt(cameraX, cameraY, cameraZ, 0.0f, 0.0f, 0.0f, 0.0f, _cameraUpY, 0.0f);
     
     //GLKMatrix4 modelMatrix = GLKMatrix4Identity;
     
@@ -214,10 +254,19 @@ enum
         glUniform1i(uniforms[UNIFORM_SEMI_TRANSPARENT], 0);
         [moleculeModel render];
         
-        glClear(GL_DEPTH_BUFFER_BIT);
+//        glClear(GL_DEPTH_BUFFER_BIT);
     }
     
-
+    CGFloat maxLength = MAX(molecule.cellLengthA, molecule.cellLengthB);
+    maxLength = MAX(molecule.cellLengthC, maxLength);
+    
+    maxLength = 5.0f;
+    
+    GLKMatrix4 planeModelMatrix = GLKMatrix4RotateY(GLKMatrix4Identity, M_PI_2);
+    planeModelMatrix = GLKMatrix4Scale(planeModelMatrix, maxLength, maxLength, 1.0f);
+    GLKMatrix4 planeMatrix = GLKMatrix4Multiply(_worldViewProjectionMatrix, planeModelMatrix);
+    glUniformMatrix4fv(uniforms[UNIFORM_MODELVIEWPROJECTION_MATRIX], 1, 0, planeMatrix.m);
+    [plane render];
     
     glUniformMatrix4fv(uniforms[UNIFORM_MODELVIEWPROJECTION_MATRIX], 1, 0, _modelViewProjectionMatrix.m);
     glUniformMatrix3fv(uniforms[UNIFORM_NORMAL_MATRIX], 1, 0, _normalMatrix.m);
@@ -235,6 +284,21 @@ enum
     else {
         _animationProgress = 0.0f;
         _isAnimating = YES;
+    }
+}
+
+- (IBAction)panGestureHandler:(UIPanGestureRecognizer *)sender {
+    CGPoint translate = [sender translationInView:self.view];
+    
+    if (sender.state == UIGestureRecognizerStateBegan || sender.state == UIGestureRecognizerStateEnded) {
+        _cameraPhi = _cameraPhi + _cameraPhiDelta;
+        _cameraPhiDelta = 0;
+        _cameraTheta = _cameraTheta + _cameraThetaDelta;
+        _cameraThetaDelta = 0;
+    }
+    else {
+        _cameraThetaDelta = - (translate.x / 100.0) * M_PI_2;
+        _cameraPhiDelta = (translate.y / 100.0) * M_PI_2;
     }
 }
 

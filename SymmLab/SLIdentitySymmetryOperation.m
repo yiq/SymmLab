@@ -30,7 +30,7 @@
     resultMolecule.cellLengthB = origMolecule.cellLengthB;
     resultMolecule.cellLengthC = origMolecule.cellLengthC;
 
-    return nil;
+    return resultMolecule;
 }
 - (GLKMatrix4)modelMatrixWithAnimationProgress: (float)progress
 {
