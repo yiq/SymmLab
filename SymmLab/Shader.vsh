@@ -21,12 +21,15 @@ void main()
     vec3 eyeNormal = normalize(normalMatrix * normal);
     vec3 lightPosition = vec3(0.0, 0.0, 1.0);
     
-    float nDotVP = max(0.0, dot(eyeNormal, normalize(lightPosition)));
+//    float nDotVP = max(0.0, dot(eyeNormal, normalize(lightPosition)));
     
-    if (useLighting == 0) {
-        nDotVP = 1.0;
-    }
+//    if (useLighting == 0) {
+//        nDotVP = 1.0;
+//    }
+//    
+//    colorVarying = vec4((diffuseColor * nDotVP).xyz, diffuseColor.a);
     
+    float nDotVP = max(0.0, dot(normal, normalize(lightPosition)));
     colorVarying = vec4((diffuseColor * nDotVP).xyz, diffuseColor.a);
     
     gl_Position = modelViewProjectionMatrix * position;

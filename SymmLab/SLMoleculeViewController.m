@@ -250,12 +250,21 @@ enum
     [axis render];
     
     // render ghost
-    if (_isAnimating) {
-        glUniform1i(uniforms[UNIFORM_SEMI_TRANSPARENT], 0);
-        [moleculeModel render];
-        
-//        glClear(GL_DEPTH_BUFFER_BIT);
-    }
+//    if (_isAnimating) {
+//        glUniform1i(uniforms[UNIFORM_SEMI_TRANSPARENT], 0);
+//        [moleculeModel render];
+//        
+////        glClear(GL_DEPTH_BUFFER_BIT);
+//    }
+    
+
+    
+    glUniformMatrix4fv(uniforms[UNIFORM_MODELVIEWPROJECTION_MATRIX], 1, 0, _modelViewProjectionMatrix.m);
+    glUniformMatrix3fv(uniforms[UNIFORM_NORMAL_MATRIX], 1, 0, _normalMatrix.m);
+    glUniform1i(uniforms[UNIFORM_USE_LIGHTING], 1);
+    glUniform1i(uniforms[UNIFORM_SEMI_TRANSPARENT], 0);
+
+    [moleculeModel render];
     
     CGFloat maxLength = MAX(molecule.cellLengthA, molecule.cellLengthB);
     maxLength = MAX(molecule.cellLengthC, maxLength);
@@ -267,13 +276,6 @@ enum
     GLKMatrix4 planeMatrix = GLKMatrix4Multiply(_worldViewProjectionMatrix, planeModelMatrix);
     glUniformMatrix4fv(uniforms[UNIFORM_MODELVIEWPROJECTION_MATRIX], 1, 0, planeMatrix.m);
     [plane render];
-    
-    glUniformMatrix4fv(uniforms[UNIFORM_MODELVIEWPROJECTION_MATRIX], 1, 0, _modelViewProjectionMatrix.m);
-    glUniformMatrix3fv(uniforms[UNIFORM_NORMAL_MATRIX], 1, 0, _normalMatrix.m);
-    glUniform1i(uniforms[UNIFORM_USE_LIGHTING], 1);
-    glUniform1i(uniforms[UNIFORM_SEMI_TRANSPARENT], 0);
-
-    [moleculeModel render];
 }
 
 - (IBAction)startOpAnimation:(id)sender

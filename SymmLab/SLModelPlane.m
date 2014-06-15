@@ -27,7 +27,7 @@
         _points[3].position = GLKVector3Make( 0.5f, -0.5f, 0.0f); _points[3].normal = GLKVector3Make(0.0f, 0.0f, 1.0f);
         
         
-        SLColor yellowColor = {1.0f, 1.0f, 0.0f, 0.3f};
+        SLColor yellowColor = {1.0f, 1.0f, 0.0f, 0.6f};
         
         for(GLuint i=0; i<_vertexCount; i++) {
             _points[i].color = yellowColor;
