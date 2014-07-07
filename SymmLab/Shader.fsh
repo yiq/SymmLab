@@ -8,16 +8,14 @@
 
 varying lowp vec4 colorVarying;
 
-uniform bool semiTransparent;
+uniform lowp float alphaAdjust;
 
 
 void main()
 {
     lowp vec4 adjustedColor = colorVarying;
     
-//    if (semiTransparent) {
-//        adjustedColor.a = 0.1;
-//    }
+    adjustedColor.a = alphaAdjust;
     
     gl_FragColor = adjustedColor;
 }

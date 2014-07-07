@@ -8,6 +8,8 @@
 
 @import UIKit;
 
-@interface SLViewController : UIViewController
+@class SLAbstractSymmetryOperation;
+
+@interface SLViewController : UIViewController <UISplitViewControllerDelegate>
 
 @end

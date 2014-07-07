@@ -54,7 +54,7 @@
 
 - (GLKMatrix4)modelMatrixWithAnimationProgress: (float)progress
 {
-    return GLKMatrix4RotateWithVector3(GLKMatrix4Identity, M_PI * 2 / _divides * progress, _axis);
+    return GLKMatrix4RotateWithVector3(GLKMatrix4Identity, M_PI * 2.0 / _divides * progress, _axis);
 }
 
 @end

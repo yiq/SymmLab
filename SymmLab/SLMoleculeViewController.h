@@ -9,6 +9,19 @@
 @import UIKit;
 @import GLKit;
 
+@class SLAbstractSymmetryOperation;
+@class SLAbstractModel;
+
 @interface SLMoleculeViewController : GLKViewController
+
+@property (strong, nonatomic) SLAbstractSymmetryOperation *symmOperation;
+@property (strong, nonatomic) SLAbstractModel *visualClue;
+@property (nonatomic) GLKMatrix4 visualClueMatrix;
+
+@property (nonatomic) float animationProgress;
+
+- (void)startOpAnimation;
+- (void)pauseOpAnimation;
+- (void)resetOpAnimation;
 
 @end

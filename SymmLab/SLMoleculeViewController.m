@@ -12,6 +12,7 @@
 #import "SLModelLine.h"
 #import "SLModelPlane.h"
 
+#import "SLIdentitySymmetryOperation.h"
 #import "SLInversionSymmetryOperation.h"
 #import "SLProperAxisSymmetryOperation.h"
 #import "SLPlaneSymmetryOperation.h"
@@ -24,7 +25,7 @@ enum
     UNIFORM_MODELVIEWPROJECTION_MATRIX,
     UNIFORM_NORMAL_MATRIX,
     UNIFORM_USE_LIGHTING,
-    UNIFORM_SEMI_TRANSPARENT,
+    UNIFORM_ALPHA_ADJUST,
     NUM_UNIFORMS
 };
 GLint uniforms[NUM_UNIFORMS];
@@ -44,7 +45,6 @@ enum
     GLKMatrix4 _modelViewProjectionMatrix;
     GLKMatrix4 _worldViewProjectionMatrix;
     GLKMatrix3 _normalMatrix;
-    float _animationProgress;
     BOOL _isAnimating;
     
     GLuint _vertexArray;
@@ -54,9 +54,7 @@ enum
     SLModelMolecule *moleculeModel;
     
     SLModelLine *axis;
-    SLAbstractSymmetryOperation *symmOp;
-    
-    SLAbstractModel *plane;
+    //SLAbstractSymmetryOperation *symmOp;
     
     CGFloat _cameraTheta;
     CGFloat _cameraPhi;
@@ -70,8 +68,6 @@ enum
 
 @property (strong, nonatomic) EAGLContext *context;
 @property (strong, nonatomic) GLKBaseEffect *effect;
-
-- (IBAction)startOpAnimation:(id)sender;
 
 @end
 
@@ -93,6 +89,7 @@ enum
     
     _animationProgress = 0.0f;
     _isAnimating = NO;
+    _visualClue = nil;
     
     _cameraPhi = 0.0f; _cameraPhiDelta = 0.0f;
     _cameraTheta = 0.0f; _cameraThetaDelta = 0.0f;
@@ -100,10 +97,8 @@ enum
     _cameraUpY = 1.0f;
     
     molecule = [SLMolecule moleculeWithCifFile:[[NSBundle mainBundle] pathForResource:@"benzene" ofType:@"cif"]];
-//    symmOp = [[SLProperAxisSymmetryOperation alloc] initWithAxis:GLKMatrix3MultiplyVector3(GLKMatrix3RotateZ(GLKMatrix3Identity, -M_PI / 3.0f), GLKVector3Make(0.0f, 1.0f, 0.0f)) divide:2];
-//    symmOp = [[SLProperAxisSymmetryOperation alloc] initWithAxis:GLKVector3Make(0.0f, 1.0f, 0.0f) divide:2];
-    
-    symmOp = [[SLPlaneSymmetryOperation alloc] initWithNormalAngleTheta: - M_PI_2 / 3.0f phi:0.0f];
+    //symmOp = [[SLPlaneSymmetryOperation alloc] initWithNormalAngleTheta: - M_PI_2 / 3.0f phi:0.0f];
+    self.symmOperation = [[SLIdentitySymmetryOperation alloc] init];
     
     [self setupGL];
 }
@@ -141,13 +136,9 @@ enum
     
     [self loadShaders];
     
-//    self.effect = [[GLKBaseEffect alloc] init];
-//    self.effect.light0.enabled = GL_TRUE;
-//    self.effect.light0.diffuseColor = GLKVector4Make(1.0f, 0.4f, 0.4f, 1.0f);
-    
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_BLEND);
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE);
+    glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     
     moleculeModel = [[SLModelMolecule alloc] initWithMolecule:molecule];
     GLKVector3 axisPointPos[8] = {
@@ -164,13 +155,10 @@ enum
     SLColor axisColors[8] = {
         {1.0f, 0.0f, 0.0f, 1.0f}, {1.0f, 0.0f, 0.0f, 1.0f},
         {0.0f, 1.0f, 0.0f, 1.0f}, {0.0f, 1.0f, 0.0f, 1.0f},
-        {0.0f, 0.0f, 1.0f, 1.0f}, {0.0f, 0.0f, 1.0f, 1.0f},
-        {1.0f, 1.0f, 0.0f, 1.0f}, {1.0f, 1.0f, 0.0f, 1.0f}
+        {0.0f, 0.0f, 1.0f, 1.0f}, {0.0f, 0.0f, 1.0f, 1.0f}
     };
     
-    axis = [[SLModelLine alloc] initWithPoints:axisPointPos colors:axisColors count:8];
-    
-    plane = [[SLModelPlane alloc] init];
+    axis = [[SLModelLine alloc] initWithPoints:axisPointPos colors:axisColors count:6];
 }
 
 - (void)tearDownGL
@@ -213,7 +201,7 @@ enum
     
     //GLKMatrix4 modelMatrix = GLKMatrix4Identity;
     
-    GLKMatrix4 modelMatrix = [symmOp modelMatrixWithAnimationProgress:_animationProgress];
+    GLKMatrix4 modelMatrix = [self.symmOperation modelMatrixWithAnimationProgress:_animationProgress];
 
     GLKMatrix4 modelViewMatrix = GLKMatrix4Multiply(viewMatrix, modelMatrix);
     
@@ -224,12 +212,12 @@ enum
     
     //_rotation += self.timeSinceLastUpdate * 0.5f;
     if (_isAnimating) {
-        if (_animationProgress + self.timeSinceLastUpdate > 1.0f) {
-            _animationProgress = 1.0f;
+        if (self.animationProgress + self.timeSinceLastUpdate > 1.0f) {
+            self.animationProgress = 1.0f;
             _isAnimating = NO;
         }
         else {
-            _animationProgress += self.timeSinceLastUpdate;
+            self.animationProgress += self.timeSinceLastUpdate;
         }
         NSLog(@"animation progress updated to %f", _animationProgress);
     }
@@ -237,57 +225,61 @@ enum
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
 {
-    glClearColor(0.35f, 0.35f, 0.35f, 1.0f);
+    //glClearColor(0.35f, 0.35f, 0.35f, 1.0f);
+    glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    
+
     // Render the object again with ES2
     glUseProgram(_program);
     
     glUniformMatrix4fv(uniforms[UNIFORM_MODELVIEWPROJECTION_MATRIX], 1, 0, _worldViewProjectionMatrix.m);
     glUniformMatrix3fv(uniforms[UNIFORM_NORMAL_MATRIX], 1, 0, _normalMatrix.m);
     glUniform1i(uniforms[UNIFORM_USE_LIGHTING], 0);
-    glUniform1i(uniforms[UNIFORM_SEMI_TRANSPARENT], 0);
+    glUniform1f(uniforms[UNIFORM_ALPHA_ADJUST], 1.0);
     [axis render];
-    
-    // render ghost
-//    if (_isAnimating) {
-//        glUniform1i(uniforms[UNIFORM_SEMI_TRANSPARENT], 0);
-//        [moleculeModel render];
-//        
-////        glClear(GL_DEPTH_BUFFER_BIT);
-//    }
-    
 
-    
+    // Render the molecule in transform
     glUniformMatrix4fv(uniforms[UNIFORM_MODELVIEWPROJECTION_MATRIX], 1, 0, _modelViewProjectionMatrix.m);
-    glUniformMatrix3fv(uniforms[UNIFORM_NORMAL_MATRIX], 1, 0, _normalMatrix.m);
     glUniform1i(uniforms[UNIFORM_USE_LIGHTING], 1);
-    glUniform1i(uniforms[UNIFORM_SEMI_TRANSPARENT], 0);
 
     [moleculeModel render];
     
-    CGFloat maxLength = MAX(molecule.cellLengthA, molecule.cellLengthB);
-    maxLength = MAX(molecule.cellLengthC, maxLength);
+    glUniformMatrix4fv(uniforms[UNIFORM_MODELVIEWPROJECTION_MATRIX], 1, 0, _worldViewProjectionMatrix.m);
+    glUniform1f(uniforms[UNIFORM_ALPHA_ADJUST], 0.5);
+
+    // Render ghost
+    if (self.animationProgress > 0.0f) {
+        glUniformMatrix3fv(uniforms[UNIFORM_NORMAL_MATRIX], 1, 0, GLKMatrix3Identity.m);
+        [moleculeModel render];
+    }
     
-    maxLength = 5.0f;
-    
-    GLKMatrix4 planeModelMatrix = GLKMatrix4RotateY(GLKMatrix4Identity, M_PI_2);
-    planeModelMatrix = GLKMatrix4Scale(planeModelMatrix, maxLength, maxLength, 1.0f);
-    GLKMatrix4 planeMatrix = GLKMatrix4Multiply(_worldViewProjectionMatrix, planeModelMatrix);
-    glUniformMatrix4fv(uniforms[UNIFORM_MODELVIEWPROJECTION_MATRIX], 1, 0, planeMatrix.m);
-    [plane render];
+    glUniform1f(uniforms[UNIFORM_ALPHA_ADJUST], 0.3);
+    if (self.visualClue) {
+        GLKMatrix4 mvpMatrix = GLKMatrix4Multiply(_worldViewProjectionMatrix, self.visualClueMatrix);
+        glUniformMatrix4fv(uniforms[UNIFORM_MODELVIEWPROJECTION_MATRIX], 1, 0, mvpMatrix.m);
+        glUniform1i(uniforms[UNIFORM_USE_LIGHTING], 0);
+
+        [self.visualClue render];
+    }
 }
 
-- (IBAction)startOpAnimation:(id)sender
+- (void)startOpAnimation
 {
-    if (_isAnimating) {
-        _animationProgress = 0.0f;
+    if (self.animationProgress >= 1.0f) {
+        self.animationProgress = 0.0f;
     }
-    else {
-        _animationProgress = 0.0f;
-        _isAnimating = YES;
-    }
+    _isAnimating = YES;
 }
+
+- (void)pauseOpAnimation {
+    _isAnimating = NO;
+}
+
+- (void)resetOpAnimation {
+    _isAnimating = NO;
+    self.animationProgress = 0.0f;
+}
+
 
 - (IBAction)panGestureHandler:(UIPanGestureRecognizer *)sender {
     CGPoint translate = [sender translationInView:self.view];
@@ -367,7 +359,7 @@ enum
     uniforms[UNIFORM_MODELVIEWPROJECTION_MATRIX] = glGetUniformLocation(_program, "modelViewProjectionMatrix");
     uniforms[UNIFORM_NORMAL_MATRIX] = glGetUniformLocation(_program, "normalMatrix");
     uniforms[UNIFORM_USE_LIGHTING] = glGetUniformLocation(_program, "useLighting");
-    uniforms[UNIFORM_SEMI_TRANSPARENT] = glGetUniformLocation(_program, "semiTransparent");
+    uniforms[UNIFORM_ALPHA_ADJUST] = glGetUniformLocation(_program, "alphaAdjust");
     
     // Release vertex and fragment shaders.
     if (vertShader) {

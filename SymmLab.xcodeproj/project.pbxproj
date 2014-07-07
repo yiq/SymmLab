@@ -71,9 +71,13 @@
 		9777B6931931562200E6316B /* SLMoleculeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9777B6921931562200E6316B /* SLMoleculeViewController.m */; };
 		9777B6E019315CDB00E6316B /* SLModelCube.m in Sources */ = {isa = PBXBuildFile; fileRef = 9777B6DF19315CDB00E6316B /* SLModelCube.m */; };
 		9777B6E31931638B00E6316B /* SLAbstractModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9777B6E21931638B00E6316B /* SLAbstractModel.m */; };
-		97DEF3C719326564004A50D2 /* SLOperationListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DEF3C619326564004A50D2 /* SLOperationListViewController.m */; };
-		97DEF3CA193265A7004A50D2 /* SLOperationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DEF3C9193265A7004A50D2 /* SLOperationViewController.m */; };
-		97DEF3CE193266B8004A50D2 /* SLOperationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DEF3CD193266B8004A50D2 /* SLOperationDetailViewController.m */; };
+		97C909B4194E364F0072989D /* SLRootOpPanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C909B3194E364F0072989D /* SLRootOpPanelViewController.m */; };
+		97C909B8194E3E880072989D /* SLSigmaOpPanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C909B7194E3E880072989D /* SLSigmaOpPanelViewController.m */; };
+		97C909BB194E58550072989D /* SLAbstractOpPanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C909BA194E58550072989D /* SLAbstractOpPanelViewController.m */; };
+		97C909BE194E597D0072989D /* SLCnOpPanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C909BD194E597D0072989D /* SLCnOpPanelViewController.m */; };
+		97C909C1194E5F8E0072989D /* SLInvOpPanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C909C0194E5F8E0072989D /* SLInvOpPanelViewController.m */; };
+		97D4C73A196B11C400E1C310 /* SLSnOpPanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D4C739196B11C400E1C310 /* SLSnOpPanelViewController.m */; };
+		97D4C73D196B125E00E1C310 /* SLImproperAxisSymmetryOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D4C73C196B125E00E1C310 /* SLImproperAxisSymmetryOperation.m */; };
 		97DEF3D719328350004A50D2 /* SLAbstractSymmetryOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DEF3D619328350004A50D2 /* SLAbstractSymmetryOperation.m */; };
 		97DEF3DA19328439004A50D2 /* SLIdentitySymmetryOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DEF3D919328439004A50D2 /* SLIdentitySymmetryOperation.m */; };
 		97DEF3DD19328634004A50D2 /* SLInversionSymmetryOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DEF3DC19328634004A50D2 /* SLInversionSymmetryOperation.m */; };
@@ -235,12 +239,20 @@
 		9777B6DF19315CDB00E6316B /* SLModelCube.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLModelCube.m; sourceTree = "<group>"; };
 		9777B6E11931638B00E6316B /* SLAbstractModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLAbstractModel.h; sourceTree = "<group>"; };
 		9777B6E21931638B00E6316B /* SLAbstractModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLAbstractModel.m; sourceTree = "<group>"; };
-		97DEF3C519326564004A50D2 /* SLOperationListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLOperationListViewController.h; sourceTree = "<group>"; };
-		97DEF3C619326564004A50D2 /* SLOperationListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLOperationListViewController.m; sourceTree = "<group>"; };
-		97DEF3C8193265A7004A50D2 /* SLOperationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLOperationViewController.h; sourceTree = "<group>"; };
-		97DEF3C9193265A7004A50D2 /* SLOperationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLOperationViewController.m; sourceTree = "<group>"; };
-		97DEF3CC193266B8004A50D2 /* SLOperationDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLOperationDetailViewController.h; sourceTree = "<group>"; };
-		97DEF3CD193266B8004A50D2 /* SLOperationDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLOperationDetailViewController.m; sourceTree = "<group>"; };
+		97C909B2194E364F0072989D /* SLRootOpPanelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLRootOpPanelViewController.h; sourceTree = "<group>"; };
+		97C909B3194E364F0072989D /* SLRootOpPanelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLRootOpPanelViewController.m; sourceTree = "<group>"; };
+		97C909B6194E3E880072989D /* SLSigmaOpPanelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSigmaOpPanelViewController.h; sourceTree = "<group>"; };
+		97C909B7194E3E880072989D /* SLSigmaOpPanelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSigmaOpPanelViewController.m; sourceTree = "<group>"; };
+		97C909B9194E58550072989D /* SLAbstractOpPanelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLAbstractOpPanelViewController.h; sourceTree = "<group>"; };
+		97C909BA194E58550072989D /* SLAbstractOpPanelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLAbstractOpPanelViewController.m; sourceTree = "<group>"; };
+		97C909BC194E597D0072989D /* SLCnOpPanelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLCnOpPanelViewController.h; sourceTree = "<group>"; };
+		97C909BD194E597D0072989D /* SLCnOpPanelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLCnOpPanelViewController.m; sourceTree = "<group>"; };
+		97C909BF194E5F8E0072989D /* SLInvOpPanelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLInvOpPanelViewController.h; sourceTree = "<group>"; };
+		97C909C0194E5F8E0072989D /* SLInvOpPanelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLInvOpPanelViewController.m; sourceTree = "<group>"; };
+		97D4C738196B11C400E1C310 /* SLSnOpPanelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSnOpPanelViewController.h; sourceTree = "<group>"; };
+		97D4C739196B11C400E1C310 /* SLSnOpPanelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSnOpPanelViewController.m; sourceTree = "<group>"; };
+		97D4C73B196B125E00E1C310 /* SLImproperAxisSymmetryOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLImproperAxisSymmetryOperation.h; sourceTree = "<group>"; };
+		97D4C73C196B125E00E1C310 /* SLImproperAxisSymmetryOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLImproperAxisSymmetryOperation.m; sourceTree = "<group>"; };
 		97DEF3D519328350004A50D2 /* SLAbstractSymmetryOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLAbstractSymmetryOperation.h; sourceTree = "<group>"; };
 		97DEF3D619328350004A50D2 /* SLAbstractSymmetryOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLAbstractSymmetryOperation.m; sourceTree = "<group>"; };
 		97DEF3D819328439004A50D2 /* SLIdentitySymmetryOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLIdentitySymmetryOperation.h; sourceTree = "<group>"; };
@@ -480,13 +492,11 @@
 				970CE425193196590038841F /* Data Model */,
 				970CE34A1931804C0038841F /* Shaders */,
 				9777B6DD19315C9A00E6316B /* 3D Models */,
-				9777B690193155F700E6316B /* MoleculeView */,
-				97DEF3C419326433004A50D2 /* OperationPanel */,
+				9777B690193155F700E6316B /* ViewControllers */,
 				9777B66A1931533700E6316B /* SLAppDelegate.h */,
 				9777B66B1931533700E6316B /* SLAppDelegate.m */,
 				9777B66D1931533700E6316B /* Main.storyboard */,
-				9777B6701931533700E6316B /* SLViewController.h */,
-				9777B6711931533700E6316B /* SLViewController.m */,
+				97C909B5194E3B9E0072989D /* RootViewController */,
 				9777B6731931533700E6316B /* Images.xcassets */,
 				9777B6621931533700E6316B /* Supporting Files */,
 			);
@@ -525,13 +535,25 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		9777B690193155F700E6316B /* MoleculeView */ = {
+		9777B690193155F700E6316B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				9777B6911931562200E6316B /* SLMoleculeViewController.h */,
 				9777B6921931562200E6316B /* SLMoleculeViewController.m */,
+				97C909B2194E364F0072989D /* SLRootOpPanelViewController.h */,
+				97C909B3194E364F0072989D /* SLRootOpPanelViewController.m */,
+				97C909B9194E58550072989D /* SLAbstractOpPanelViewController.h */,
+				97C909BA194E58550072989D /* SLAbstractOpPanelViewController.m */,
+				97C909B6194E3E880072989D /* SLSigmaOpPanelViewController.h */,
+				97C909B7194E3E880072989D /* SLSigmaOpPanelViewController.m */,
+				97C909BC194E597D0072989D /* SLCnOpPanelViewController.h */,
+				97C909BD194E597D0072989D /* SLCnOpPanelViewController.m */,
+				97C909BF194E5F8E0072989D /* SLInvOpPanelViewController.h */,
+				97C909C0194E5F8E0072989D /* SLInvOpPanelViewController.m */,
+				97D4C738196B11C400E1C310 /* SLSnOpPanelViewController.h */,
+				97D4C739196B11C400E1C310 /* SLSnOpPanelViewController.m */,
 			);
-			name = MoleculeView;
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 		9777B6DD19315C9A00E6316B /* 3D Models */ = {
@@ -553,33 +575,13 @@
 			name = "3D Models";
 			sourceTree = "<group>";
 		};
-		97DEF3C419326433004A50D2 /* OperationPanel */ = {
+		97C909B5194E3B9E0072989D /* RootViewController */ = {
 			isa = PBXGroup;
 			children = (
-				97DEF3C8193265A7004A50D2 /* SLOperationViewController.h */,
-				97DEF3C9193265A7004A50D2 /* SLOperationViewController.m */,
-				97DEF3CB1932669B004A50D2 /* Master View */,
-				97DEF3CF193266BB004A50D2 /* Detail View */,
+				9777B6701931533700E6316B /* SLViewController.h */,
+				9777B6711931533700E6316B /* SLViewController.m */,
 			);
-			name = OperationPanel;
-			sourceTree = "<group>";
-		};
-		97DEF3CB1932669B004A50D2 /* Master View */ = {
-			isa = PBXGroup;
-			children = (
-				97DEF3C519326564004A50D2 /* SLOperationListViewController.h */,
-				97DEF3C619326564004A50D2 /* SLOperationListViewController.m */,
-			);
-			name = "Master View";
-			sourceTree = "<group>";
-		};
-		97DEF3CF193266BB004A50D2 /* Detail View */ = {
-			isa = PBXGroup;
-			children = (
-				97DEF3CC193266B8004A50D2 /* SLOperationDetailViewController.h */,
-				97DEF3CD193266B8004A50D2 /* SLOperationDetailViewController.m */,
-			);
-			name = "Detail View";
+			name = RootViewController;
 			sourceTree = "<group>";
 		};
 		97DEF3D319328332004A50D2 /* Chemical Model */ = {
@@ -606,6 +608,8 @@
 				97DEF3DF193291C1004A50D2 /* SLProperAxisSymmetryOperation.m */,
 				975A83031944FEFB009E3CAF /* SLPlaneSymmetryOperation.h */,
 				975A83041944FEFB009E3CAF /* SLPlaneSymmetryOperation.m */,
+				97D4C73B196B125E00E1C310 /* SLImproperAxisSymmetryOperation.h */,
+				97D4C73C196B125E00E1C310 /* SLImproperAxisSymmetryOperation.m */,
 			);
 			name = "Mathematical Model";
 			sourceTree = "<group>";
@@ -803,24 +807,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97D4C73A196B11C400E1C310 /* SLSnOpPanelViewController.m in Sources */,
 				970CE42D193196680038841F /* SLMolecule.m in Sources */,
-				97DEF3CA193265A7004A50D2 /* SLOperationViewController.m in Sources */,
+				97C909BE194E597D0072989D /* SLCnOpPanelViewController.m in Sources */,
+				97D4C73D196B125E00E1C310 /* SLImproperAxisSymmetryOperation.m in Sources */,
 				970CE345193179470038841F /* SLModelSphere.m in Sources */,
 				970CE5D31931C4EA0038841F /* SLModelLine.m in Sources */,
+				97C909BB194E58550072989D /* SLAbstractOpPanelViewController.m in Sources */,
 				97DEF3D719328350004A50D2 /* SLAbstractSymmetryOperation.m in Sources */,
+				97C909B8194E3E880072989D /* SLSigmaOpPanelViewController.m in Sources */,
 				970CE5CA1931B0820038841F /* SLModelMolecule.m in Sources */,
 				9777B6681931533700E6316B /* main.m in Sources */,
 				97DEF3E0193291C1004A50D2 /* SLProperAxisSymmetryOperation.m in Sources */,
-				97DEF3CE193266B8004A50D2 /* SLOperationDetailViewController.m in Sources */,
 				97DEF3DD19328634004A50D2 /* SLInversionSymmetryOperation.m in Sources */,
-				97DEF3C719326564004A50D2 /* SLOperationListViewController.m in Sources */,
 				9777B6E019315CDB00E6316B /* SLModelCube.m in Sources */,
 				975A83051944FEFB009E3CAF /* SLPlaneSymmetryOperation.m in Sources */,
 				9777B6E31931638B00E6316B /* SLAbstractModel.m in Sources */,
 				970CE42C193196680038841F /* SLAtom.m in Sources */,
 				97DEF3DA19328439004A50D2 /* SLIdentitySymmetryOperation.m in Sources */,
 				9777B6931931562200E6316B /* SLMoleculeViewController.m in Sources */,
+				97C909C1194E5F8E0072989D /* SLInvOpPanelViewController.m in Sources */,
 				975A830819450D0C009E3CAF /* SLModelPlane.m in Sources */,
+				97C909B4194E364F0072989D /* SLRootOpPanelViewController.m in Sources */,
 				9777B6721931533700E6316B /* SLViewController.m in Sources */,
 				9777B66C1931533700E6316B /* SLAppDelegate.m in Sources */,
 			);
