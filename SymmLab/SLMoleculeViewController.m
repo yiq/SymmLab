@@ -96,7 +96,9 @@ enum
     _cameraDistance = 10.0f;
     _cameraUpY = 1.0f;
     
-    molecule = [SLMolecule moleculeWithCifFile:[[NSBundle mainBundle] pathForResource:@"benzene" ofType:@"cif"]];
+//    molecule = [SLMolecule moleculeWithCifFile:[[NSBundle mainBundle] pathForResource:@"benzene" ofType:@"cif"]];
+    molecule = [SLMolecule moleculeWithXyzFile:[[NSBundle mainBundle] pathForResource:@"1,3,5,7-tetrafluorocyclooctatetraene" ofType:@"xyz"]];
+
     //symmOp = [[SLPlaneSymmetryOperation alloc] initWithNormalAngleTheta: - M_PI_2 / 3.0f phi:0.0f];
     self.symmOperation = [[SLIdentitySymmetryOperation alloc] init];
     

@@ -56,15 +56,8 @@
         
         MSAtomType atomType;
         NSString * atomTypeSymbol = atomData[@"type_symbol"];
-        if ([atomTypeSymbol characterAtIndex:0] == 'H') {
-            atomType = MSAT_H;
-        }
-        else if ([atomTypeSymbol characterAtIndex:0] == 'C') {
-            atomType = MSAT_C;
-        }
-        else {
-            atomType = MSAT_Unlisted;
-        }
+        
+        atomType = [SLAtom getAtomTypeByString:atomTypeSymbol];
         
         [atoms addObject:[SLAtom atomWithPosition:GLKVector3Make(xCoord, yCoord, zCoord) type:atomType]];
     }
@@ -85,6 +78,61 @@
     NSString *cifFileContent = [NSString stringWithContentsOfFile:cifPath encoding:NSUTF8StringEncoding error:NULL];
     NSDictionary * parsedCif = [ucifParser cifDictionaryFromString:cifFileContent withError:&error];
     return [self moleculeWithCifDictionary:parsedCif];
+}
+
++ (id)moleculeWithXyzFile:(NSString *)xyzPath {
+    SLMolecule *mol = [[SLMolecule alloc] init];
+    NSMutableArray *atoms = [[NSMutableArray alloc] init];
+    
+    NSString *xyzFileContent = [NSString stringWithContentsOfFile:xyzPath encoding:NSUTF8StringEncoding error:NULL];
+    NSArray *lines = [xyzFileContent componentsSeparatedByString:@"\n"];
+    NSUInteger numberOfAtoms = [lines[0] integerValue];
+    NSLog(@"The xyz file %@ has %lu atoms", xyzPath, numberOfAtoms);
+    
+    assert(lines.count >= 2+numberOfAtoms);
+    
+    CGFloat xCenter = 0, yCenter = 0, zCenter = 0, totalWeight = 0;
+    
+    for(size_t i=2; i<2+numberOfAtoms; i++) {
+        CGFloat xCoord, yCoord, zCoord;
+        
+        NSArray *atomProps = [lines[i] componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        atomProps = [atomProps filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF != ''"]];
+        
+        MSAtomType atomType = [SLAtom getAtomTypeByString:atomProps[0]];
+        NSDictionary *atomAttr = [SLAtom getAtomAttributesForType:atomType];
+        xCoord = [atomProps[1] floatValue];
+        yCoord = [atomProps[2] floatValue];
+        zCoord = [atomProps[3] floatValue];
+        
+        xCenter += xCoord;
+        yCenter += yCoord;
+        zCenter += zCoord;
+
+        
+//        xCenter += xCoord * [atomAttr[@"weight"] floatValue];
+//        yCenter += yCoord * [atomAttr[@"weight"] floatValue];
+//        zCenter += zCoord * [atomAttr[@"weight"] floatValue];
+        totalWeight += [atomAttr[@"weight"] floatValue];
+    
+        [atoms addObject:[SLAtom atomWithPosition:GLKVector3Make(xCoord, yCoord, zCoord) type:atomType]];
+    }
+    
+    xCenter /= numberOfAtoms;
+    yCenter /= numberOfAtoms;
+    zCenter /= numberOfAtoms;
+    
+//    xCenter /= totalWeight;
+//    yCenter /= totalWeight;
+//    zCenter /= totalWeight;
+    
+    for (SLAtom * atom in atoms) {
+        atom.position = GLKVector3Add(atom.position, GLKVector3Make(-xCenter, -yCenter, -zCenter));
+    }
+    
+    mol.atoms = [NSArray arrayWithArray:atoms];
+    
+    return mol;
 }
 
 @end

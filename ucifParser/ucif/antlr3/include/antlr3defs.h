@@ -325,13 +325,13 @@ typedef struct sockaddr         ANTLR3_SOCKADDRC, * pANTLR3_SOCKADDRC;  // Type 
 #endif
 
 
-#ifdef  HAVE_MALLOC_H
-# include    <malloc.h>
-#else
-# ifdef HAVE_SYS_MALLOC_H
-#  include    <sys/malloc.h>
-# endif
-#endif
+//#ifdef  HAVE_MALLOC_H
+//# include    <malloc.h>
+//#else
+//# ifdef HAVE_SYS_MALLOC_H
+//#  include    <sys/malloc.h>
+//# endif
+//#endif
 
 #ifdef  HAVE_CTYPE_H
 # include   <ctype.h>

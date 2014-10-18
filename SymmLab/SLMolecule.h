@@ -23,5 +23,6 @@
 
 + (id)moleculeWithCifDictionary:(NSDictionary *)parsedCif;
 + (id)moleculeWithCifFile:(NSString *)cifPath;
++ (id)moleculeWithXyzFile:(NSString *)xyzPath;
 
 @end

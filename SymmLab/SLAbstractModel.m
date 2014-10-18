@@ -7,6 +7,7 @@
 //
 
 #import "SLAbstractModel.h"
+@import OpenGLES;
 
 @interface SLAbstractModel() {
     BOOL isVBOPrepared;

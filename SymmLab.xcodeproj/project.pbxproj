@@ -52,6 +52,12 @@
 		970CE5CE1931B9A00038841F /* benzene.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 970CE5CD1931B98C0038841F /* benzene.pdb */; };
 		970CE5D01931BD040038841F /* benzene.cif in Resources */ = {isa = PBXBuildFile; fileRef = 970CE5CF1931BCF70038841F /* benzene.cif */; };
 		970CE5D31931C4EA0038841F /* SLModelLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 970CE5D21931C4EA0038841F /* SLModelLine.m */; };
+		9715857A19F1E70900083BD5 /* 1,3,5,7-tetrafluorocyclooctatetraene.xyz in Resources */ = {isa = PBXBuildFile; fileRef = 9715857419F1E70900083BD5 /* 1,3,5,7-tetrafluorocyclooctatetraene.xyz */; };
+		9715857B19F1E70900083BD5 /* allene.xyz in Resources */ = {isa = PBXBuildFile; fileRef = 9715857519F1E70900083BD5 /* allene.xyz */; };
+		9715857C19F1E70900083BD5 /* B(CH2OH)3.xyz in Resources */ = {isa = PBXBuildFile; fileRef = 9715857619F1E70900083BD5 /* B(CH2OH)3.xyz */; };
+		9715857D19F1E70900083BD5 /* Co(en)3.xyz in Resources */ = {isa = PBXBuildFile; fileRef = 9715857719F1E70900083BD5 /* Co(en)3.xyz */; };
+		9715857E19F1E70900083BD5 /* Co(en)3_noH.xyz in Resources */ = {isa = PBXBuildFile; fileRef = 9715857819F1E70900083BD5 /* Co(en)3_noH.xyz */; };
+		9715857F19F1E70900083BD5 /* ruthenocene.xyz in Resources */ = {isa = PBXBuildFile; fileRef = 9715857919F1E70900083BD5 /* ruthenocene.xyz */; };
 		975A83051944FEFB009E3CAF /* SLPlaneSymmetryOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 975A83041944FEFB009E3CAF /* SLPlaneSymmetryOperation.m */; };
 		975A830819450D0C009E3CAF /* SLModelPlane.m in Sources */ = {isa = PBXBuildFile; fileRef = 975A830719450D0C009E3CAF /* SLModelPlane.m */; };
 		9777B65C1931533700E6316B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9777B65B1931533700E6316B /* Foundation.framework */; };
@@ -210,6 +216,12 @@
 		970CE5CF1931BCF70038841F /* benzene.cif */ = {isa = PBXFileReference; lastKnownFileType = text; path = benzene.cif; sourceTree = "<group>"; };
 		970CE5D11931C4EA0038841F /* SLModelLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLModelLine.h; sourceTree = "<group>"; };
 		970CE5D21931C4EA0038841F /* SLModelLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLModelLine.m; sourceTree = "<group>"; };
+		9715857419F1E70900083BD5 /* 1,3,5,7-tetrafluorocyclooctatetraene.xyz */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "1,3,5,7-tetrafluorocyclooctatetraene.xyz"; sourceTree = "<group>"; };
+		9715857519F1E70900083BD5 /* allene.xyz */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = allene.xyz; sourceTree = "<group>"; };
+		9715857619F1E70900083BD5 /* B(CH2OH)3.xyz */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "B(CH2OH)3.xyz"; sourceTree = "<group>"; };
+		9715857719F1E70900083BD5 /* Co(en)3.xyz */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Co(en)3.xyz"; sourceTree = "<group>"; };
+		9715857819F1E70900083BD5 /* Co(en)3_noH.xyz */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Co(en)3_noH.xyz"; sourceTree = "<group>"; };
+		9715857919F1E70900083BD5 /* ruthenocene.xyz */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ruthenocene.xyz; sourceTree = "<group>"; };
 		975A83031944FEFB009E3CAF /* SLPlaneSymmetryOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLPlaneSymmetryOperation.h; sourceTree = "<group>"; };
 		975A83041944FEFB009E3CAF /* SLPlaneSymmetryOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLPlaneSymmetryOperation.m; sourceTree = "<group>"; };
 		975A830619450D0C009E3CAF /* SLModelPlane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLModelPlane.h; sourceTree = "<group>"; };
@@ -451,6 +463,19 @@
 			path = ucifParserTests;
 			sourceTree = "<group>";
 		};
+		9715857319F1E70900083BD5 /* structures */ = {
+			isa = PBXGroup;
+			children = (
+				9715857419F1E70900083BD5 /* 1,3,5,7-tetrafluorocyclooctatetraene.xyz */,
+				9715857519F1E70900083BD5 /* allene.xyz */,
+				9715857619F1E70900083BD5 /* B(CH2OH)3.xyz */,
+				9715857719F1E70900083BD5 /* Co(en)3.xyz */,
+				9715857819F1E70900083BD5 /* Co(en)3_noH.xyz */,
+				9715857919F1E70900083BD5 /* ruthenocene.xyz */,
+			);
+			path = structures;
+			sourceTree = "<group>";
+		};
 		9777B64F1931533700E6316B = {
 			isa = PBXGroup;
 			children = (
@@ -506,6 +531,7 @@
 		9777B6621931533700E6316B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9715857319F1E70900083BD5 /* structures */,
 				970CE5CD1931B98C0038841F /* benzene.pdb */,
 				970CE5CF1931BCF70038841F /* benzene.cif */,
 				970CE5CB1931B24D0038841F /* coronene.cif */,
@@ -741,9 +767,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				970CE5D01931BD040038841F /* benzene.cif in Resources */,
+				9715857C19F1E70900083BD5 /* B(CH2OH)3.xyz in Resources */,
 				970CE5CE1931B9A00038841F /* benzene.pdb in Resources */,
 				970CE5CC1931B25B0038841F /* coronene.cif in Resources */,
 				970CE34C193180B40038841F /* Shader.vsh in Resources */,
+				9715857D19F1E70900083BD5 /* Co(en)3.xyz in Resources */,
+				9715857F19F1E70900083BD5 /* ruthenocene.xyz in Resources */,
+				9715857B19F1E70900083BD5 /* allene.xyz in Resources */,
+				9715857A19F1E70900083BD5 /* 1,3,5,7-tetrafluorocyclooctatetraene.xyz in Resources */,
+				9715857E19F1E70900083BD5 /* Co(en)3_noH.xyz in Resources */,
 				970CE34B193180B10038841F /* Shader.fsh in Resources */,
 				9777B6741931533700E6316B /* Images.xcassets in Resources */,
 				9777B6661931533700E6316B /* InfoPlist.strings in Resources */,
@@ -920,6 +952,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -941,6 +974,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -1094,6 +1128,7 @@
 				);
 				INFOPLIST_FILE = "SymmLab/SymmLab-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1113,6 +1148,7 @@
 				);
 				INFOPLIST_FILE = "SymmLab/SymmLab-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};

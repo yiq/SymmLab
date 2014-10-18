@@ -10,7 +10,7 @@
 
 @implementation SLModelLine
 
-- (id) initWithPoints:(GLKVector3 *)points colors:(SLColor *)colors count:(NSUInteger)count
+- (id) initWithPoints:(GLKVector3 *)points colors:(SLColor *)colors count:(GLuint)count
 {
     self = [super init];
     if (self) {

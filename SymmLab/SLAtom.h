@@ -15,6 +15,8 @@ enum SLAtomType {
     MSAT_Na, MSAT_Mg, MSAT_Al, MSAT_Si, MSAT_P, MSAT_S, MSAT_Cl, MSAT_Ar,
     MSAT_K, MSAT_Ca, MSAT_Sc, MSAT_Ti, MSAT_V, MSAT_Cr, MSAT_Mn, MSAT_Fe, MSAT_Co, MSAT_Ni, MSAT_Cu, MSAT_Zn, MSAT_Ga, MSAT_Ge, MSAT_As, MSAT_Se, MSAT_Br, MSAT_Kr,
     
+    MSAT_Ru,
+    
     MSAT_Unlisted=999};
 
 typedef enum SLAtomType MSAtomType;
@@ -27,5 +29,6 @@ typedef enum SLAtomType MSAtomType;
 - (id)initWithPosition:(GLKVector3)position type:(MSAtomType)type;
 + (id)atomWithPosition:(GLKVector3)position type:(MSAtomType)type;
 + (NSDictionary *)getAtomAttributesForType:(MSAtomType)type;
++ (MSAtomType)getAtomTypeByString:(NSString *)atomName;
 
 @end
