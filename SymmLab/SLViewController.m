@@ -77,4 +77,19 @@
     self.masterPopoverController = nil;
 }
 
+- (IBAction)interactiveModeChanged:(UISegmentedControl *)sender {
+    
+    switch (sender.selectedSegmentIndex) {
+        case 0:
+            self.MoleculeVC.isRotatingCamera = YES;
+            sender.tintColor = [UIColor colorWithRed:0.0f green:122.0f/255.0f blue:255.0f/255.0f alpha:1.0f];
+            break;
+        case 1:
+            self.MoleculeVC.isRotatingCamera = NO;
+            sender.tintColor = [UIColor colorWithRed:255.0f/255.0f green:59.0f/255.0f blue:48.0f/255.0f alpha:1.0f];
+            break;
+        default:
+            break;
+    }
+}
 @end

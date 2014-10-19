@@ -43,19 +43,23 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"sigma"]) {
-        SLSigmaOpPanelViewController *destVC = segue.destinationViewController;
+        SLAbstractOpPanelViewController *destVC = segue.destinationViewController;
         destVC.moleculeViewController = self.moleculeViewController;
     }
     else if ([segue.identifier isEqualToString:@"inversion"]) {
-        SLSigmaOpPanelViewController *destVC = segue.destinationViewController;
+        SLAbstractOpPanelViewController *destVC = segue.destinationViewController;
         destVC.moleculeViewController = self.moleculeViewController;
     }
     else if ([segue.identifier isEqualToString:@"cn"]) {
-        SLSigmaOpPanelViewController *destVC = segue.destinationViewController;
+        SLAbstractOpPanelViewController *destVC = segue.destinationViewController;
         destVC.moleculeViewController = self.moleculeViewController;
     }
     else if ([segue.identifier isEqualToString:@"sn"]) {
-        SLSigmaOpPanelViewController *destVC = segue.destinationViewController;
+        SLAbstractOpPanelViewController *destVC = segue.destinationViewController;
+        destVC.moleculeViewController = self.moleculeViewController;
+    }
+    else if ([segue.identifier isEqualToString:@"molrot"]) {
+        SLAbstractOpPanelViewController *destVC = segue.destinationViewController;
         destVC.moleculeViewController = self.moleculeViewController;
     }
 

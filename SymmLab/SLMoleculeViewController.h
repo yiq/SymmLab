@@ -18,10 +18,18 @@
 @property (strong, nonatomic) SLAbstractModel *visualClue;
 @property (nonatomic) GLKMatrix4 visualClueMatrix;
 
+@property (nonatomic) BOOL isRotatingCamera;
+
 @property (nonatomic) float animationProgress;
+
+@property GLfloat moleculeRotateX;
+@property GLfloat moleculeRotateY;
+@property GLfloat moleculeRotateZ;
 
 - (void)startOpAnimation;
 - (void)pauseOpAnimation;
 - (void)resetOpAnimation;
+
+- (void)loadMoleculeWithFilename:(NSString *)filename;
 
 @end

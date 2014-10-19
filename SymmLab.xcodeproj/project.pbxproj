@@ -77,6 +77,7 @@
 		9777B6931931562200E6316B /* SLMoleculeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9777B6921931562200E6316B /* SLMoleculeViewController.m */; };
 		9777B6E019315CDB00E6316B /* SLModelCube.m in Sources */ = {isa = PBXBuildFile; fileRef = 9777B6DF19315CDB00E6316B /* SLModelCube.m */; };
 		9777B6E31931638B00E6316B /* SLAbstractModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9777B6E21931638B00E6316B /* SLAbstractModel.m */; };
+		9790A30819F43FD900AF0735 /* SLMoleculeRotateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9790A30719F43FD900AF0735 /* SLMoleculeRotateViewController.m */; };
 		97C909B4194E364F0072989D /* SLRootOpPanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C909B3194E364F0072989D /* SLRootOpPanelViewController.m */; };
 		97C909B8194E3E880072989D /* SLSigmaOpPanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C909B7194E3E880072989D /* SLSigmaOpPanelViewController.m */; };
 		97C909BB194E58550072989D /* SLAbstractOpPanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C909BA194E58550072989D /* SLAbstractOpPanelViewController.m */; };
@@ -251,6 +252,8 @@
 		9777B6DF19315CDB00E6316B /* SLModelCube.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLModelCube.m; sourceTree = "<group>"; };
 		9777B6E11931638B00E6316B /* SLAbstractModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLAbstractModel.h; sourceTree = "<group>"; };
 		9777B6E21931638B00E6316B /* SLAbstractModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLAbstractModel.m; sourceTree = "<group>"; };
+		9790A30619F43FD900AF0735 /* SLMoleculeRotateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLMoleculeRotateViewController.h; sourceTree = "<group>"; };
+		9790A30719F43FD900AF0735 /* SLMoleculeRotateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLMoleculeRotateViewController.m; sourceTree = "<group>"; };
 		97C909B2194E364F0072989D /* SLRootOpPanelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLRootOpPanelViewController.h; sourceTree = "<group>"; };
 		97C909B3194E364F0072989D /* SLRootOpPanelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLRootOpPanelViewController.m; sourceTree = "<group>"; };
 		97C909B6194E3E880072989D /* SLSigmaOpPanelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSigmaOpPanelViewController.h; sourceTree = "<group>"; };
@@ -578,6 +581,8 @@
 				97C909C0194E5F8E0072989D /* SLInvOpPanelViewController.m */,
 				97D4C738196B11C400E1C310 /* SLSnOpPanelViewController.h */,
 				97D4C739196B11C400E1C310 /* SLSnOpPanelViewController.m */,
+				9790A30619F43FD900AF0735 /* SLMoleculeRotateViewController.h */,
+				9790A30719F43FD900AF0735 /* SLMoleculeRotateViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -727,6 +732,9 @@
 					970CE4BB19319E7C0038841F = {
 						TestTargetID = 9777B6571931533700E6316B;
 					};
+					9777B6571931533700E6316B = {
+						DevelopmentTeam = 6GPJDZZS34;
+					};
 					9777B6781931533700E6316B = {
 						TestTargetID = 9777B6571931533700E6316B;
 					};
@@ -862,6 +870,7 @@
 				975A830819450D0C009E3CAF /* SLModelPlane.m in Sources */,
 				97C909B4194E364F0072989D /* SLRootOpPanelViewController.m in Sources */,
 				9777B6721931533700E6316B /* SLViewController.m in Sources */,
+				9790A30819F43FD900AF0735 /* SLMoleculeRotateViewController.m in Sources */,
 				9777B66C1931533700E6316B /* SLAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

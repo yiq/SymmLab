@@ -42,7 +42,9 @@ enum
 @interface SLMoleculeViewController() {
     GLuint _program;
     
+    GLKMatrix4 _modelCorrectionMatrix;
     GLKMatrix4 _modelViewProjectionMatrix;
+    GLKMatrix4 _ghostViewProjectionMatrix;
     GLKMatrix4 _worldViewProjectionMatrix;
     GLKMatrix3 _normalMatrix;
     BOOL _isAnimating;
@@ -64,6 +66,13 @@ enum
     
     CGFloat _cameraDistance;
     CGFloat _cameraUpY;
+    
+    // Model Correction
+    CGFloat _modelCorrectionTheta;
+    CGFloat _modelCorrectionThetaDelta;
+    CGFloat _modelCorrectionPhi;
+    CGFloat _modelCorrectionPhiDelta;
+    
 }
 
 @property (strong, nonatomic) EAGLContext *context;
@@ -87,6 +96,37 @@ enum
     view.context = self.context;
     view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
     
+
+    
+    _isRotatingCamera = YES;
+    
+//    molecule = [SLMolecule moleculeWithCifFile:[[NSBundle mainBundle] pathForResource:@"benzene" ofType:@"cif"]];
+    //molecule = [SLMolecule moleculeWithXyzFile:[[NSBundle mainBundle] pathForResource:@"1,3,5,7-tetrafluorocyclooctatetraene" ofType:@"xyz"]];
+    
+
+    //symmOp = [[SLPlaneSymmetryOperation alloc] initWithNormalAngleTheta: - M_PI_2 / 3.0f phi:0.0f];
+    self.symmOperation = [[SLIdentitySymmetryOperation alloc] init];
+    
+    [self loadMoleculeWithFilename:@"benzene.cif"];
+    
+    
+    [self setupGL];
+    
+}
+
+- (void)loadMoleculeWithFilename:(NSString *)filename {
+    
+    
+    NSString *fileType = [filename pathExtension];
+    NSString *fileName = [[filename stringByDeletingPathExtension] lastPathComponent];
+    
+    if ([fileType isEqualToString:@"cif"]) {
+        molecule = [SLMolecule moleculeWithCifFile:[[NSBundle mainBundle] pathForResource:fileName ofType:@"cif"]];
+    }
+    else if ([fileType isEqualToString:@"xyz"]) {
+        molecule = [SLMolecule moleculeWithCifFile:[[NSBundle mainBundle] pathForResource:fileName ofType:@"xyz"]];
+    }
+    
     _animationProgress = 0.0f;
     _isAnimating = NO;
     _visualClue = nil;
@@ -96,13 +136,12 @@ enum
     _cameraDistance = 10.0f;
     _cameraUpY = 1.0f;
     
-//    molecule = [SLMolecule moleculeWithCifFile:[[NSBundle mainBundle] pathForResource:@"benzene" ofType:@"cif"]];
-    molecule = [SLMolecule moleculeWithXyzFile:[[NSBundle mainBundle] pathForResource:@"1,3,5,7-tetrafluorocyclooctatetraene" ofType:@"xyz"]];
-
-    //symmOp = [[SLPlaneSymmetryOperation alloc] initWithNormalAngleTheta: - M_PI_2 / 3.0f phi:0.0f];
-    self.symmOperation = [[SLIdentitySymmetryOperation alloc] init];
+    _modelCorrectionPhi = 0.0f; _modelCorrectionPhiDelta = 0.0f;
+    _modelCorrectionTheta = 0.0f; _modelCorrectionThetaDelta = 0.0f;
     
-    [self setupGL];
+    _moleculeRotateX = 0.0f;
+    _moleculeRotateY = 0.0f;
+    _moleculeRotateZ = 0.0f;
 }
 
 - (void)dealloc
@@ -198,18 +237,27 @@ enum
     if (fabs(_cameraPhi + _cameraPhiDelta) > M_PI_2) {
         _cameraUpY = -1.0f;
     }
-
+    
     GLKMatrix4 viewMatrix = GLKMatrix4MakeLookAt(cameraX, cameraY, cameraZ, 0.0f, 0.0f, 0.0f, 0.0f, _cameraUpY, 0.0f);
     
     //GLKMatrix4 modelMatrix = GLKMatrix4Identity;
     
-    GLKMatrix4 modelMatrix = [self.symmOperation modelMatrixWithAnimationProgress:_animationProgress];
+    //NSLog(@"Rotating molecule by %f %f %f", _moleculeRotateX, _moleculeRotateY, _moleculeRotateZ);
+    
+    GLKMatrix4 rotateMatrix = GLKMatrix4Rotate(GLKMatrix4Identity, GLKMathDegreesToRadians(_moleculeRotateX), 1.0f, 0.0f, 0.0f);
+    rotateMatrix = GLKMatrix4Rotate(rotateMatrix, GLKMathDegreesToRadians(_moleculeRotateY), 0.0f, 1.0f, 0.0f);
+    rotateMatrix = GLKMatrix4Rotate(rotateMatrix, GLKMathDegreesToRadians(_moleculeRotateZ), 0.0f, 0.0f, 1.0f);
 
-    GLKMatrix4 modelViewMatrix = GLKMatrix4Multiply(viewMatrix, modelMatrix);
+    GLKMatrix4 modelMatrix = [self.symmOperation modelMatrixWithAnimationProgress:_animationProgress];
+    GLKMatrix4 modelRotateMatrix = GLKMatrix4Multiply(modelMatrix, rotateMatrix);
+    
+    GLKMatrix4 modelViewMatrix = GLKMatrix4Multiply(viewMatrix, modelRotateMatrix);
+    GLKMatrix4 ghostViewMatrix = GLKMatrix4Multiply(viewMatrix, rotateMatrix);
     
     _normalMatrix = GLKMatrix3InvertAndTranspose(GLKMatrix4GetMatrix3(modelViewMatrix), NULL);
     
     _modelViewProjectionMatrix = GLKMatrix4Multiply(projectionMatrix, modelViewMatrix);
+    _ghostViewProjectionMatrix = GLKMatrix4Multiply(projectionMatrix, ghostViewMatrix);
     _worldViewProjectionMatrix = GLKMatrix4Multiply(projectionMatrix, viewMatrix);
     
     //_rotation += self.timeSinceLastUpdate * 0.5f;
@@ -245,16 +293,17 @@ enum
     glUniform1i(uniforms[UNIFORM_USE_LIGHTING], 1);
 
     [moleculeModel render];
-    
-    glUniformMatrix4fv(uniforms[UNIFORM_MODELVIEWPROJECTION_MATRIX], 1, 0, _worldViewProjectionMatrix.m);
-    glUniform1f(uniforms[UNIFORM_ALPHA_ADJUST], 0.5);
 
     // Render ghost
+    glUniformMatrix4fv(uniforms[UNIFORM_MODELVIEWPROJECTION_MATRIX], 1, 0, _ghostViewProjectionMatrix.m);
+    glUniform1f(uniforms[UNIFORM_ALPHA_ADJUST], 0.5);
     if (self.animationProgress > 0.0f) {
         glUniformMatrix3fv(uniforms[UNIFORM_NORMAL_MATRIX], 1, 0, GLKMatrix3Identity.m);
         [moleculeModel render];
     }
     
+    // Render the clues
+    glUniformMatrix4fv(uniforms[UNIFORM_MODELVIEWPROJECTION_MATRIX], 1, 0, _worldViewProjectionMatrix.m);
     glUniform1f(uniforms[UNIFORM_ALPHA_ADJUST], 0.3);
     if (self.visualClue) {
         GLKMatrix4 mvpMatrix = GLKMatrix4Multiply(_worldViewProjectionMatrix, self.visualClueMatrix);
@@ -287,14 +336,30 @@ enum
     CGPoint translate = [sender translationInView:self.view];
     
     if (sender.state == UIGestureRecognizerStateBegan || sender.state == UIGestureRecognizerStateEnded) {
-        _cameraPhi = _cameraPhi + _cameraPhiDelta;
-        _cameraPhiDelta = 0;
-        _cameraTheta = _cameraTheta + _cameraThetaDelta;
-        _cameraThetaDelta = 0;
+        if (_isRotatingCamera) {
+            _cameraPhi = _cameraPhi + _cameraPhiDelta;
+            _cameraPhiDelta = 0;
+            _cameraTheta = _cameraTheta + _cameraThetaDelta;
+            _cameraThetaDelta = 0;
+        }
+        else {
+            _modelCorrectionPhi = _modelCorrectionPhi + _modelCorrectionPhiDelta;
+            _modelCorrectionPhiDelta = 0;
+            _modelCorrectionTheta = _modelCorrectionTheta + _modelCorrectionThetaDelta;
+            _modelCorrectionThetaDelta = 0;
+        }
+
     }
     else {
-        _cameraThetaDelta = - (translate.x / 100.0) * M_PI_2;
-        _cameraPhiDelta = (translate.y / 100.0) * M_PI_2;
+        if (_isRotatingCamera) {
+            _cameraThetaDelta = - (translate.x / 100.0) * M_PI_2;
+            _cameraPhiDelta = (translate.y / 100.0) * M_PI_2;
+        }
+        else {
+            _modelCorrectionThetaDelta = - (translate.x / 100.0) * M_PI_2;
+            _modelCorrectionPhiDelta = (translate.y / 100.0) * M_PI_2;
+        }
+
     }
 }
 

@@ -11,5 +11,6 @@
 @class SLAbstractSymmetryOperation;
 
 @interface SLViewController : UIViewController <UISplitViewControllerDelegate>
+- (IBAction)interactiveModeChanged:(id)sender;
 
 @end
