@@ -34,11 +34,13 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
     [self.moleculeViewController resetOpAnimation];
     [self.moleculeViewController addObserver:self forKeyPath:@"animationProgress" options:NSKeyValueObservingOptionNew context:NULL];}
 
 - (void)viewDidDisappear:(BOOL)animated
 {
+    [super viewDidDisappear:animated];
     [self.moleculeViewController removeObserver:self forKeyPath:@"animationProgress"];
     self.moleculeViewController.symmOperation = [[SLIdentitySymmetryOperation alloc] init];
     self.moleculeViewController.visualClue = nil;

@@ -119,7 +119,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="SymmLab - benzene" id="akj-9y-7RI">
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" style="plain" id="NYh-0U-7GN">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" id="NYh-0U-7GN">
                             <segmentedControl key="customView" hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="QMc-F6-aWw">
                                 <rect key="frame" x="537" y="7" width="225" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -303,8 +303,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Select the n in Cn" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lMf-On-4TP">
-                                <rect key="frame" x="159" y="133" width="137" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select the n in Cn" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lMf-On-4TP">
+                                <rect key="frame" x="160" y="133" width="136" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -314,8 +314,8 @@
                                     <action selector="steperValueChanged:" destination="ch6-P6-Fkm" eventType="valueChanged" id="0wS-Hf-Uiz"/>
                                 </connections>
                             </stepper>
-                            <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="s4A-qs-hsx">
-                                <rect key="frame" x="91" y="192" width="583" height="31"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="s4A-qs-hsx">
+                                <rect key="frame" x="91" y="193" width="583" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Tn3-ni-z1c"/>
                                 </constraints>
@@ -323,8 +323,8 @@
                                     <action selector="sliderValueChanged:" destination="ch6-P6-Fkm" eventType="valueChanged" id="tGQ-0K-sLY"/>
                                 </connections>
                             </slider>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hyy-xM-b4D">
-                                <rect key="frame" x="20" y="185" width="44" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hyy-xM-b4D">
+                                <rect key="frame" x="20" y="186" width="44" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="Hds-FU-yIb"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="cyg-ci-t2o"/>
@@ -336,8 +336,8 @@
                                     <action selector="startAnimationAction:" destination="ch6-P6-Fkm" eventType="touchUpInside" id="KOp-Ql-tyk"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6wc-L7-yHh">
-                                <rect key="frame" x="704" y="185" width="44" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6wc-L7-yHh">
+                                <rect key="frame" x="704" y="186" width="44" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="GTV-6s-e9K"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="KIS-rI-MJp"/>
@@ -527,7 +527,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Symmetry Operation" id="xxH-7d-y2L">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="H9d-YT-GtZ">
+                        <barButtonItem key="rightBarButtonItem" id="H9d-YT-GtZ">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kKg-9I-8Cg">
                                 <rect key="frame" x="-23" y="-15" width="170" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -743,8 +743,8 @@
                                     <action selector="steperValueChanged:" destination="qbn-Ao-hVr" eventType="valueChanged" id="aE3-sj-q6R"/>
                                 </connections>
                             </stepper>
-                            <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="E4x-CJ-PX2">
-                                <rect key="frame" x="91" y="192" width="583" height="31"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="E4x-CJ-PX2">
+                                <rect key="frame" x="91" y="193" width="583" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Y55-Uq-AUv"/>
                                 </constraints>
@@ -752,8 +752,8 @@
                                     <action selector="sliderValueChanged:" destination="qbn-Ao-hVr" eventType="valueChanged" id="lLr-z0-OWP"/>
                                 </connections>
                             </slider>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Nu-Fk-OSW">
-                                <rect key="frame" x="20" y="185" width="44" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Nu-Fk-OSW">
+                                <rect key="frame" x="20" y="186" width="44" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="0JJ-Ei-rHW"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="egm-6h-gAt"/>
@@ -765,8 +765,8 @@
                                     <action selector="startAnimationAction:" destination="qbn-Ao-hVr" eventType="touchUpInside" id="Ppw-1I-ohQ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qbc-Bp-4bU">
-                                <rect key="frame" x="704" y="185" width="44" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qbc-Bp-4bU">
+                                <rect key="frame" x="704" y="186" width="44" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="6A8-Cv-Qdz"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="ut3-1E-GQ8"/>
