@@ -25,6 +25,7 @@ typedef enum SLAtomType MSAtomType;
 
 @property GLKVector3 position;
 @property MSAtomType atomType;
+@property BOOL isHighlighted;
 
 - (id)initWithPosition:(GLKVector3)position type:(MSAtomType)type;
 + (id)atomWithPosition:(GLKVector3)position type:(MSAtomType)type;
