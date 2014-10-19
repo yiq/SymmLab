@@ -10,6 +10,19 @@
 #import "SLAtom.h"
 #import "SLModelSphere.h"
 
+static UIColor* blend( UIColor* c1, UIColor* c2, float alpha )
+{
+    alpha = MIN( 1.f, MAX( 0.f, alpha ) );
+    float beta = 1.f - alpha;
+    CGFloat r1, g1, b1, a1, r2, g2, b2, a2;
+    [c1 getRed:&r1 green:&g1 blue:&b1 alpha:&a1];
+    [c2 getRed:&r2 green:&g2 blue:&b2 alpha:&a2];
+    CGFloat r = r1 * beta + r2 * alpha;
+    CGFloat g = g1 * beta + g2 * alpha;
+    CGFloat b = b1 * beta + b2 * alpha;
+    return [UIColor colorWithRed:r green:g blue:b alpha:1.f];
+}
+
 @implementation SLModelMolecule
 
 - (id)initWithMolecule:(SLMolecule *)molecule {
@@ -27,7 +40,17 @@
             
             if (!hasSeenFirst && atom.atomType != MSAT_H) {
                 hasSeenFirst = YES;
-                [atomSphere setColorWithR:0.9f g:0.8f b:0.2f alpha:1.0f];
+                
+                UIColor * intrinsicColor = [UIColor colorWithRed:[atomAttr[@"color"][@"red"] floatValue] green:[atomAttr[@"color"][@"green"] floatValue] blue:[atomAttr[@"color"][@"blue"] floatValue] alpha:1.0f];
+                UIColor * highlightColor = [UIColor colorWithRed:0.9f green:0.8f blue:0.2f alpha:1.0f];
+                
+                UIColor * blentColor = blend(intrinsicColor, highlightColor, 0.5);
+                
+                CGFloat r, g, b, a;
+                [blentColor getRed:&r green:&g blue:&b alpha:&a];
+                
+                
+                [atomSphere setColorWithR:r g:g b:b alpha:a];
             }
             else {
                 [atomSphere setColorWithR:[atomAttr[@"color"][@"red"] floatValue] g:[atomAttr[@"color"][@"green"] floatValue] b:[atomAttr[@"color"][@"blue"] floatValue] alpha:1.0f];

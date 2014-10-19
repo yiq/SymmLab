@@ -11,8 +11,7 @@
 #import "SLMoleculeViewController.h"
 
 @interface SLViewController ()
-@property (weak, nonatomic) SLRootOpPanelViewController *RootOpPanelVC;
-@property (weak, nonatomic) SLMoleculeViewController *MoleculeVC;
+
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
 
 @end

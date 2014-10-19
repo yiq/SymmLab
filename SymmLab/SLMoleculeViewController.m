@@ -96,8 +96,8 @@ enum
     view.context = self.context;
     view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
     
+    [self setupGL];
 
-    
     _isRotatingCamera = YES;
     
 //    molecule = [SLMolecule moleculeWithCifFile:[[NSBundle mainBundle] pathForResource:@"benzene" ofType:@"cif"]];
@@ -108,9 +108,6 @@ enum
     self.symmOperation = [[SLIdentitySymmetryOperation alloc] init];
     
     [self loadMoleculeWithFilename:@"benzene.cif"];
-    
-    
-    [self setupGL];
     
 }
 
@@ -124,7 +121,7 @@ enum
         molecule = [SLMolecule moleculeWithCifFile:[[NSBundle mainBundle] pathForResource:fileName ofType:@"cif"]];
     }
     else if ([fileType isEqualToString:@"xyz"]) {
-        molecule = [SLMolecule moleculeWithCifFile:[[NSBundle mainBundle] pathForResource:fileName ofType:@"xyz"]];
+        molecule = [SLMolecule moleculeWithXyzFile:[[NSBundle mainBundle] pathForResource:fileName ofType:@"xyz"]];
     }
     
     _animationProgress = 0.0f;
@@ -142,6 +139,13 @@ enum
     _moleculeRotateX = 0.0f;
     _moleculeRotateY = 0.0f;
     _moleculeRotateZ = 0.0f;
+    
+    moleculeModel = [[SLModelMolecule alloc] initWithMolecule:molecule];
+
+    
+    self.parentViewController.navigationItem.title = [NSString stringWithFormat:@"SymmLab - %@", fileName];
+    
+    NSLog(@"%@ loaded", filename);
 }
 
 - (void)dealloc
@@ -181,7 +185,6 @@ enum
     glEnable(GL_BLEND);
     glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     
-    moleculeModel = [[SLModelMolecule alloc] initWithMolecule:molecule];
     GLKVector3 axisPointPos[8] = {
         GLKVector3Make(-100.0f, 0.0f, 0.0f),
         GLKVector3Make(100.0f, 0.0f, 0.0f),

@@ -9,8 +9,14 @@
 @import UIKit;
 
 @class SLAbstractSymmetryOperation;
+@class SLRootOpPanelViewController;
+@class SLMoleculeViewController;
 
 @interface SLViewController : UIViewController <UISplitViewControllerDelegate>
+
+@property (weak, nonatomic) SLRootOpPanelViewController *RootOpPanelVC;
+@property (weak, nonatomic) SLMoleculeViewController *MoleculeVC;
+
 - (IBAction)interactiveModeChanged:(id)sender;
 
 @end
