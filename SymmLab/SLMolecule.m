@@ -87,7 +87,6 @@
     NSString *xyzFileContent = [NSString stringWithContentsOfFile:xyzPath encoding:NSUTF8StringEncoding error:NULL];
     NSArray *lines = [xyzFileContent componentsSeparatedByString:@"\n"];
     NSUInteger numberOfAtoms = [lines[0] integerValue];
-    NSLog(@"The xyz file %@ has %lu atoms", xyzPath, numberOfAtoms);
     
     assert(lines.count >= 2+numberOfAtoms);
     

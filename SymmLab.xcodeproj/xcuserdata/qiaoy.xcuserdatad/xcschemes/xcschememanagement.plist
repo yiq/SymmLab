@@ -4,10 +4,20 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>SymmLab copy.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
 		<key>SymmLab.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+		<key>ucifParser copy.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 		<key>ucifParser.xcscheme</key>
 		<dict>
@@ -23,6 +33,16 @@
 			<true/>
 		</dict>
 		<key>970CE4BB19319E7C0038841F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>972BEDDE1A225880005F2640</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>972BEE011A2258D2005F2640</key>
 		<dict>
 			<key>primary</key>
 			<true/>
