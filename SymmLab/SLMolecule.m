@@ -54,18 +54,45 @@
             zCoord = 0;
         }
         
-        MSAtomType atomType;
         NSString * atomTypeSymbol = atomData[@"type_symbol"];
-        
-        atomType = [SLAtom getAtomTypeByString:atomTypeSymbol];
-        
-        [atoms addObject:[SLAtom atomWithPosition:GLKVector3Make(xCoord, yCoord, zCoord) type:atomType]];
+
+        [atoms addObject:[SLAtom atomWithPosition:GLKVector3Make(xCoord, yCoord, zCoord) element:atomTypeSymbol]];
     }
     
     mol.atoms = [NSArray arrayWithArray:atoms];
     mol.cellAngleX = [parsedCif[@"_cell_angle_alpha"] floatValue];
     mol.cellAngleY = [parsedCif[@"_cell_angle_beta"] floatValue];
     mol.cellAngleZ = [parsedCif[@"_cell_angle_gamma"] floatValue];
+    
+    // identify chemical bonds
+    NSMutableArray *bonds = [[NSMutableArray alloc] init];
+    
+    for (NSUInteger i=0; i<atoms.count; i++) {
+        for (NSUInteger j=i+1; j<atoms.count; j++) {
+            
+            SLAtom *atom1 = (SLAtom *)atoms[i];
+            SLAtom *atom2 = (SLAtom *)atoms[j];
+            
+            NSDictionary *atom1Attr = [SLAtom getAtomAttributesForElement:atom1.element];
+            NSDictionary *atom2Attr = [SLAtom getAtomAttributesForElement:atom2.element];
+            
+            if ([atom1Attr objectForKey:@"vdwradius"] == nil || [atom2Attr objectForKey:@"vdwradius"] == nil) {
+                continue;
+            }
+            
+            float atomDistance = GLKVector3Distance(atom1.position, atom2.position);
+            float vdwRadiiSum = [(NSNumber *)atom1Attr[@"vdwradius"] floatValue] + [(NSNumber *)atom2Attr[@"vdwradius"] floatValue];
+            
+            NSLog(@"distance between %@(%f, %f, %f) and %@(%f, %f, %f) is %f, sum of vdwradius is %f", atom1.label, atom1.position.x, atom1.position.y, atom1.position.z, atom2.label, atom2.position.x, atom2.position.y, atom2.position.z, GLKVector3Distance(atom1.position, atom2.position), vdwRadiiSum);
+            
+            if( atomDistance < (vdwRadiiSum/2.0f) ) {
+                NSLog(@"adding bond");
+                [bonds addObject:@{@"atom1": atom1, @"atom2": atom2}];
+                
+            }
+        }
+    }
+    mol.bonds = [NSArray arrayWithArray:bonds];
     
     return mol;
     
@@ -98,8 +125,7 @@
         NSArray *atomProps = [lines[i] componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         atomProps = [atomProps filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF != ''"]];
         
-        MSAtomType atomType = [SLAtom getAtomTypeByString:atomProps[0]];
-        NSDictionary *atomAttr = [SLAtom getAtomAttributesForType:atomType];
+        NSDictionary *atomAttr = [SLAtom getAtomAttributesForElement:atomProps[0]];
         xCoord = [atomProps[1] floatValue];
         yCoord = [atomProps[2] floatValue];
         zCoord = [atomProps[3] floatValue];
@@ -114,7 +140,9 @@
 //        zCenter += zCoord * [atomAttr[@"weight"] floatValue];
         totalWeight += [atomAttr[@"weight"] floatValue];
     
-        [atoms addObject:[SLAtom atomWithPosition:GLKVector3Make(xCoord, yCoord, zCoord) type:atomType]];
+        SLAtom * newAtom = [SLAtom atomWithPosition:GLKVector3Make(xCoord, yCoord, zCoord) element:atomProps[0]];
+        newAtom.label = atomProps[0];
+        [atoms addObject:newAtom];
     }
     
     xCenter /= numberOfAtoms;
@@ -130,6 +158,36 @@
     }
     
     mol.atoms = [NSArray arrayWithArray:atoms];
+    
+    // identify chemical bonds
+    NSMutableArray *bonds = [[NSMutableArray alloc] init];
+
+    for (NSUInteger i=0; i<atoms.count; i++) {
+        for (NSUInteger j=i+1; j<atoms.count; j++) {
+            
+            SLAtom *atom1 = (SLAtom *)atoms[i];
+            SLAtom *atom2 = (SLAtom *)atoms[j];
+            
+            NSDictionary *atom1Attr = [SLAtom getAtomAttributesForElement:atom1.element];
+            NSDictionary *atom2Attr = [SLAtom getAtomAttributesForElement:atom2.element];
+            
+            if ([atom1Attr objectForKey:@"vdwradius"] == nil || [atom2Attr objectForKey:@"vdwradius"] == nil) {
+                continue;
+            }
+            
+            float atomDistance = GLKVector3Distance(atom1.position, atom2.position);
+            float vdwRadiiSum = [(NSNumber *)atom1Attr[@"vdwradius"] floatValue] + [(NSNumber *)atom2Attr[@"vdwradius"] floatValue];
+            
+            NSLog(@"distance between %@(%f, %f, %f) and %@(%f, %f, %f) is %f, sum of vdwradius is %f", atom1.label, atom1.position.x, atom1.position.y, atom1.position.z, atom2.label, atom2.position.x, atom2.position.y, atom2.position.z, GLKVector3Distance(atom1.position, atom2.position), vdwRadiiSum);
+            
+            if( atomDistance < (vdwRadiiSum/2.0f) ) {
+                NSLog(@"adding bond");
+                [bonds addObject:@{@"atom1": atom1, @"atom2": atom2}];
+                
+            }
+        }
+    }
+    mol.bonds = [NSArray arrayWithArray:bonds];
     
     return mol;
 }

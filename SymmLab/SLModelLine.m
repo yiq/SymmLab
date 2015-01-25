@@ -8,6 +8,15 @@
 
 #import "SLModelLine.h"
 
+@interface SLModelLine() {
+    GLfloat origLineWidth;
+}
+
+@property BOOL isLineWidthCustomized;
+@property GLfloat customLineWidth;
+
+@end
+
 @implementation SLModelLine
 
 - (id) initWithPoints:(GLKVector3 *)points colors:(SLColor *)colors count:(GLuint)count
@@ -31,10 +40,33 @@
         for (GLuint i=0; i<count; i++) {
             _indices[i] = i;
         }
+        self.isLineWidthCustomized = NO;
     }
     
     return self;
 }
 
+- (id) initWithPoints:(GLKVector3 *)points colors:(SLColor *)colors count:(GLuint)count lineWidth:(GLfloat)width {
+    self = [self initWithPoints:points colors:colors count:count];
+    if (self) {
+        self.isLineWidthCustomized = YES;
+        self.customLineWidth = width;
+    }
+    
+    return self;
+}
+
+- (void) configStates {
+    if (self.isLineWidthCustomized) {
+        glGetFloatv(GL_LINE_WIDTH, &origLineWidth);
+        glLineWidth(self.customLineWidth);
+    }
+}
+
+- (void) restoreStates {
+    if (self.isLineWidthCustomized) {
+        glLineWidth(origLineWidth);
+    }
+}
 
 @end

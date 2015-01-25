@@ -42,6 +42,7 @@
     }
     else if ([segue.identifier isEqualToString:@"emseg_gl"]) {
         self.MoleculeVC = segue.destinationViewController;
+        ((SLMoleculeViewController *)segue.destinationViewController).rootVC = self;
         assert(self.MoleculeVC);
     }
 }

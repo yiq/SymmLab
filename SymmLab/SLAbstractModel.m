@@ -97,6 +97,14 @@
     isVBOPrepared = YES;
 }
 
+- (void) configStates {
+    // empty implementation
+}
+
+- (void) restoreStates {
+    // empty implementation
+}
+
 - (void)render {
     
     if (_isRenderable) {
@@ -104,9 +112,13 @@
             [self prepareVBOs];
         }
         
+        [self configStates];
+        
         glBindVertexArrayOES(_vertexArray);
         glDrawElements(_glDrawMode, _indexCount, GL_UNSIGNED_INT, 0);
         glBindVertexArrayOES(0);
+        
+        [self restoreStates];
     }
 
     for (SLAbstractModel *child in _children) {

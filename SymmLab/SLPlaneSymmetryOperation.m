@@ -33,7 +33,7 @@
     transform = GLKMatrix3RotateY(transform, _normalAnglePhi);
     
     for (SLAtom *atom in origMolecule.atoms) {
-        [atoms addObject:[[SLAtom alloc] initWithPosition:GLKMatrix3MultiplyVector3(transform, atom.position) type:atom.atomType]];
+        [atoms addObject:[[SLAtom alloc] initWithPosition:GLKMatrix3MultiplyVector3(transform, atom.position) element:atom.element]];
     }
     
     resultMolecule.atoms = [NSArray arrayWithArray:atoms];

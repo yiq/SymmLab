@@ -39,6 +39,9 @@ typedef struct {
     BOOL _isRenderable;
 }
 
+- (void) configStates;
+- (void) restoreStates;
+
 - (void)render;
 - (void)addChild:(SLAbstractModel *)child;
 

@@ -16,6 +16,7 @@
 
 @property (weak, nonatomic) SLRootOpPanelViewController *RootOpPanelVC;
 @property (weak, nonatomic) SLMoleculeViewController *MoleculeVC;
+@property (weak, nonatomic) NSString * activeFile;
 
 - (IBAction)interactiveModeChanged:(id)sender;
 

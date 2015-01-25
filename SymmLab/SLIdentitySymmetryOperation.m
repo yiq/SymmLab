@@ -17,7 +17,7 @@
     NSMutableArray *atoms;
     
     for (SLAtom *atom in origMolecule.atoms) {
-        [atoms addObject:[[SLAtom alloc] initWithPosition:atom.position type:atom.atomType]];
+        [atoms addObject:[[SLAtom alloc] initWithPosition:atom.position element:atom.element]];
     }
     
     resultMolecule.atoms = [NSArray arrayWithArray:atoms];

@@ -17,6 +17,8 @@
 
 @property (weak, nonatomic) SLViewController *rootViewController;
 
+- (NSArray *)retrieveListOfMolecules;
+
 @end
 
 @implementation SLMoleculeCollectionTableViewController
@@ -30,16 +32,60 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    moleculeFiles = @[@"benzene.cif", @"allene.xyz", @"B(CH2OH)3.xyz", @"Co(en)3.xyz", @"Co(en)3_noH.xyz", @"ruthenocene.xyz", @"1,3,5,7-tetrafluorocyclooctatetraene.xyz"];
+    moleculeFiles = [self retrieveListOfMolecules];
     
     // find out the moleculeViewController
     UISplitViewController *rootSplitVC = (UISplitViewController *)self.parentViewController.parentViewController;
     _rootViewController = (SLViewController *) [(UINavigationController *)rootSplitVC.viewControllers[1] viewControllers][0];
+    
+    if (moleculeFiles.count > 0) {
+        _rootViewController.activeFile = [moleculeFiles objectAtIndex:0];
+        NSLog(@"setting active file to %@", _rootViewController.activeFile);
+
+    }
+
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (NSArray *)retrieveListOfMolecules {
+    NSMutableArray *retval = [NSMutableArray array];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *publicDocumentDir = [paths objectAtIndex:0];
+    
+    NSString *bundlePath = [[NSBundle mainBundle] resourcePath];
+    
+    NSError *error;
+    NSArray *files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:publicDocumentDir error:&error];
+    if (files == nil) {
+        NSLog(@"Error reading contents of documents directory: %@", [error localizedDescription]);
+    }
+    else {
+        for (NSString *file in files) {
+            if ([file.pathExtension compare:@"xyz" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+                NSString *fullPath = [publicDocumentDir stringByAppendingPathComponent:file];
+                [retval addObject:fullPath];
+            }
+        }
+    }
+
+    files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:bundlePath error:&error];
+    if (files == nil) {
+        NSLog(@"Error reading contents of documents directory: %@", [error localizedDescription]);
+    }
+    else {
+        for (NSString *file in files) {
+            if ([file.pathExtension compare:@"xyz" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+                NSString *fullPath = [bundlePath stringByAppendingPathComponent:file];
+                [retval addObject:fullPath];
+            }
+        }
+    }
+    
+    return [NSArray arrayWithArray:retval];
 }
 
 #pragma mark - Table view data source
@@ -59,7 +105,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.textLabel.text = [moleculeFiles objectAtIndex:indexPath.row];
+    cell.textLabel.text = [[moleculeFiles objectAtIndex:indexPath.row] lastPathComponent];
     
     return cell;
 }
@@ -112,6 +158,7 @@
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"Requesting molecule %@", [moleculeFiles objectAtIndex:indexPath.row]);
+    _rootViewController.activeFile = [moleculeFiles objectAtIndex:indexPath.row];
     [_rootViewController.MoleculeVC loadMoleculeWithFilename:[moleculeFiles objectAtIndex:indexPath.row]];
 
 }

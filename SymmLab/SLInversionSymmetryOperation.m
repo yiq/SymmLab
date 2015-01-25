@@ -19,7 +19,7 @@
     
     GLKMatrix3 transform = GLKMatrix3Scale(GLKMatrix3Identity, -1.0f, -1.0f, -1.0f);
     for (SLAtom *atom in origMolecule.atoms) {
-        [atoms addObject:[[SLAtom alloc] initWithPosition:GLKMatrix3MultiplyVector3(transform, atom.position) type:atom.atomType]];
+        [atoms addObject:[[SLAtom alloc] initWithPosition:GLKMatrix3MultiplyVector3(transform, atom.position) element:atom.element]];
     }
     
     resultMolecule.atoms = [NSArray arrayWithArray:atoms];

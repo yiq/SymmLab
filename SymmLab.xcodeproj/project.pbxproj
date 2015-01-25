@@ -51,14 +51,15 @@
 		970CE5CE1931B9A00038841F /* benzene.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 970CE5CD1931B98C0038841F /* benzene.pdb */; };
 		970CE5D01931BD040038841F /* benzene.cif in Resources */ = {isa = PBXBuildFile; fileRef = 970CE5CF1931BCF70038841F /* benzene.cif */; };
 		970CE5D31931C4EA0038841F /* SLModelLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 970CE5D21931C4EA0038841F /* SLModelLine.m */; };
-		9715857A19F1E70900083BD5 /* 1,3,5,7-tetrafluorocyclooctatetraene.xyz in Resources */ = {isa = PBXBuildFile; fileRef = 9715857419F1E70900083BD5 /* 1,3,5,7-tetrafluorocyclooctatetraene.xyz */; };
 		9715857B19F1E70900083BD5 /* allene.xyz in Resources */ = {isa = PBXBuildFile; fileRef = 9715857519F1E70900083BD5 /* allene.xyz */; };
 		9715857C19F1E70900083BD5 /* B(CH2OH)3.xyz in Resources */ = {isa = PBXBuildFile; fileRef = 9715857619F1E70900083BD5 /* B(CH2OH)3.xyz */; };
 		9715857D19F1E70900083BD5 /* Co(en)3.xyz in Resources */ = {isa = PBXBuildFile; fileRef = 9715857719F1E70900083BD5 /* Co(en)3.xyz */; };
 		9715857E19F1E70900083BD5 /* Co(en)3_noH.xyz in Resources */ = {isa = PBXBuildFile; fileRef = 9715857819F1E70900083BD5 /* Co(en)3_noH.xyz */; };
 		9715857F19F1E70900083BD5 /* ruthenocene.xyz in Resources */ = {isa = PBXBuildFile; fileRef = 9715857919F1E70900083BD5 /* ruthenocene.xyz */; };
+		974629771A68685500681B72 /* AtomProperties.plist in Resources */ = {isa = PBXBuildFile; fileRef = 974629761A68685500681B72 /* AtomProperties.plist */; };
 		975A83051944FEFB009E3CAF /* SLPlaneSymmetryOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 975A83041944FEFB009E3CAF /* SLPlaneSymmetryOperation.m */; };
 		975A830819450D0C009E3CAF /* SLModelPlane.m in Sources */ = {isa = PBXBuildFile; fileRef = 975A830719450D0C009E3CAF /* SLModelPlane.m */; };
+		9771604A1A576B8500E97073 /* SLModelCylinder.m in Sources */ = {isa = PBXBuildFile; fileRef = 977160491A576B8500E97073 /* SLModelCylinder.m */; };
 		9777B65C1931533700E6316B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9777B65B1931533700E6316B /* Foundation.framework */; };
 		9777B65E1931533700E6316B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9777B65D1931533700E6316B /* CoreGraphics.framework */; };
 		9777B6601931533700E6316B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9777B65F1931533700E6316B /* UIKit.framework */; };
@@ -216,17 +217,18 @@
 		970CE5CF1931BCF70038841F /* benzene.cif */ = {isa = PBXFileReference; lastKnownFileType = text; path = benzene.cif; sourceTree = "<group>"; };
 		970CE5D11931C4EA0038841F /* SLModelLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLModelLine.h; sourceTree = "<group>"; };
 		970CE5D21931C4EA0038841F /* SLModelLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLModelLine.m; sourceTree = "<group>"; };
-		9715857419F1E70900083BD5 /* 1,3,5,7-tetrafluorocyclooctatetraene.xyz */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "1,3,5,7-tetrafluorocyclooctatetraene.xyz"; sourceTree = "<group>"; };
 		9715857519F1E70900083BD5 /* allene.xyz */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = allene.xyz; sourceTree = "<group>"; };
 		9715857619F1E70900083BD5 /* B(CH2OH)3.xyz */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "B(CH2OH)3.xyz"; sourceTree = "<group>"; };
 		9715857719F1E70900083BD5 /* Co(en)3.xyz */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Co(en)3.xyz"; sourceTree = "<group>"; };
 		9715857819F1E70900083BD5 /* Co(en)3_noH.xyz */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Co(en)3_noH.xyz"; sourceTree = "<group>"; };
 		9715857919F1E70900083BD5 /* ruthenocene.xyz */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ruthenocene.xyz; sourceTree = "<group>"; };
-		972BEE371A2258D2005F2640 /* SymmLab copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "SymmLab copy-Info.plist"; path = "/Users/qiaoy/Work/SymmLab/SymmLab copy-Info.plist"; sourceTree = "<absolute>"; };
+		974629761A68685500681B72 /* AtomProperties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AtomProperties.plist; sourceTree = "<group>"; };
 		975A83031944FEFB009E3CAF /* SLPlaneSymmetryOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLPlaneSymmetryOperation.h; sourceTree = "<group>"; };
 		975A83041944FEFB009E3CAF /* SLPlaneSymmetryOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLPlaneSymmetryOperation.m; sourceTree = "<group>"; };
 		975A830619450D0C009E3CAF /* SLModelPlane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLModelPlane.h; sourceTree = "<group>"; };
 		975A830719450D0C009E3CAF /* SLModelPlane.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLModelPlane.m; sourceTree = "<group>"; };
+		977160481A576B8500E97073 /* SLModelCylinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLModelCylinder.h; sourceTree = "<group>"; };
+		977160491A576B8500E97073 /* SLModelCylinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLModelCylinder.m; sourceTree = "<group>"; };
 		9777B6581931533700E6316B /* SymmLab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SymmLab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9777B65B1931533700E6316B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9777B65D1931533700E6316B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -471,7 +473,6 @@
 		9715857319F1E70900083BD5 /* structures */ = {
 			isa = PBXGroup;
 			children = (
-				9715857419F1E70900083BD5 /* 1,3,5,7-tetrafluorocyclooctatetraene.xyz */,
 				9715857519F1E70900083BD5 /* allene.xyz */,
 				9715857619F1E70900083BD5 /* B(CH2OH)3.xyz */,
 				9715857719F1E70900083BD5 /* Co(en)3.xyz */,
@@ -489,7 +490,6 @@
 				9777B6801931533700E6316B /* SymmLabTests */,
 				9777B65A1931533700E6316B /* Frameworks */,
 				9777B6591931533700E6316B /* Products */,
-				972BEE371A2258D2005F2640 /* SymmLab copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -544,6 +544,7 @@
 				9777B6641931533700E6316B /* InfoPlist.strings */,
 				9777B6671931533700E6316B /* main.m */,
 				9777B6691931533700E6316B /* SymmLab-Prefix.pch */,
+				974629761A68685500681B72 /* AtomProperties.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -604,6 +605,8 @@
 				970CE5C91931B0820038841F /* SLModelMolecule.m */,
 				975A830619450D0C009E3CAF /* SLModelPlane.h */,
 				975A830719450D0C009E3CAF /* SLModelPlane.m */,
+				977160481A576B8500E97073 /* SLModelCylinder.h */,
+				977160491A576B8500E97073 /* SLModelCylinder.m */,
 			);
 			name = "3D Models";
 			sourceTree = "<group>";
@@ -782,10 +785,10 @@
 				9715857C19F1E70900083BD5 /* B(CH2OH)3.xyz in Resources */,
 				970CE5CE1931B9A00038841F /* benzene.pdb in Resources */,
 				970CE34C193180B40038841F /* Shader.vsh in Resources */,
+				974629771A68685500681B72 /* AtomProperties.plist in Resources */,
 				9715857D19F1E70900083BD5 /* Co(en)3.xyz in Resources */,
 				9715857F19F1E70900083BD5 /* ruthenocene.xyz in Resources */,
 				9715857B19F1E70900083BD5 /* allene.xyz in Resources */,
-				9715857A19F1E70900083BD5 /* 1,3,5,7-tetrafluorocyclooctatetraene.xyz in Resources */,
 				9715857E19F1E70900083BD5 /* Co(en)3_noH.xyz in Resources */,
 				970CE34B193180B10038841F /* Shader.fsh in Resources */,
 				9777B6741931533700E6316B /* Images.xcassets in Resources */,
@@ -861,6 +864,7 @@
 				97C909B8194E3E880072989D /* SLSigmaOpPanelViewController.m in Sources */,
 				970CE5CA1931B0820038841F /* SLModelMolecule.m in Sources */,
 				9777B6681931533700E6316B /* main.m in Sources */,
+				9771604A1A576B8500E97073 /* SLModelCylinder.m in Sources */,
 				97DEF3E0193291C1004A50D2 /* SLProperAxisSymmetryOperation.m in Sources */,
 				9790A30B19F4594300AF0735 /* SLMoleculeCollectionTableViewController.m in Sources */,
 				97DEF3DD19328634004A50D2 /* SLInversionSymmetryOperation.m in Sources */,

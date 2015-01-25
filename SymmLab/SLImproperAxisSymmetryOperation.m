@@ -64,7 +64,7 @@
         newPos.y = newPos.y / newPos.w;
         newPos.z = newPos.z / newPos.w;
         
-        [atoms addObject:[[SLAtom alloc] initWithPosition:GLKVector3Make(newPos.x, newPos.y, newPos.z) type:atom.atomType]];
+        [atoms addObject:[[SLAtom alloc] initWithPosition:GLKVector3Make(newPos.x, newPos.y, newPos.z) element:atom.element]];
     }
     
     resultMolecule.atoms = [NSArray arrayWithArray:atoms];

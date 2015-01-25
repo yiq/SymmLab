@@ -11,5 +11,7 @@
 @interface SLModelLine : SLAbstractModel
 
 - (id) initWithPoints:(GLKVector3 *)points colors:(SLColor *)colors count:(GLuint)count;
+- (id) initWithPoints:(GLKVector3 *)points colors:(SLColor *)colors count:(GLuint)count lineWidth:(GLfloat)width;
+
 
 @end

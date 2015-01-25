@@ -7,6 +7,8 @@
 //
 
 #import "SLMoleculeViewController.h"
+#import "SLViewController.h"
+
 #import "SLModelMolecule.h"
 #import "SLMolecule.h"
 #import "SLModelLine.h"
@@ -78,6 +80,7 @@ enum
 @property (strong, nonatomic) EAGLContext *context;
 @property (strong, nonatomic) GLKBaseEffect *effect;
 
+
 @end
 
 @implementation SLMoleculeViewController
@@ -99,29 +102,32 @@ enum
     [self setupGL];
 
     _isRotatingCamera = YES;
-    
-//    molecule = [SLMolecule moleculeWithCifFile:[[NSBundle mainBundle] pathForResource:@"benzene" ofType:@"cif"]];
-    //molecule = [SLMolecule moleculeWithXyzFile:[[NSBundle mainBundle] pathForResource:@"1,3,5,7-tetrafluorocyclooctatetraene" ofType:@"xyz"]];
-    
 
     //symmOp = [[SLPlaneSymmetryOperation alloc] initWithNormalAngleTheta: - M_PI_2 / 3.0f phi:0.0f];
     self.symmOperation = [[SLIdentitySymmetryOperation alloc] init];
     
-    [self loadMoleculeWithFilename:@"benzene.cif"];
+    //[self loadMoleculeWithFilename:@"benzene.cif"];
     
+    NSLog(@"root vc: %@", self.rootVC);
+    
+    //_rootViewController = (SLViewController *) [(UINavigationController *)self.splitVC.viewControllers[1] viewControllers][0];
+    //NSLog(@"rootVC: %@", _rootViewController);
+    [self loadMoleculeWithFilename:_rootVC.activeFile];
 }
 
 - (void)loadMoleculeWithFilename:(NSString *)filename {
     
     
     NSString *fileType = [filename pathExtension];
-    NSString *fileName = [[filename stringByDeletingPathExtension] lastPathComponent];
+    //NSString *fileName = [[filename stringByDeletingPathExtension] lastPathComponent];
+    
+    NSLog(@"trying to load %@", filename);
     
     if ([fileType isEqualToString:@"cif"]) {
-        molecule = [SLMolecule moleculeWithCifFile:[[NSBundle mainBundle] pathForResource:fileName ofType:@"cif"]];
+        molecule = [SLMolecule moleculeWithCifFile:filename];
     }
     else if ([fileType isEqualToString:@"xyz"]) {
-        molecule = [SLMolecule moleculeWithXyzFile:[[NSBundle mainBundle] pathForResource:fileName ofType:@"xyz"]];
+        molecule = [SLMolecule moleculeWithXyzFile:filename];
     }
     
     _animationProgress = 0.0f;
@@ -143,7 +149,7 @@ enum
     moleculeModel = [[SLModelMolecule alloc] initWithMolecule:molecule];
 
     
-    self.parentViewController.navigationItem.title = [NSString stringWithFormat:@"SymmLab - %@", fileName];
+    self.parentViewController.navigationItem.title = [NSString stringWithFormat:@"SymmLab - %@", [[filename stringByDeletingPathExtension] lastPathComponent]];
     
     NSLog(@"%@ loaded", filename);
 }
@@ -202,7 +208,8 @@ enum
         {0.0f, 0.0f, 1.0f, 1.0f}, {0.0f, 0.0f, 1.0f, 1.0f}
     };
     
-    axis = [[SLModelLine alloc] initWithPoints:axisPointPos colors:axisColors count:6];
+//    axis = [[SLModelLine alloc] initWithPoints:axisPointPos colors:axisColors count:6];
+    axis = [[SLModelLine alloc] initWithPoints:axisPointPos colors:axisColors count:6 lineWidth:2.0f];
 }
 
 - (void)tearDownGL

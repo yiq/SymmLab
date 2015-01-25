@@ -11,8 +11,11 @@
 
 @class SLAbstractSymmetryOperation;
 @class SLAbstractModel;
+@class SLViewController;
 
 @interface SLMoleculeViewController : GLKViewController
+
+@property (weak, nonatomic) SLViewController * rootVC;
 
 @property (strong, nonatomic) SLAbstractSymmetryOperation *symmOperation;
 @property (strong, nonatomic) SLAbstractModel *visualClue;
