@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *axisSegCtl;
 @property (weak, nonatomic) IBOutlet UIStepper *nValueStepper;
 @property (weak, nonatomic) IBOutlet UISlider *animationProgressSlider;
+@property (weak, nonatomic) IBOutlet UITextField *xValueDisplay;
+@property (weak, nonatomic) IBOutlet UIStepper *xValueStepper;
 
 @end
 
@@ -36,7 +38,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.moleculeViewController.symmOperation = [self makeOperationWithIndex:0 n:2];
+    self.moleculeViewController.symmOperation = [self makeOperationWithIndex:0 n:2 x:1];
     self.moleculeViewController.visualClue = [self makeVisualCueWithIndex:0];
     self.moleculeViewController.visualClueMatrix = [self makeVisualCueMatrixWithIndex:0];
     
@@ -63,12 +65,12 @@
 */
 
 - (void)updateOperation {
-    self.moleculeViewController.symmOperation = [self makeOperationWithIndex:self.axisSegCtl.selectedSegmentIndex n:self.nValueStepper.value];
+    self.moleculeViewController.symmOperation = [self makeOperationWithIndex:self.axisSegCtl.selectedSegmentIndex n:self.nValueStepper.value x:self.xValueStepper.value];
     self.moleculeViewController.visualClue = [self makeVisualCueWithIndex:self.axisSegCtl.selectedSegmentIndex];
     self.moleculeViewController.visualClueMatrix = [self makeVisualCueMatrixWithIndex:self.axisSegCtl.selectedSegmentIndex];
 }
 
-- (SLProperAxisSymmetryOperation *)makeOperationWithIndex: (NSUInteger)index n:(NSUInteger)n
+- (SLProperAxisSymmetryOperation *)makeOperationWithIndex: (NSUInteger)index n:(NSUInteger)n x:(NSUInteger)x
 {
     if (n < 2) {
         UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Illegal Operation!"
@@ -97,7 +99,7 @@
             return nil;
     }
     
-    return [[SLImproperAxisSymmetryOperation alloc] initWithAxis:axis divide:n];
+    return [[SLImproperAxisSymmetryOperation alloc] initWithAxis:axis divide:n repeat:x];
 }
 
 - (SLModelPlane *)makeVisualCueWithIndex: (NSUInteger)index

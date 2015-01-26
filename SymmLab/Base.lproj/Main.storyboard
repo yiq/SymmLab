@@ -272,7 +272,7 @@
             </objects>
             <point key="canvasLocation" x="3839" y="579"/>
         </scene>
-        <!--Proper Axis (Cn)-->
+        <!--Proper Axis (Cn^x)-->
         <scene sceneID="TzD-CE-RIj">
             <objects>
                 <viewController id="ch6-P6-Fkm" customClass="SLCnOpPanelViewController" sceneMemberID="viewController">
@@ -285,7 +285,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="me0-03-6kL">
-                                <rect key="frame" x="304" y="84" width="160" height="29"/>
+                                <rect key="frame" x="304" y="52" width="160" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="Ljv-dn-C4E"/>
                                     <constraint firstAttribute="width" constant="160" id="qgv-sP-phS"/>
@@ -299,27 +299,11 @@
                                     <action selector="axisValueChanged:" destination="ch6-P6-Fkm" eventType="valueChanged" id="irc-NJ-CS1"/>
                                 </connections>
                             </segmentedControl>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="2" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gfa-1X-BMj">
-                                <rect key="frame" x="304" y="128" width="160" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose an axis" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6DR-3U-RZf">
-                                <rect key="frame" x="177" y="88" width="119" height="21"/>
+                                <rect key="frame" x="177" y="56" width="119" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select the n in Cn" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lMf-On-4TP">
-                                <rect key="frame" x="160" y="133" width="136" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minimumValue="2" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="3LF-iy-kQL">
-                                <rect key="frame" x="472" y="129" width="94" height="29"/>
-                                <connections>
-                                    <action selector="steperValueChanged:" destination="ch6-P6-Fkm" eventType="valueChanged" id="0wS-Hf-Uiz"/>
-                                </connections>
-                            </stepper>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="s4A-qs-hsx">
                                 <rect key="frame" x="91" y="193" width="583" height="31"/>
                                 <constraints>
@@ -355,36 +339,80 @@
                                     <action selector="resetAnimationAction:" destination="ch6-P6-Fkm" eventType="touchUpInside" id="GBt-x4-mQ7"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="2" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gfa-1X-BMj">
+                                <rect key="frame" x="304" y="91" width="160" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select the n in Cn^x" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lMf-On-4TP">
+                                <rect key="frame" x="140" y="96" width="156" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minimumValue="2" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="3LF-iy-kQL">
+                                <rect key="frame" x="472" y="92" width="94" height="29"/>
+                                <connections>
+                                    <action selector="steperValueChanged:" destination="ch6-P6-Fkm" eventType="valueChanged" id="0wS-Hf-Uiz"/>
+                                </connections>
+                            </stepper>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Ja-xs-9ds">
+                                <rect key="frame" x="304" y="129" width="160" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="GmZ-Xt-7wH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select the x in Cn^x" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3H-4z-LY9">
+                                <rect key="frame" x="141" y="134" width="155" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="T2L-Bm-VC9">
+                                <rect key="frame" x="472" y="130" width="94" height="29"/>
+                                <connections>
+                                    <action selector="steperValueChanged:" destination="ch6-P6-Fkm" eventType="valueChanged" id="ehQ-kB-yeI"/>
+                                </connections>
+                            </stepper>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="6wc-L7-yHh" secondAttribute="trailing" constant="20" id="6OZ-qq-NXC"/>
-                            <constraint firstAttribute="centerY" secondItem="Gfa-1X-BMj" secondAttribute="centerY" constant="-18" id="7OJ-eS-pdj"/>
+                            <constraint firstItem="Gfa-1X-BMj" firstAttribute="top" secondItem="me0-03-6kL" secondAttribute="bottom" constant="11" id="DV7-p6-k6O"/>
                             <constraint firstItem="pzf-rL-8JO" firstAttribute="top" secondItem="6wc-L7-yHh" secondAttribute="bottom" constant="20" id="Epj-ll-ckQ"/>
+                            <constraint firstItem="0Ja-xs-9ds" firstAttribute="top" secondItem="Gfa-1X-BMj" secondAttribute="bottom" constant="8" id="GMA-ja-dRv"/>
                             <constraint firstItem="pzf-rL-8JO" firstAttribute="top" secondItem="hyy-xM-b4D" secondAttribute="bottom" constant="20" id="HCX-At-mdC"/>
-                            <constraint firstItem="Gfa-1X-BMj" firstAttribute="top" secondItem="me0-03-6kL" secondAttribute="bottom" constant="16" id="LRV-oz-2YR"/>
                             <constraint firstItem="Gfa-1X-BMj" firstAttribute="centerY" secondItem="lMf-On-4TP" secondAttribute="centerY" id="NIg-rj-yEh"/>
                             <constraint firstItem="lMf-On-4TP" firstAttribute="trailing" secondItem="6DR-3U-RZf" secondAttribute="trailing" id="OLJ-OY-fVY"/>
                             <constraint firstAttribute="centerX" secondItem="me0-03-6kL" secondAttribute="centerX" id="PG2-cY-f8C"/>
                             <constraint firstItem="6wc-L7-yHh" firstAttribute="leading" secondItem="s4A-qs-hsx" secondAttribute="trailing" constant="32" id="PIA-gX-UOW"/>
+                            <constraint firstItem="me0-03-6kL" firstAttribute="top" secondItem="aWI-k3-Eky" secondAttribute="bottom" constant="8" id="U6M-2y-FP5"/>
                             <constraint firstItem="Gfa-1X-BMj" firstAttribute="centerY" secondItem="lMf-On-4TP" secondAttribute="centerY" id="UD6-pd-aVD"/>
                             <constraint firstItem="Gfa-1X-BMj" firstAttribute="width" secondItem="me0-03-6kL" secondAttribute="width" id="WqJ-HL-cP6"/>
                             <constraint firstItem="s4A-qs-hsx" firstAttribute="leading" secondItem="hyy-xM-b4D" secondAttribute="trailing" constant="29" id="ZDG-lP-t7x"/>
+                            <constraint firstItem="0Ja-xs-9ds" firstAttribute="centerY" secondItem="d3H-4z-LY9" secondAttribute="centerY" id="ZNI-Lg-Zm1"/>
+                            <constraint firstItem="0Ja-xs-9ds" firstAttribute="centerY" secondItem="T2L-Bm-VC9" secondAttribute="centerY" id="bev-SY-U16"/>
                             <constraint firstItem="Gfa-1X-BMj" firstAttribute="centerY" secondItem="3LF-iy-kQL" secondAttribute="centerY" id="cUC-7l-Hi0"/>
+                            <constraint firstItem="0Ja-xs-9ds" firstAttribute="centerY" secondItem="d3H-4z-LY9" secondAttribute="centerY" id="gNK-kG-Vk7"/>
                             <constraint firstItem="3LF-iy-kQL" firstAttribute="leading" secondItem="Gfa-1X-BMj" secondAttribute="trailing" constant="8" id="gRs-XT-ELV"/>
                             <constraint firstItem="s4A-qs-hsx" firstAttribute="centerY" secondItem="hyy-xM-b4D" secondAttribute="centerY" id="hZ3-R3-No1"/>
                             <constraint firstAttribute="centerX" secondItem="Gfa-1X-BMj" secondAttribute="centerX" id="jIc-vF-J8f"/>
                             <constraint firstItem="me0-03-6kL" firstAttribute="centerY" secondItem="6DR-3U-RZf" secondAttribute="centerY" id="jkz-uD-CQs"/>
+                            <constraint firstItem="T2L-Bm-VC9" firstAttribute="leading" secondItem="0Ja-xs-9ds" secondAttribute="trailing" constant="8" id="lPJ-CW-ioi"/>
+                            <constraint firstAttribute="centerX" secondItem="0Ja-xs-9ds" secondAttribute="centerX" id="ope-i5-zS4"/>
                             <constraint firstItem="me0-03-6kL" firstAttribute="leading" secondItem="6DR-3U-RZf" secondAttribute="trailing" constant="8" id="snU-Eb-pQe"/>
                             <constraint firstItem="hyy-xM-b4D" firstAttribute="leading" secondItem="znz-NX-6Xe" secondAttribute="leading" constant="20" id="tfh-K5-7cj"/>
+                            <constraint firstItem="d3H-4z-LY9" firstAttribute="trailing" secondItem="6DR-3U-RZf" secondAttribute="trailing" id="uFb-hG-Kz1"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Proper Axis (Cn)" id="pzG-lB-pPo"/>
+                    <navigationItem key="navigationItem" title="Proper Axis (Cn^x)" id="pzG-lB-pPo"/>
                     <connections>
                         <outlet property="animationProgressSlider" destination="s4A-qs-hsx" id="zyE-RU-CYV"/>
                         <outlet property="axisSegCtl" destination="me0-03-6kL" id="ZJP-hl-Ucc"/>
                         <outlet property="nValueDisplay" destination="Gfa-1X-BMj" id="aY4-Am-Dlp"/>
                         <outlet property="nValueStepper" destination="3LF-iy-kQL" id="mOI-W3-QVN"/>
+                        <outlet property="xValueDisplay" destination="0Ja-xs-9ds" id="uJk-t3-Ajm"/>
+                        <outlet property="xValueStepper" destination="T2L-Bm-VC9" id="mac-Pj-tx0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uhd-JW-Zgk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -500,9 +528,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ubR-n5-9gs">
-                                <rect key="frame" x="145" y="163" width="150" height="36"/>
+                                <rect key="frame" x="134" y="163" width="172" height="36"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <state key="normal" title="Proper Axis (Cn)">
+                                <state key="normal" title="Proper Axis (Cn^x)">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -510,9 +538,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2EH-c7-GI6">
-                                <rect key="frame" x="464" y="163" width="170" height="36"/>
+                                <rect key="frame" x="453" y="163" width="192" height="36"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <state key="normal" title="Improper Axis (Sn)">
+                                <state key="normal" title="Improper Axis (Sn^x)">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -701,7 +729,7 @@
             </objects>
             <point key="canvasLocation" x="1007" y="-161"/>
         </scene>
-        <!--Improper Axis (Sn)-->
+        <!--Improper Axis (Sn^x)-->
         <scene sceneID="ht9-2N-UoW">
             <objects>
                 <viewController id="qbn-Ao-hVr" customClass="SLSnOpPanelViewController" sceneMemberID="viewController">
@@ -714,7 +742,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rql-DL-l2Q">
-                                <rect key="frame" x="304" y="84" width="160" height="29"/>
+                                <rect key="frame" x="304" y="53" width="160" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="160" id="3S9-Fm-OHG"/>
                                     <constraint firstAttribute="height" constant="28" id="ZBa-UO-5M3"/>
@@ -729,24 +757,38 @@
                                 </connections>
                             </segmentedControl>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="2" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nih-W9-8vj">
-                                <rect key="frame" x="304" y="128" width="160" height="30"/>
+                                <rect key="frame" x="304" y="91" width="160" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose an axis" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WJ4-ra-iwO">
-                                <rect key="frame" x="177" y="88" width="119" height="21"/>
+                                <rect key="frame" x="177" y="57" width="119" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select the n in Sn" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQk-Fh-Fqp">
-                                <rect key="frame" x="161" y="133" width="135" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select the n in Sn^x" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQk-Fh-Fqp">
+                                <rect key="frame" x="142" y="96" width="154" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minimumValue="2" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="p1v-PP-S4R">
-                                <rect key="frame" x="472" y="129" width="94" height="29"/>
+                                <rect key="frame" x="472" y="92" width="94" height="29"/>
                                 <connections>
                                     <action selector="steperValueChanged:" destination="qbn-Ao-hVr" eventType="valueChanged" id="aE3-sj-q6R"/>
+                                </connections>
+                            </stepper>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J6I-li-Jat">
+                                <rect key="frame" x="304" y="129" width="160" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="9eX-SK-Xc7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="3DF-he-urk">
+                                <rect key="frame" x="472" y="130" width="94" height="29"/>
+                                <connections>
+                                    <action selector="steperValueChanged:" destination="qbn-Ao-hVr" eventType="valueChanged" id="rhd-zp-qwu"/>
                                 </connections>
                             </stepper>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="E4x-CJ-PX2">
@@ -785,7 +827,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The symmetry plane will be perpendicular to the axis" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="200" translatesAutoresizingMaskIntoConstraints="NO" id="G66-K6-yqd">
-                                <rect key="frame" x="472" y="83" width="200" height="31"/>
+                                <rect key="frame" x="472" y="52" width="200" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="Vv2-gQ-FGI"/>
                                 </constraints>
@@ -793,39 +835,53 @@
                                 <color key="textColor" red="0.55686277151107788" green="0.55686277151107788" blue="0.57647061347961426" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select the x in Sn^x" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAi-f3-gRP">
+                                <rect key="frame" x="142" y="134" width="154" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="3DF-he-urk" firstAttribute="leading" secondItem="J6I-li-Jat" secondAttribute="trailing" constant="8" id="32k-mg-zDn"/>
+                            <constraint firstItem="J6I-li-Jat" firstAttribute="centerY" secondItem="3DF-he-urk" secondAttribute="centerY" id="63D-Gv-7nk"/>
                             <constraint firstItem="Qbc-Bp-4bU" firstAttribute="leading" secondItem="E4x-CJ-PX2" secondAttribute="trailing" constant="32" id="8Jw-Pr-DcL"/>
+                            <constraint firstItem="WJ4-ra-iwO" firstAttribute="trailing" secondItem="xAi-f3-gRP" secondAttribute="trailing" id="AeE-St-vYf"/>
                             <constraint firstItem="KQk-Fh-Fqp" firstAttribute="trailing" secondItem="WJ4-ra-iwO" secondAttribute="trailing" id="Dhc-yq-T32"/>
                             <constraint firstItem="rql-DL-l2Q" firstAttribute="centerY" secondItem="WJ4-ra-iwO" secondAttribute="centerY" id="Eat-g6-UfR"/>
                             <constraint firstAttribute="trailing" secondItem="Qbc-Bp-4bU" secondAttribute="trailing" constant="20" id="Ivr-Xg-NIa"/>
                             <constraint firstItem="Nih-W9-8vj" firstAttribute="centerY" secondItem="KQk-Fh-Fqp" secondAttribute="centerY" id="JEc-Mw-f76"/>
+                            <constraint firstItem="J6I-li-Jat" firstAttribute="top" secondItem="Nih-W9-8vj" secondAttribute="bottom" constant="8" id="LCO-Ab-dAw"/>
                             <constraint firstItem="E4x-CJ-PX2" firstAttribute="centerY" secondItem="4Nu-Fk-OSW" secondAttribute="centerY" id="LMs-py-o9m"/>
                             <constraint firstItem="p1v-PP-S4R" firstAttribute="leading" secondItem="Nih-W9-8vj" secondAttribute="trailing" constant="8" id="RzN-Xz-3SC"/>
                             <constraint firstItem="G66-K6-yqd" firstAttribute="leading" secondItem="rql-DL-l2Q" secondAttribute="trailing" constant="8" id="Slp-WX-YAq"/>
                             <constraint firstItem="G66-K6-yqd" firstAttribute="centerY" secondItem="rql-DL-l2Q" secondAttribute="centerY" id="T2T-o6-XsE"/>
+                            <constraint firstItem="rql-DL-l2Q" firstAttribute="top" secondItem="kbE-28-i3e" secondAttribute="bottom" constant="9" id="VuB-HM-TGG"/>
                             <constraint firstItem="rql-DL-l2Q" firstAttribute="leading" secondItem="WJ4-ra-iwO" secondAttribute="trailing" constant="8" id="W8M-Yu-8Qc"/>
                             <constraint firstItem="Nih-W9-8vj" firstAttribute="centerY" secondItem="p1v-PP-S4R" secondAttribute="centerY" id="Wx6-0y-69A"/>
+                            <constraint firstItem="J6I-li-Jat" firstAttribute="centerY" secondItem="xAi-f3-gRP" secondAttribute="centerY" id="ZzO-w1-sul"/>
                             <constraint firstItem="rql-DL-l2Q" firstAttribute="leading" secondItem="WJ4-ra-iwO" secondAttribute="trailing" constant="8" id="aQD-8q-hvL"/>
                             <constraint firstAttribute="centerX" secondItem="rql-DL-l2Q" secondAttribute="centerX" id="ana-Ia-l2i"/>
-                            <constraint firstAttribute="centerY" secondItem="Nih-W9-8vj" secondAttribute="centerY" constant="-18" id="b8Z-Jm-69s"/>
                             <constraint firstItem="E4x-CJ-PX2" firstAttribute="leading" secondItem="4Nu-Fk-OSW" secondAttribute="trailing" constant="29" id="dE4-B1-eta"/>
                             <constraint firstItem="o03-q6-8M2" firstAttribute="top" secondItem="Qbc-Bp-4bU" secondAttribute="bottom" constant="20" id="dVo-JE-BFo"/>
                             <constraint firstItem="4Nu-Fk-OSW" firstAttribute="leading" secondItem="T0T-9h-11M" secondAttribute="leading" constant="20" id="fgy-r7-CTJ"/>
-                            <constraint firstItem="Nih-W9-8vj" firstAttribute="top" secondItem="rql-DL-l2Q" secondAttribute="bottom" constant="16" id="i53-On-wDh"/>
                             <constraint firstItem="o03-q6-8M2" firstAttribute="top" secondItem="4Nu-Fk-OSW" secondAttribute="bottom" constant="20" id="kv7-2M-iMt"/>
+                            <constraint firstAttribute="centerX" secondItem="J6I-li-Jat" secondAttribute="centerX" id="lU4-LU-FPu"/>
                             <constraint firstItem="Nih-W9-8vj" firstAttribute="centerY" secondItem="KQk-Fh-Fqp" secondAttribute="centerY" id="qid-0I-irZ"/>
                             <constraint firstAttribute="centerX" secondItem="Nih-W9-8vj" secondAttribute="centerX" id="rBR-wa-sAA"/>
+                            <constraint firstItem="J6I-li-Jat" firstAttribute="centerY" secondItem="xAi-f3-gRP" secondAttribute="centerY" id="vHc-Xl-NX3"/>
                             <constraint firstItem="Nih-W9-8vj" firstAttribute="width" secondItem="rql-DL-l2Q" secondAttribute="width" id="x8J-FZ-9f8"/>
+                            <constraint firstItem="Nih-W9-8vj" firstAttribute="top" secondItem="rql-DL-l2Q" secondAttribute="bottom" constant="10" id="zjn-rR-j4D"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Improper Axis (Sn)" id="9Pn-rD-odi"/>
+                    <navigationItem key="navigationItem" title="Improper Axis (Sn^x)" id="9Pn-rD-odi"/>
                     <connections>
                         <outlet property="animationProgressSlider" destination="E4x-CJ-PX2" id="Awg-GK-vh1"/>
                         <outlet property="axisSegCtl" destination="rql-DL-l2Q" id="N5G-A4-Csy"/>
                         <outlet property="nValueDisplay" destination="Nih-W9-8vj" id="Dts-XC-twe"/>
                         <outlet property="nValueStepper" destination="p1v-PP-S4R" id="Sqc-3h-P8B"/>
+                        <outlet property="xValueDisplay" destination="J6I-li-Jat" id="vXL-yG-4Pm"/>
+                        <outlet property="xValueStepper" destination="3DF-he-urk" id="nCI-tP-MwQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mzo-r1-rCO" userLabel="First Responder" sceneMemberID="firstResponder"/>

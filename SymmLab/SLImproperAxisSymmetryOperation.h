@@ -13,6 +13,8 @@
 
 @interface SLImproperAxisSymmetryOperation : SLProperAxisSymmetryOperation
 
-- (instancetype)initWithAxis:(GLKVector3)axis divide: (NSUInteger)n;
+@property (readonly) NSUInteger repreats;
+
+- (instancetype)initWithAxis:(GLKVector3)axis divide: (NSUInteger)n repeats: (NSUInteger)x;
 
 @end

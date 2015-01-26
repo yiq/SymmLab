@@ -18,12 +18,13 @@
 
 @implementation SLProperAxisSymmetryOperation
 
-- (id)initWithAxis:(GLKVector3)axis divide: (NSUInteger)n
+- (id)initWithAxis:(GLKVector3)axis divide: (NSUInteger)n repeat:(NSUInteger)x
 {
     self = [super init];
     if (self) {
         _axis = axis;
         _divides = n;
+        _repeats = x;
     }
     
     return self;
@@ -34,7 +35,7 @@
     SLMolecule *resultMolecule = [[SLMolecule alloc] init];
     NSMutableArray *atoms;
     
-    GLKMatrix3 transform = GLKMatrix3RotateWithVector3(GLKMatrix3Identity, M_2_PI / _divides, _axis);
+    GLKMatrix3 transform = GLKMatrix3RotateWithVector3(GLKMatrix3Identity, M_2_PI / _divides * _repeats, _axis);
     for (SLAtom *atom in origMolecule.atoms) {
         [atoms addObject:[[SLAtom alloc] initWithPosition:GLKMatrix3MultiplyVector3(transform, atom.position) element:atom.element]];
     }
@@ -54,7 +55,7 @@
 
 - (GLKMatrix4)modelMatrixWithAnimationProgress: (float)progress
 {
-    return GLKMatrix4RotateWithVector3(GLKMatrix4Identity, M_PI * 2.0 / _divides * progress, _axis);
+    return GLKMatrix4RotateWithVector3(GLKMatrix4Identity, M_PI * 2.0 / _divides * _repeats * progress, _axis);
 }
 
 @end

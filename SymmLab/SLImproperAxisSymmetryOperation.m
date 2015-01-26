@@ -20,11 +20,12 @@
 
 @implementation SLImproperAxisSymmetryOperation
 
-- (id)initWithAxis:(GLKVector3)axis divide: (NSUInteger)n
+- (id)initWithAxis:(GLKVector3)axis divide: (NSUInteger)n repeat:(NSUInteger)x
 {
     self = [super init];
     if (self) {
-        cnComponent = [[SLProperAxisSymmetryOperation alloc] initWithAxis:axis divide:n];
+        cnComponent = [[SLProperAxisSymmetryOperation alloc] initWithAxis:axis divide:n repeat:1];
+        _repreats = x;
         
         GLKVector3 normAxis = GLKVector3Normalize(axis);
         
@@ -82,13 +83,28 @@
 
 - (GLKMatrix4)modelMatrixWithAnimationProgress: (float)progress
 {
+    float oneSegment = 1.0f / _repreats;
+    GLKMatrix4 finalMatrix = GLKMatrix4Identity;
+    
+    //NSLog(@"progress: %f, oneSeg: %f", progress, oneSegment);
+    
+    while (progress > oneSegment) {
+        finalMatrix = GLKMatrix4Multiply(finalMatrix, [cnComponent modelMatrixWithAnimationProgress:1.0f]);
+        finalMatrix = GLKMatrix4Multiply(finalMatrix, [sComponent modelMatrixWithAnimationProgress:1.0f]);
+        progress -= oneSegment;
+    }
+    
+    progress *= _repreats;
     
     if (progress <= 0.5) {
-        return [cnComponent modelMatrixWithAnimationProgress:progress * 2.0f];
+        finalMatrix = GLKMatrix4Multiply(finalMatrix, [cnComponent modelMatrixWithAnimationProgress:progress * 2.0f]);
     }
     else {
-        return GLKMatrix4Multiply([sComponent modelMatrixWithAnimationProgress:((progress - 0.5f) * 2)], [cnComponent modelMatrixWithAnimationProgress:1.0f]);
+        finalMatrix = GLKMatrix4Multiply(finalMatrix, [sComponent modelMatrixWithAnimationProgress:((progress - 0.5f) * 2)]);
+        finalMatrix = GLKMatrix4Multiply(finalMatrix, [cnComponent modelMatrixWithAnimationProgress:1.0f]);
     }
+    
+    return finalMatrix;
 }
 
 

@@ -36,6 +36,7 @@
     
     self.refreshControl = [[UIRefreshControl alloc] init];
     self.refreshControl.backgroundColor = [UIColor cyanColor];
+    self.refreshControl.backgroundColor = [UIColor colorWithRed:166.0f/255.0f green:189.0f/255.0f blue:219.0f/255.0f alpha:1.0f];
     [self.refreshControl addTarget:self
                         action:@selector(refreshFileList)
                   forControlEvents:UIControlEventValueChanged];
@@ -171,6 +172,13 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        return @"Pull down to refresh";
+    }
+    return @"undefined section";
+}
 
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

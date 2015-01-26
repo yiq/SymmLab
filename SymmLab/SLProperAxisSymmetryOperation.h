@@ -12,7 +12,8 @@
 @interface SLProperAxisSymmetryOperation : SLAbstractSymmetryOperation
 
 @property (readonly) NSUInteger divides;
+@property (readonly) NSUInteger repeats;
 
-- (id)initWithAxis:(GLKVector3)axis divide: (NSUInteger)n;
+- (id)initWithAxis:(GLKVector3)axis divide: (NSUInteger)n repeat: (NSUInteger)x;
 
 @end

@@ -17,6 +17,10 @@
 @property (weak, nonatomic) IBOutlet UIStepper *nValueStepper;
 @property (weak, nonatomic) IBOutlet UISlider *animationProgressSlider;
 
+@property (weak, nonatomic) IBOutlet UITextField *xValueDisplay;
+@property (weak, nonatomic) IBOutlet UIStepper *xValueStepper;
+
+
 @end
 
 @implementation SLCnOpPanelViewController
@@ -35,7 +39,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.moleculeViewController.symmOperation = [self makeOperationWithIndex:0 n:2];
+    self.moleculeViewController.symmOperation = [self makeOperationWithIndex:0 n:2 x:1];
     self.moleculeViewController.visualClue = [self makeVisualCueWithIndex:0 n:2];
     self.moleculeViewController.visualClueMatrix = [self makeVisualCueMatrixWithIndex:0 n:2];
     
@@ -62,7 +66,13 @@
 */
 
 - (IBAction)steperValueChanged:(UIStepper *)sender {
-    self.nValueDisplay.text = [NSString stringWithFormat:@"%lu", (unsigned long)sender.value];
+    if (sender == self.nValueStepper) {
+        self.nValueDisplay.text = [NSString stringWithFormat:@"%lu", (unsigned long)sender.value];
+    }
+    else if(sender == self.xValueStepper) {
+        self.xValueDisplay.text = [NSString stringWithFormat:@"%lu", (unsigned long)sender.value];
+    }
+
     [self updateOperation];
 }
 
@@ -86,10 +96,12 @@
 }
 
 - (void)updateOperation {
-    self.moleculeViewController.symmOperation = [self makeOperationWithIndex:self.axisSegCtl.selectedSegmentIndex n:self.nValueStepper.value];
+    self.moleculeViewController.symmOperation = [self makeOperationWithIndex:self.axisSegCtl.selectedSegmentIndex n:self.nValueStepper.value x:self.xValueStepper.value];
     self.moleculeViewController.visualClue = [self makeVisualCueWithIndex:self.axisSegCtl.selectedSegmentIndex n:self.nValueStepper.value];
     self.moleculeViewController.visualClueMatrix = [self makeVisualCueMatrixWithIndex:self.axisSegCtl.selectedSegmentIndex n:self.nValueStepper.value];
 }
+
+
 
 - (IBAction)startAnimationAction:(id)sender {
     [self.moleculeViewController startOpAnimation];
@@ -107,7 +119,7 @@
     self.animationProgressSlider.value = progress;
 }
 
-- (SLProperAxisSymmetryOperation *)makeOperationWithIndex: (NSUInteger)index n:(NSUInteger)n
+- (SLProperAxisSymmetryOperation *)makeOperationWithIndex: (NSUInteger)index n:(NSUInteger)n x:(NSUInteger)x
 {
     if (n < 2) {
         UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Illegal Operation!"
@@ -136,7 +148,7 @@
             return nil;
     }
     
-    return [[SLProperAxisSymmetryOperation alloc] initWithAxis:axis divide:n];
+    return [[SLProperAxisSymmetryOperation alloc] initWithAxis:axis divide:n repeat:x];
 }
 
 - (SLModelLine *)makeVisualCueWithIndex: (NSUInteger)index n:(NSUInteger)n
