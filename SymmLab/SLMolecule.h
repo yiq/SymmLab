@@ -22,8 +22,6 @@
 @property NSArray * atoms;
 @property NSArray * bonds;
 
-+ (id)moleculeWithCifDictionary:(NSDictionary *)parsedCif;
-+ (id)moleculeWithCifFile:(NSString *)cifPath;
 + (id)moleculeWithXyzFile:(NSString *)xyzPath;
 
 @end

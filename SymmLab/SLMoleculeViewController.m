@@ -123,10 +123,7 @@ enum
     
     NSLog(@"trying to load %@", filename);
     
-    if ([fileType isEqualToString:@"cif"]) {
-        molecule = [SLMolecule moleculeWithCifFile:filename];
-    }
-    else if ([fileType isEqualToString:@"xyz"]) {
+    if ([fileType isEqualToString:@"xyz"]) {
         molecule = [SLMolecule moleculeWithXyzFile:filename];
     }
     

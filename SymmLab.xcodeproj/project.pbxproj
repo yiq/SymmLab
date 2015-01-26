@@ -12,44 +12,8 @@
 		970CE34C193180B40038841F /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 970CE347193180470038841F /* Shader.vsh */; };
 		970CE42C193196680038841F /* SLAtom.m in Sources */ = {isa = PBXBuildFile; fileRef = 970CE427193196680038841F /* SLAtom.m */; };
 		970CE42D193196680038841F /* SLMolecule.m in Sources */ = {isa = PBXBuildFile; fileRef = 970CE429193196680038841F /* SLMolecule.m */; };
-		970CE4B019319E7C0038841F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9777B65B1931533700E6316B /* Foundation.framework */; };
-		970CE4BD19319E7C0038841F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9777B67A1931533700E6316B /* XCTest.framework */; };
-		970CE4BE19319E7C0038841F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9777B65B1931533700E6316B /* Foundation.framework */; };
-		970CE4BF19319E7C0038841F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9777B65F1931533700E6316B /* UIKit.framework */; };
-		970CE4ED19319ED50038841F /* libucifParser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 970CE4AF19319E7B0038841F /* libucifParser.a */; };
-		970CE5A81931A3500038841F /* antlr3baserecognizer.c in Sources */ = {isa = PBXBuildFile; fileRef = 970CE5801931A3390038841F /* antlr3baserecognizer.c */; };
-		970CE5A91931A3500038841F /* antlr3basetree.c in Sources */ = {isa = PBXBuildFile; fileRef = 970CE5811931A3390038841F /* antlr3basetree.c */; };
-		970CE5AA1931A3500038841F /* antlr3basetreeadaptor.c in Sources */ = {isa = PBXBuildFile; fileRef = 970CE5821931A3390038841F /* antlr3basetreeadaptor.c */; };
-		970CE5AB1931A3500038841F /* antlr3bitset.c in Sources */ = {isa = PBXBuildFile; fileRef = 970CE5831931A3390038841F /* antlr3bitset.c */; };
-		970CE5AC1931A3500038841F /* antlr3collections.c in Sources */ = {isa = PBXBuildFile; fileRef = 970CE5841931A3390038841F /* antlr3collections.c */; };
-		970CE5AD1931A3500038841F /* antlr3commontoken.c in Sources */ = {isa = PBXBuildFile; fileRef = 970CE5851931A3390038841F /* antlr3commontoken.c */; };
-		970CE5AE1931A3500038841F /* antlr3commontree.c in Sources */ = {isa = PBXBuildFile; fileRef = 970CE5861931A3390038841F /* antlr3commontree.c */; };
-		970CE5AF1931A3500038841F /* antlr3commontreeadaptor.c in Sources */ = {isa = PBXBuildFile; fileRef = 970CE5871931A3390038841F /* antlr3commontreeadaptor.c */; };
-		970CE5B01931A3500038841F /* antlr3commontreenodestream.c in Sources */ = {isa = PBXBuildFile; fileRef = 970CE5881931A3390038841F /* antlr3commontreenodestream.c */; };
-		970CE5B11931A3500038841F /* antlr3convertutf.c in Sources */ = {isa = PBXBuildFile; fileRef = 970CE5891931A3390038841F /* antlr3convertutf.c */; };
-		970CE5B21931A3500038841F /* antlr3cyclicdfa.c in Sources */ = {isa = PBXBuildFile; fileRef = 970CE58A1931A3390038841F /* antlr3cyclicdfa.c */; };
-		970CE5B31931A3500038841F /* antlr3debughandlers.c in Sources */ = {isa = PBXBuildFile; fileRef = 970CE58B1931A3390038841F /* antlr3debughandlers.c */; };
-		970CE5B41931A3500038841F /* antlr3encodings.c in Sources */ = {isa = PBXBuildFile; fileRef = 970CE58C1931A3390038841F /* antlr3encodings.c */; };
-		970CE5B51931A3500038841F /* antlr3exception.c in Sources */ = {isa = PBXBuildFile; fileRef = 970CE58D1931A3390038841F /* antlr3exception.c */; };
-		970CE5B61931A3500038841F /* antlr3filestream.c in Sources */ = {isa = PBXBuildFile; fileRef = 970CE58E1931A3390038841F /* antlr3filestream.c */; };
-		970CE5B71931A3500038841F /* antlr3inputstream.c in Sources */ = {isa = PBXBuildFile; fileRef = 970CE58F1931A3390038841F /* antlr3inputstream.c */; };
-		970CE5B81931A3500038841F /* antlr3intstream.c in Sources */ = {isa = PBXBuildFile; fileRef = 970CE5901931A3390038841F /* antlr3intstream.c */; };
-		970CE5B91931A3500038841F /* antlr3lexer.c in Sources */ = {isa = PBXBuildFile; fileRef = 970CE5911931A3390038841F /* antlr3lexer.c */; };
-		970CE5BA1931A3500038841F /* antlr3parser.c in Sources */ = {isa = PBXBuildFile; fileRef = 970CE5921931A3390038841F /* antlr3parser.c */; };
-		970CE5BB1931A3500038841F /* antlr3rewritestreams.c in Sources */ = {isa = PBXBuildFile; fileRef = 970CE5931931A3390038841F /* antlr3rewritestreams.c */; };
-		970CE5BC1931A3500038841F /* antlr3string.c in Sources */ = {isa = PBXBuildFile; fileRef = 970CE5941931A3390038841F /* antlr3string.c */; };
-		970CE5BD1931A3500038841F /* antlr3tokenstream.c in Sources */ = {isa = PBXBuildFile; fileRef = 970CE5951931A3390038841F /* antlr3tokenstream.c */; };
-		970CE5BE1931A3500038841F /* antlr3treeparser.c in Sources */ = {isa = PBXBuildFile; fileRef = 970CE5961931A3390038841F /* antlr3treeparser.c */; };
-		970CE5BF1931A3500038841F /* cifLexer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 970CE5991931A3390038841F /* cifLexer.cpp */; };
-		970CE5C01931A3500038841F /* cifParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 970CE59B1931A3390038841F /* cifParser.cpp */; };
-		970CE5C11931A3500038841F /* ucifParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 970CE5A11931A3390038841F /* ucifParser.mm */; };
-		970CE5C21931A35C0038841F /* ucifParserTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 970CE5A71931A3390038841F /* ucifParserTests.mm */; };
-		970CE5C31931A3620038841F /* coronene.cif in Resources */ = {isa = PBXBuildFile; fileRef = 970CE5A31931A3390038841F /* coronene.cif */; };
-		970CE5C41931A3F70038841F /* libucifParser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 970CE4AF19319E7B0038841F /* libucifParser.a */; };
 		970CE5C71931A5080038841F /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 970CE4EB19319EBB0038841F /* libc++.dylib */; };
 		970CE5CA1931B0820038841F /* SLModelMolecule.m in Sources */ = {isa = PBXBuildFile; fileRef = 970CE5C91931B0820038841F /* SLModelMolecule.m */; };
-		970CE5CE1931B9A00038841F /* benzene.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 970CE5CD1931B98C0038841F /* benzene.pdb */; };
-		970CE5D01931BD040038841F /* benzene.cif in Resources */ = {isa = PBXBuildFile; fileRef = 970CE5CF1931BCF70038841F /* benzene.cif */; };
 		970CE5D31931C4EA0038841F /* SLModelLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 970CE5D21931C4EA0038841F /* SLModelLine.m */; };
 		9715857B19F1E70900083BD5 /* allene.xyz in Resources */ = {isa = PBXBuildFile; fileRef = 9715857519F1E70900083BD5 /* allene.xyz */; };
 		9715857C19F1E70900083BD5 /* B(CH2OH)3.xyz in Resources */ = {isa = PBXBuildFile; fileRef = 9715857619F1E70900083BD5 /* B(CH2OH)3.xyz */; };
@@ -93,20 +57,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		970CE4C019319E7C0038841F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9777B6501931533700E6316B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 970CE4AE19319E7B0038841F;
-			remoteInfo = ucifParser;
-		};
-		970CE5C51931A3FC0038841F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9777B6501931533700E6316B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 970CE4AE19319E7B0038841F;
-			remoteInfo = ucifParser;
-		};
 		9777B67E1931533700E6316B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9777B6501931533700E6316B /* Project object */;
@@ -116,105 +66,18 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		970CE4AD19319E7B0038841F /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "include/$(PRODUCT_NAME)";
-			dstSubfolderSpec = 16;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		970CE343193179460038841F /* SLModelSphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLModelSphere.h; sourceTree = "<group>"; };
 		970CE344193179470038841F /* SLModelSphere.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLModelSphere.m; sourceTree = "<group>"; };
 		970CE346193180470038841F /* Shader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.fsh; sourceTree = "<group>"; };
 		970CE347193180470038841F /* Shader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.vsh; sourceTree = "<group>"; };
-		970CE4231931960D0038841F /* libucifParser.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libucifParser.a; path = "ucifParser/build/Debug-iphoneos/libucifParser.a"; sourceTree = "<group>"; };
 		970CE426193196680038841F /* SLAtom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLAtom.h; sourceTree = "<group>"; };
 		970CE427193196680038841F /* SLAtom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLAtom.m; sourceTree = "<group>"; };
 		970CE428193196680038841F /* SLMolecule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLMolecule.h; sourceTree = "<group>"; };
 		970CE429193196680038841F /* SLMolecule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLMolecule.m; sourceTree = "<group>"; };
-		970CE4AF19319E7B0038841F /* libucifParser.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libucifParser.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		970CE4BC19319E7C0038841F /* ucifParserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ucifParserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		970CE4EB19319EBB0038841F /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
-		970CE55E1931A3390038841F /* antlr3config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = antlr3config.h; sourceTree = "<group>"; };
-		970CE5601931A3390038841F /* antlr3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = antlr3.h; sourceTree = "<group>"; };
-		970CE5611931A3390038841F /* antlr3baserecognizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = antlr3baserecognizer.h; sourceTree = "<group>"; };
-		970CE5621931A3390038841F /* antlr3basetree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = antlr3basetree.h; sourceTree = "<group>"; };
-		970CE5631931A3390038841F /* antlr3basetreeadaptor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = antlr3basetreeadaptor.h; sourceTree = "<group>"; };
-		970CE5641931A3390038841F /* antlr3bitset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = antlr3bitset.h; sourceTree = "<group>"; };
-		970CE5651931A3390038841F /* antlr3collections.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = antlr3collections.h; sourceTree = "<group>"; };
-		970CE5661931A3390038841F /* antlr3commontoken.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = antlr3commontoken.h; sourceTree = "<group>"; };
-		970CE5671931A3390038841F /* antlr3commontree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = antlr3commontree.h; sourceTree = "<group>"; };
-		970CE5681931A3390038841F /* antlr3commontreeadaptor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = antlr3commontreeadaptor.h; sourceTree = "<group>"; };
-		970CE5691931A3390038841F /* antlr3commontreenodestream.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = antlr3commontreenodestream.h; sourceTree = "<group>"; };
-		970CE56A1931A3390038841F /* antlr3convertutf.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = antlr3convertutf.h; sourceTree = "<group>"; };
-		970CE56B1931A3390038841F /* antlr3cyclicdfa.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = antlr3cyclicdfa.h; sourceTree = "<group>"; };
-		970CE56C1931A3390038841F /* antlr3debugeventlistener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = antlr3debugeventlistener.h; sourceTree = "<group>"; };
-		970CE56D1931A3390038841F /* antlr3defs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = antlr3defs.h; sourceTree = "<group>"; };
-		970CE56E1931A3390038841F /* antlr3encodings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = antlr3encodings.h; sourceTree = "<group>"; };
-		970CE56F1931A3390038841F /* antlr3errors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = antlr3errors.h; sourceTree = "<group>"; };
-		970CE5701931A3390038841F /* antlr3exception.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = antlr3exception.h; sourceTree = "<group>"; };
-		970CE5711931A3390038841F /* antlr3filestream.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = antlr3filestream.h; sourceTree = "<group>"; };
-		970CE5721931A3390038841F /* antlr3input.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = antlr3input.h; sourceTree = "<group>"; };
-		970CE5731931A3390038841F /* antlr3interfaces.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = antlr3interfaces.h; sourceTree = "<group>"; };
-		970CE5741931A3390038841F /* antlr3intstream.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = antlr3intstream.h; sourceTree = "<group>"; };
-		970CE5751931A3390038841F /* antlr3lexer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = antlr3lexer.h; sourceTree = "<group>"; };
-		970CE5761931A3390038841F /* antlr3memory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = antlr3memory.h; sourceTree = "<group>"; };
-		970CE5771931A3390038841F /* antlr3parser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = antlr3parser.h; sourceTree = "<group>"; };
-		970CE5781931A3390038841F /* antlr3parsetree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = antlr3parsetree.h; sourceTree = "<group>"; };
-		970CE5791931A3390038841F /* antlr3recognizersharedstate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = antlr3recognizersharedstate.h; sourceTree = "<group>"; };
-		970CE57A1931A3390038841F /* antlr3rewritestreams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = antlr3rewritestreams.h; sourceTree = "<group>"; };
-		970CE57B1931A3390038841F /* antlr3string.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = antlr3string.h; sourceTree = "<group>"; };
-		970CE57C1931A3390038841F /* antlr3tokenstream.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = antlr3tokenstream.h; sourceTree = "<group>"; };
-		970CE57D1931A3390038841F /* antlr3treeparser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = antlr3treeparser.h; sourceTree = "<group>"; };
-		970CE57E1931A3390038841F /* NOTES */ = {isa = PBXFileReference; lastKnownFileType = text; path = NOTES; sourceTree = "<group>"; };
-		970CE5801931A3390038841F /* antlr3baserecognizer.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = antlr3baserecognizer.c; sourceTree = "<group>"; };
-		970CE5811931A3390038841F /* antlr3basetree.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = antlr3basetree.c; sourceTree = "<group>"; };
-		970CE5821931A3390038841F /* antlr3basetreeadaptor.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = antlr3basetreeadaptor.c; sourceTree = "<group>"; };
-		970CE5831931A3390038841F /* antlr3bitset.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = antlr3bitset.c; sourceTree = "<group>"; };
-		970CE5841931A3390038841F /* antlr3collections.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = antlr3collections.c; sourceTree = "<group>"; };
-		970CE5851931A3390038841F /* antlr3commontoken.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = antlr3commontoken.c; sourceTree = "<group>"; };
-		970CE5861931A3390038841F /* antlr3commontree.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = antlr3commontree.c; sourceTree = "<group>"; };
-		970CE5871931A3390038841F /* antlr3commontreeadaptor.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = antlr3commontreeadaptor.c; sourceTree = "<group>"; };
-		970CE5881931A3390038841F /* antlr3commontreenodestream.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = antlr3commontreenodestream.c; sourceTree = "<group>"; };
-		970CE5891931A3390038841F /* antlr3convertutf.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = antlr3convertutf.c; sourceTree = "<group>"; };
-		970CE58A1931A3390038841F /* antlr3cyclicdfa.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = antlr3cyclicdfa.c; sourceTree = "<group>"; };
-		970CE58B1931A3390038841F /* antlr3debughandlers.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = antlr3debughandlers.c; sourceTree = "<group>"; };
-		970CE58C1931A3390038841F /* antlr3encodings.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = antlr3encodings.c; sourceTree = "<group>"; };
-		970CE58D1931A3390038841F /* antlr3exception.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = antlr3exception.c; sourceTree = "<group>"; };
-		970CE58E1931A3390038841F /* antlr3filestream.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = antlr3filestream.c; sourceTree = "<group>"; };
-		970CE58F1931A3390038841F /* antlr3inputstream.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = antlr3inputstream.c; sourceTree = "<group>"; };
-		970CE5901931A3390038841F /* antlr3intstream.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = antlr3intstream.c; sourceTree = "<group>"; };
-		970CE5911931A3390038841F /* antlr3lexer.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = antlr3lexer.c; sourceTree = "<group>"; };
-		970CE5921931A3390038841F /* antlr3parser.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = antlr3parser.c; sourceTree = "<group>"; };
-		970CE5931931A3390038841F /* antlr3rewritestreams.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = antlr3rewritestreams.c; sourceTree = "<group>"; };
-		970CE5941931A3390038841F /* antlr3string.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = antlr3string.c; sourceTree = "<group>"; };
-		970CE5951931A3390038841F /* antlr3tokenstream.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = antlr3tokenstream.c; sourceTree = "<group>"; };
-		970CE5961931A3390038841F /* antlr3treeparser.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = antlr3treeparser.c; sourceTree = "<group>"; };
-		970CE5971931A3390038841F /* builder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = builder.h; sourceTree = "<group>"; };
-		970CE5981931A3390038841F /* cif.g */ = {isa = PBXFileReference; lastKnownFileType = text; path = cif.g; sourceTree = "<group>"; };
-		970CE5991931A3390038841F /* cifLexer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = cifLexer.cpp; sourceTree = "<group>"; };
-		970CE59A1931A3390038841F /* cifLexer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cifLexer.h; sourceTree = "<group>"; };
-		970CE59B1931A3390038841F /* cifParser.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = cifParser.cpp; sourceTree = "<group>"; };
-		970CE59C1931A3390038841F /* cifParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cifParser.h; sourceTree = "<group>"; };
-		970CE59D1931A3390038841F /* parser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = parser.h; sourceTree = "<group>"; };
-		970CE59E1931A3390038841F /* utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = utils.h; sourceTree = "<group>"; };
-		970CE59F1931A3390038841F /* ucifParser-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ucifParser-Prefix.pch"; sourceTree = "<group>"; };
-		970CE5A01931A3390038841F /* ucifParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ucifParser.h; sourceTree = "<group>"; };
-		970CE5A11931A3390038841F /* ucifParser.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ucifParser.mm; sourceTree = "<group>"; };
-		970CE5A31931A3390038841F /* coronene.cif */ = {isa = PBXFileReference; lastKnownFileType = text; path = coronene.cif; sourceTree = "<group>"; };
-		970CE5A51931A3390038841F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		970CE5A61931A3390038841F /* ucifParserTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ucifParserTests-Info.plist"; sourceTree = "<group>"; };
-		970CE5A71931A3390038841F /* ucifParserTests.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ucifParserTests.mm; sourceTree = "<group>"; };
 		970CE5C81931B0820038841F /* SLModelMolecule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLModelMolecule.h; sourceTree = "<group>"; };
 		970CE5C91931B0820038841F /* SLModelMolecule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLModelMolecule.m; sourceTree = "<group>"; };
-		970CE5CD1931B98C0038841F /* benzene.pdb */ = {isa = PBXFileReference; lastKnownFileType = text; path = benzene.pdb; sourceTree = "<group>"; };
-		970CE5CF1931BCF70038841F /* benzene.cif */ = {isa = PBXFileReference; lastKnownFileType = text; path = benzene.cif; sourceTree = "<group>"; };
 		970CE5D11931C4EA0038841F /* SLModelLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLModelLine.h; sourceTree = "<group>"; };
 		970CE5D21931C4EA0038841F /* SLModelLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLModelLine.m; sourceTree = "<group>"; };
 		9715857519F1E70900083BD5 /* allene.xyz */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = allene.xyz; sourceTree = "<group>"; };
@@ -283,31 +146,11 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		970CE4AC19319E7B0038841F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				970CE4B019319E7C0038841F /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		970CE4B919319E7C0038841F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				970CE4ED19319ED50038841F /* libucifParser.a in Frameworks */,
-				970CE4BD19319E7C0038841F /* XCTest.framework in Frameworks */,
-				970CE4BF19319E7C0038841F /* UIKit.framework in Frameworks */,
-				970CE4BE19319E7C0038841F /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		9777B6551931533700E6316B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				970CE5C71931A5080038841F /* libc++.dylib in Frameworks */,
-				970CE5C41931A3F70038841F /* libucifParser.a in Frameworks */,
 				9777B65E1931533700E6316B /* CoreGraphics.framework in Frameworks */,
 				9777B6601931533700E6316B /* UIKit.framework in Frameworks */,
 				9777B65C1931533700E6316B /* Foundation.framework in Frameworks */,
@@ -345,131 +188,6 @@
 			name = "Data Model";
 			sourceTree = "<group>";
 		};
-		970CE55A1931A3230038841F /* libUcifParser */ = {
-			isa = PBXGroup;
-			children = (
-				970CE55B1931A3390038841F /* ucifParser */,
-				970CE5A21931A3390038841F /* ucifParserTests */,
-			);
-			name = libUcifParser;
-			sourceTree = "<group>";
-		};
-		970CE55B1931A3390038841F /* ucifParser */ = {
-			isa = PBXGroup;
-			children = (
-				970CE55C1931A3390038841F /* ucif */,
-				970CE59F1931A3390038841F /* ucifParser-Prefix.pch */,
-				970CE5A01931A3390038841F /* ucifParser.h */,
-				970CE5A11931A3390038841F /* ucifParser.mm */,
-			);
-			path = ucifParser;
-			sourceTree = "<group>";
-		};
-		970CE55C1931A3390038841F /* ucif */ = {
-			isa = PBXGroup;
-			children = (
-				970CE55D1931A3390038841F /* antlr3 */,
-				970CE5971931A3390038841F /* builder.h */,
-				970CE5981931A3390038841F /* cif.g */,
-				970CE5991931A3390038841F /* cifLexer.cpp */,
-				970CE59A1931A3390038841F /* cifLexer.h */,
-				970CE59B1931A3390038841F /* cifParser.cpp */,
-				970CE59C1931A3390038841F /* cifParser.h */,
-				970CE59D1931A3390038841F /* parser.h */,
-				970CE59E1931A3390038841F /* utils.h */,
-			);
-			path = ucif;
-			sourceTree = "<group>";
-		};
-		970CE55D1931A3390038841F /* antlr3 */ = {
-			isa = PBXGroup;
-			children = (
-				970CE55E1931A3390038841F /* antlr3config.h */,
-				970CE55F1931A3390038841F /* include */,
-				970CE57E1931A3390038841F /* NOTES */,
-				970CE57F1931A3390038841F /* src */,
-			);
-			path = antlr3;
-			sourceTree = "<group>";
-		};
-		970CE55F1931A3390038841F /* include */ = {
-			isa = PBXGroup;
-			children = (
-				970CE5601931A3390038841F /* antlr3.h */,
-				970CE5611931A3390038841F /* antlr3baserecognizer.h */,
-				970CE5621931A3390038841F /* antlr3basetree.h */,
-				970CE5631931A3390038841F /* antlr3basetreeadaptor.h */,
-				970CE5641931A3390038841F /* antlr3bitset.h */,
-				970CE5651931A3390038841F /* antlr3collections.h */,
-				970CE5661931A3390038841F /* antlr3commontoken.h */,
-				970CE5671931A3390038841F /* antlr3commontree.h */,
-				970CE5681931A3390038841F /* antlr3commontreeadaptor.h */,
-				970CE5691931A3390038841F /* antlr3commontreenodestream.h */,
-				970CE56A1931A3390038841F /* antlr3convertutf.h */,
-				970CE56B1931A3390038841F /* antlr3cyclicdfa.h */,
-				970CE56C1931A3390038841F /* antlr3debugeventlistener.h */,
-				970CE56D1931A3390038841F /* antlr3defs.h */,
-				970CE56E1931A3390038841F /* antlr3encodings.h */,
-				970CE56F1931A3390038841F /* antlr3errors.h */,
-				970CE5701931A3390038841F /* antlr3exception.h */,
-				970CE5711931A3390038841F /* antlr3filestream.h */,
-				970CE5721931A3390038841F /* antlr3input.h */,
-				970CE5731931A3390038841F /* antlr3interfaces.h */,
-				970CE5741931A3390038841F /* antlr3intstream.h */,
-				970CE5751931A3390038841F /* antlr3lexer.h */,
-				970CE5761931A3390038841F /* antlr3memory.h */,
-				970CE5771931A3390038841F /* antlr3parser.h */,
-				970CE5781931A3390038841F /* antlr3parsetree.h */,
-				970CE5791931A3390038841F /* antlr3recognizersharedstate.h */,
-				970CE57A1931A3390038841F /* antlr3rewritestreams.h */,
-				970CE57B1931A3390038841F /* antlr3string.h */,
-				970CE57C1931A3390038841F /* antlr3tokenstream.h */,
-				970CE57D1931A3390038841F /* antlr3treeparser.h */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
-		970CE57F1931A3390038841F /* src */ = {
-			isa = PBXGroup;
-			children = (
-				970CE5801931A3390038841F /* antlr3baserecognizer.c */,
-				970CE5811931A3390038841F /* antlr3basetree.c */,
-				970CE5821931A3390038841F /* antlr3basetreeadaptor.c */,
-				970CE5831931A3390038841F /* antlr3bitset.c */,
-				970CE5841931A3390038841F /* antlr3collections.c */,
-				970CE5851931A3390038841F /* antlr3commontoken.c */,
-				970CE5861931A3390038841F /* antlr3commontree.c */,
-				970CE5871931A3390038841F /* antlr3commontreeadaptor.c */,
-				970CE5881931A3390038841F /* antlr3commontreenodestream.c */,
-				970CE5891931A3390038841F /* antlr3convertutf.c */,
-				970CE58A1931A3390038841F /* antlr3cyclicdfa.c */,
-				970CE58B1931A3390038841F /* antlr3debughandlers.c */,
-				970CE58C1931A3390038841F /* antlr3encodings.c */,
-				970CE58D1931A3390038841F /* antlr3exception.c */,
-				970CE58E1931A3390038841F /* antlr3filestream.c */,
-				970CE58F1931A3390038841F /* antlr3inputstream.c */,
-				970CE5901931A3390038841F /* antlr3intstream.c */,
-				970CE5911931A3390038841F /* antlr3lexer.c */,
-				970CE5921931A3390038841F /* antlr3parser.c */,
-				970CE5931931A3390038841F /* antlr3rewritestreams.c */,
-				970CE5941931A3390038841F /* antlr3string.c */,
-				970CE5951931A3390038841F /* antlr3tokenstream.c */,
-				970CE5961931A3390038841F /* antlr3treeparser.c */,
-			);
-			path = src;
-			sourceTree = "<group>";
-		};
-		970CE5A21931A3390038841F /* ucifParserTests */ = {
-			isa = PBXGroup;
-			children = (
-				970CE5A31931A3390038841F /* coronene.cif */,
-				970CE5A41931A3390038841F /* InfoPlist.strings */,
-				970CE5A61931A3390038841F /* ucifParserTests-Info.plist */,
-				970CE5A71931A3390038841F /* ucifParserTests.mm */,
-			);
-			path = ucifParserTests;
-			sourceTree = "<group>";
-		};
 		9715857319F1E70900083BD5 /* structures */ = {
 			isa = PBXGroup;
 			children = (
@@ -485,7 +203,6 @@
 		9777B64F1931533700E6316B = {
 			isa = PBXGroup;
 			children = (
-				970CE55A1931A3230038841F /* libUcifParser */,
 				9777B6611931533700E6316B /* SymmLab */,
 				9777B6801931533700E6316B /* SymmLabTests */,
 				9777B65A1931533700E6316B /* Frameworks */,
@@ -498,8 +215,6 @@
 			children = (
 				9777B6581931533700E6316B /* SymmLab.app */,
 				9777B6791931533700E6316B /* SymmLabTests.xctest */,
-				970CE4AF19319E7B0038841F /* libucifParser.a */,
-				970CE4BC19319E7C0038841F /* ucifParserTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -508,7 +223,6 @@
 			isa = PBXGroup;
 			children = (
 				970CE4EB19319EBB0038841F /* libc++.dylib */,
-				970CE4231931960D0038841F /* libucifParser.a */,
 				9777B65B1931533700E6316B /* Foundation.framework */,
 				9777B65D1931533700E6316B /* CoreGraphics.framework */,
 				9777B65F1931533700E6316B /* UIKit.framework */,
@@ -538,8 +252,6 @@
 			isa = PBXGroup;
 			children = (
 				9715857319F1E70900083BD5 /* structures */,
-				970CE5CD1931B98C0038841F /* benzene.pdb */,
-				970CE5CF1931BCF70038841F /* benzene.cif */,
 				9777B6631931533700E6316B /* SymmLab-Info.plist */,
 				9777B6641931533700E6316B /* InfoPlist.strings */,
 				9777B6671931533700E6316B /* main.m */,
@@ -655,41 +367,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		970CE4AE19319E7B0038841F /* ucifParser */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 970CE4CB19319E7C0038841F /* Build configuration list for PBXNativeTarget "ucifParser" */;
-			buildPhases = (
-				970CE4AB19319E7B0038841F /* Sources */,
-				970CE4AC19319E7B0038841F /* Frameworks */,
-				970CE4AD19319E7B0038841F /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = ucifParser;
-			productName = ucifParser;
-			productReference = 970CE4AF19319E7B0038841F /* libucifParser.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		970CE4BB19319E7C0038841F /* ucifParserTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 970CE4CE19319E7C0038841F /* Build configuration list for PBXNativeTarget "ucifParserTests" */;
-			buildPhases = (
-				970CE4B819319E7C0038841F /* Sources */,
-				970CE4B919319E7C0038841F /* Frameworks */,
-				970CE4BA19319E7C0038841F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				970CE4C119319E7C0038841F /* PBXTargetDependency */,
-			);
-			name = ucifParserTests;
-			productName = ucifParserTests;
-			productReference = 970CE4BC19319E7C0038841F /* ucifParserTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		9777B6571931533700E6316B /* SymmLab */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9777B68A1931533700E6316B /* Build configuration list for PBXNativeTarget "SymmLab" */;
@@ -701,7 +378,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				970CE5C61931A3FC0038841F /* PBXTargetDependency */,
 			);
 			name = SymmLab;
 			productName = SymmLab;
@@ -736,9 +412,6 @@
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "Yi Qiao";
 				TargetAttributes = {
-					970CE4BB19319E7C0038841F = {
-						TestTargetID = 9777B6571931533700E6316B;
-					};
 					9777B6571931533700E6316B = {
 						DevelopmentTeam = 6GPJDZZS34;
 					};
@@ -762,28 +435,16 @@
 			targets = (
 				9777B6571931533700E6316B /* SymmLab */,
 				9777B6781931533700E6316B /* SymmLabTests */,
-				970CE4AE19319E7B0038841F /* ucifParser */,
-				970CE4BB19319E7C0038841F /* ucifParserTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		970CE4BA19319E7C0038841F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				970CE5C31931A3620038841F /* coronene.cif in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		9777B6561931533700E6316B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				970CE5D01931BD040038841F /* benzene.cif in Resources */,
 				9715857C19F1E70900083BD5 /* B(CH2OH)3.xyz in Resources */,
-				970CE5CE1931B9A00038841F /* benzene.pdb in Resources */,
 				970CE34C193180B40038841F /* Shader.vsh in Resources */,
 				974629771A68685500681B72 /* AtomProperties.plist in Resources */,
 				9715857D19F1E70900083BD5 /* Co(en)3.xyz in Resources */,
@@ -808,47 +469,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		970CE4AB19319E7B0038841F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				970CE5A81931A3500038841F /* antlr3baserecognizer.c in Sources */,
-				970CE5A91931A3500038841F /* antlr3basetree.c in Sources */,
-				970CE5AA1931A3500038841F /* antlr3basetreeadaptor.c in Sources */,
-				970CE5AB1931A3500038841F /* antlr3bitset.c in Sources */,
-				970CE5AC1931A3500038841F /* antlr3collections.c in Sources */,
-				970CE5AD1931A3500038841F /* antlr3commontoken.c in Sources */,
-				970CE5AE1931A3500038841F /* antlr3commontree.c in Sources */,
-				970CE5AF1931A3500038841F /* antlr3commontreeadaptor.c in Sources */,
-				970CE5B01931A3500038841F /* antlr3commontreenodestream.c in Sources */,
-				970CE5B11931A3500038841F /* antlr3convertutf.c in Sources */,
-				970CE5B21931A3500038841F /* antlr3cyclicdfa.c in Sources */,
-				970CE5B31931A3500038841F /* antlr3debughandlers.c in Sources */,
-				970CE5B41931A3500038841F /* antlr3encodings.c in Sources */,
-				970CE5B51931A3500038841F /* antlr3exception.c in Sources */,
-				970CE5B61931A3500038841F /* antlr3filestream.c in Sources */,
-				970CE5B71931A3500038841F /* antlr3inputstream.c in Sources */,
-				970CE5B81931A3500038841F /* antlr3intstream.c in Sources */,
-				970CE5B91931A3500038841F /* antlr3lexer.c in Sources */,
-				970CE5BA1931A3500038841F /* antlr3parser.c in Sources */,
-				970CE5BB1931A3500038841F /* antlr3rewritestreams.c in Sources */,
-				970CE5BC1931A3500038841F /* antlr3string.c in Sources */,
-				970CE5BD1931A3500038841F /* antlr3tokenstream.c in Sources */,
-				970CE5BE1931A3500038841F /* antlr3treeparser.c in Sources */,
-				970CE5BF1931A3500038841F /* cifLexer.cpp in Sources */,
-				970CE5C01931A3500038841F /* cifParser.cpp in Sources */,
-				970CE5C11931A3500038841F /* ucifParser.mm in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		970CE4B819319E7C0038841F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				970CE5C21931A35C0038841F /* ucifParserTests.mm in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		9777B6541931533700E6316B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -894,16 +514,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		970CE4C119319E7C0038841F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 970CE4AE19319E7B0038841F /* ucifParser */;
-			targetProxy = 970CE4C019319E7C0038841F /* PBXContainerItemProxy */;
-		};
-		970CE5C61931A3FC0038841F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 970CE4AE19319E7B0038841F /* ucifParser */;
-			targetProxy = 970CE5C51931A3FC0038841F /* PBXContainerItemProxy */;
-		};
 		9777B67F1931533700E6316B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9777B6571931533700E6316B /* SymmLab */;
@@ -912,14 +522,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		970CE5A41931A3390038841F /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				970CE5A51931A3390038841F /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		9777B6641931533700E6316B /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -947,106 +549,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		970CE4CC19319E7C0038841F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD)";
-				DSTROOT = /tmp/ucifParser.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				GCC_PREFIX_HEADER = "";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"$(SRCROOT)/ucifParser",
-					"$(SRCROOT)/ucifParser/ucif",
-					"$(SRCROOT)/ucifParser/ucif/antlr3/include",
-				);
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = "armv7 armv7s arm64";
-			};
-			name = Debug;
-		};
-		970CE4CD19319E7C0038841F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD)";
-				DSTROOT = /tmp/ucifParser.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				GCC_PREFIX_HEADER = "";
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"$(SRCROOT)/ucifParser",
-					"$(SRCROOT)/ucifParser/ucif",
-					"$(SRCROOT)/ucifParser/ucif/antlr3/include",
-				);
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = "armv7 armv7s arm64";
-			};
-			name = Release;
-		};
-		970CE4CF19319E7C0038841F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SymmLab.app/SymmLab";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				GCC_PREFIX_HEADER = "";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-				);
-				INFOPLIST_FILE = "ucifParserTests/ucifParserTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		970CE4D019319E7C0038841F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SymmLab.app/SymmLab";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				GCC_PREFIX_HEADER = "";
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-				);
-				INFOPLIST_FILE = "ucifParserTests/ucifParserTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
 		9777B6881931533700E6316B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1216,24 +718,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		970CE4CB19319E7C0038841F /* Build configuration list for PBXNativeTarget "ucifParser" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				970CE4CC19319E7C0038841F /* Debug */,
-				970CE4CD19319E7C0038841F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		970CE4CE19319E7C0038841F /* Build configuration list for PBXNativeTarget "ucifParserTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				970CE4CF19319E7C0038841F /* Debug */,
-				970CE4D019319E7C0038841F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		9777B6531931533700E6316B /* Build configuration list for PBXProject "SymmLab" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

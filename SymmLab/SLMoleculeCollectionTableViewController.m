@@ -12,6 +12,8 @@
 
 @interface SLMoleculeCollectionTableViewController () {
     NSArray * moleculeFiles;
+    NSString * bundlePath;
+    NSString * userDocPath;
 
 }
 
@@ -32,6 +34,16 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    self.refreshControl.backgroundColor = [UIColor cyanColor];
+    [self.refreshControl addTarget:self
+                        action:@selector(refreshFileList)
+                  forControlEvents:UIControlEventValueChanged];
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    userDocPath = [paths objectAtIndex:0];
+    bundlePath = [[NSBundle mainBundle] resourcePath];
+    
     moleculeFiles = [self retrieveListOfMolecules];
     
     // find out the moleculeViewController
@@ -41,9 +53,11 @@
     if (moleculeFiles.count > 0) {
         _rootViewController.activeFile = [moleculeFiles objectAtIndex:0];
         NSLog(@"setting active file to %@", _rootViewController.activeFile);
-
     }
+}
 
+- (void)viewWillAppear:(BOOL)animated {
+    [self refreshFileList];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,20 +67,16 @@
 
 - (NSArray *)retrieveListOfMolecules {
     NSMutableArray *retval = [NSMutableArray array];
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *publicDocumentDir = [paths objectAtIndex:0];
-    
-    NSString *bundlePath = [[NSBundle mainBundle] resourcePath];
-    
+
     NSError *error;
-    NSArray *files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:publicDocumentDir error:&error];
+    NSArray *files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:userDocPath error:&error];
     if (files == nil) {
         NSLog(@"Error reading contents of documents directory: %@", [error localizedDescription]);
     }
     else {
         for (NSString *file in files) {
             if ([file.pathExtension compare:@"xyz" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
-                NSString *fullPath = [publicDocumentDir stringByAppendingPathComponent:file];
+                NSString *fullPath = [userDocPath stringByAppendingPathComponent:file];
                 [retval addObject:fullPath];
             }
         }
@@ -88,6 +98,12 @@
     return [NSArray arrayWithArray:retval];
 }
 
+- (void)refreshFileList {
+    moleculeFiles = [self retrieveListOfMolecules];
+    [self.tableView reloadData];
+    [self.refreshControl endRefreshing];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -106,6 +122,7 @@
     
     // Configure the cell...
     cell.textLabel.text = [[moleculeFiles objectAtIndex:indexPath.row] lastPathComponent];
+    cell.detailTextLabel.text = [(NSString *)[moleculeFiles objectAtIndex:indexPath.row] hasPrefix:bundlePath] ? @"preinstalled" : @"user provided";
     
     return cell;
 }
