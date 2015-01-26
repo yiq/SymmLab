@@ -20,7 +20,7 @@
 
 @implementation SLImproperAxisSymmetryOperation
 
-- (id)initWithAxis:(GLKVector3)axis divide: (NSUInteger)n repeat:(NSUInteger)x
+- (id)initWithAxis:(GLKVector3)axis divide: (NSUInteger)n repeats:(NSUInteger)x
 {
     self = [super init];
     if (self) {
