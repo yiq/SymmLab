@@ -39,6 +39,7 @@
     // Do any additional setup after loading the view.
     
     self.moleculeViewController.symmOperation = [self makeOperationWithIndex:0 n:2 x:1];
+    NSLog(@"%@", self.moleculeViewController.symmOperation);
     self.moleculeViewController.visualClue = [self makeVisualCueWithIndex:0];
     self.moleculeViewController.visualClueMatrix = [self makeVisualCueMatrixWithIndex:0];
     
@@ -66,11 +67,12 @@
 
 - (void)updateOperation {
     self.moleculeViewController.symmOperation = [self makeOperationWithIndex:self.axisSegCtl.selectedSegmentIndex n:self.nValueStepper.value x:self.xValueStepper.value];
+    NSLog(@"%@", self.moleculeViewController.symmOperation);
     self.moleculeViewController.visualClue = [self makeVisualCueWithIndex:self.axisSegCtl.selectedSegmentIndex];
     self.moleculeViewController.visualClueMatrix = [self makeVisualCueMatrixWithIndex:self.axisSegCtl.selectedSegmentIndex];
 }
 
-- (SLProperAxisSymmetryOperation *)makeOperationWithIndex: (NSUInteger)index n:(NSUInteger)n x:(NSUInteger)x
+- (SLImproperAxisSymmetryOperation *)makeOperationWithIndex: (NSUInteger)index n:(NSUInteger)n x:(NSUInteger)x
 {
     if (n < 2) {
         UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Illegal Operation!"
@@ -99,7 +101,7 @@
             return nil;
     }
     
-    return [[SLImproperAxisSymmetryOperation alloc] initWithAxis:axis divide:n repeat:x];
+    return [[SLImproperAxisSymmetryOperation alloc] initWithAxis:axis divide:n repeats:x];
 }
 
 - (SLModelPlane *)makeVisualCueWithIndex: (NSUInteger)index

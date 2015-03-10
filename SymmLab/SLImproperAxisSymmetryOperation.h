@@ -11,10 +11,8 @@
 
 @import GLKit;
 
-@interface SLImproperAxisSymmetryOperation : SLProperAxisSymmetryOperation
+@interface SLImproperAxisSymmetryOperation : SLAbstractSymmetryOperation
 
-@property (readonly) NSUInteger repreats;
-
-- (instancetype)initWithAxis:(GLKVector3)axis divide: (NSUInteger)n repeats: (NSUInteger)x;
+- (id)initWithAxis:(GLKVector3)axis divide: (NSUInteger)n repeats: (NSUInteger)x;
 
 @end

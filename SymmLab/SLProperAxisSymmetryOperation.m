@@ -12,6 +12,7 @@
 
 @interface SLProperAxisSymmetryOperation () {
     GLKVector3 _axis;
+    NSUInteger _repeats;
 }
 
 @end
